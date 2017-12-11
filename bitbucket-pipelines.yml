@@ -3,6 +3,7 @@ image: node:alpine
 pipelines:
   default:
     - step:
+        max-time: 10
         caches:
           - node
         script:
