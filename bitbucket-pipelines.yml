@@ -1,4 +1,4 @@
-image: node:alpine
+image: node:latest
 
 pipelines:
   default:
@@ -10,8 +10,6 @@ pipelines:
 #          - npm run lint
 #          - npm run build-prod
 #          - docker build -t development/ui:0.0.1 .
-          - apk update
-          - apk add python curl
 #          - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
           - curl -o /tmp/google-cloud-sdk.tar.gz https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-155.0.0-linux-x86_64.tar.gz
           - tar -xvf /tmp/google-cloud-sdk.tar.gz -C /tmp/
