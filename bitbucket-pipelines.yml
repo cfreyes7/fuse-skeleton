@@ -1,23 +1,23 @@
 image: node:latest
 
 pipelines:
-  default:
-    branches:
-      master:
-        - step:
-            caches:
-              - node
-            script:
-              - npm install
-              - npm run lint
-              - npm run build-prod
-              - docker build -t development/ui:0.0.1 .
-              - curl -o /tmp/google-cloud-sdk.tar.gz https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-155.0.0-linux-x86_64.tar.gz
-              - tar -xvf /tmp/google-cloud-sdk.tar.gz -C /tmp/
-              - /tmp/google-cloud-sdk/install.sh -q
-              - source /tmp/google-cloud-sdk/path.bash.inc
-              - echo $GCLOUD_API_KEYFILE | base64 --decode --ignore-garbage > ./gcloud-api-key.json
-              - gcloud auth activate-service-account --key-file gcloud-api-key.json
-              - gcloud docker --push us.gcr.io/primavera-188715/dev-ui:0.0.1
+  branches:
+    master:
+      - step:
+          caches:
+            - node
+          script:
+            - npm install
+            - npm run lint
+            - npm run build-prod
+            - docker build -t development/ui:0.0.1 .
+            - curl -o /tmp/google-cloud-sdk.tar.gz https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-155.0.0-linux-x86_64.tar.gz
+            - tar -xvf /tmp/google-cloud-sdk.tar.gz -C /tmp/
+            - /tmp/google-cloud-sdk/install.sh -q
+            - source /tmp/google-cloud-sdk/path.bash.inc
+            - echo $GCLOUD_API_KEYFILE | base64 --decode --ignore-garbage > ./gcloud-api-key.json
+            - gcloud auth activate-service-account --key-file gcloud-api-key.json
+            - gcloud docker --push us.gcr.io/primavera-188715/dev-ui:0.0.1
+
 options:
   docker: true
