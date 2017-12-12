@@ -9,9 +9,9 @@ pipelines:
           - npm install
           - npm run lint
           - npm run build-prod
+          - ls .
     - step:
         script:
-          - ls .
           - docker build -t development/ui:0.0.1 .
           - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
           - docker push us.gcr.io/development/ui:0.0.1
