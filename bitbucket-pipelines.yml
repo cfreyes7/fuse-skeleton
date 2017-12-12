@@ -11,7 +11,12 @@ pipelines:
           - npm run build-prod
           - docker build -t development/ui:0.0.1 .
           - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-          - docker push us.gcr.io/development/ui:0.0.1
+          - curl -o /tmp/google-cloud-sdk.tar.gz https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-155.0.0-linux-x86_64.tar.gz
+          - tar -xvf /tmp/google-cloud-sdk.tar.gz -C /tmp/
+          - /tmp/google-cloud-sdk/install.sh -q
+          - source /tmp/google-cloud-sdk/path.bash.inc
+          - gcloud -v
+#          - docker push us.gcr.io/primavera-188715/dev-ui:0.0.1
 
 options:
   docker: true
