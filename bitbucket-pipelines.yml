@@ -8,8 +8,6 @@ pipelines:
         script:
           - npm install
           - npm run lint
-    - step:
-        script:
           - npm run build-prod
           - docker build -t development/ui:0.0.1 .
           - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
