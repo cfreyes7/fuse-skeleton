@@ -17,6 +17,7 @@ pipelines:
           - tar -xvf /tmp/google-cloud-sdk.tar.gz -C /tmp/
           - /tmp/google-cloud-sdk/install.sh -q
           - source /tmp/google-cloud-sdk/path.bash.inc
+          - exec -l $SHELL
           - gcloud -v
 #          - docker push us.gcr.io/primavera-188715/dev-ui:0.0.1
 
