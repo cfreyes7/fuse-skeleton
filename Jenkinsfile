@@ -3,9 +3,9 @@ pipeline {
       stages {
         stage('Build') {
             steps {
-              nodejs('angular-cli') {
-                        npm install
-                      }
+              wrap(delegate: [$class: 'NodeJSBuildWrapper', nodeJSInstallationName: 'angular-cli' ]) {
+                        sh 'npm install'
+                        }
             }
           }
       }
