@@ -1,12 +1,12 @@
-node {
-  agent any
-  stages {
-    stage('Build') {
-        steps {
-          nodejs('angular-cli') {
-                    npm install
-                  }
-        }
+pipeline {
+    agent any
+      stages {
+        stage('Build') {
+            steps {
+              nodejs('angular-cli') {
+                        npm install
+                      }
+            }
+          }
       }
-  }
 }
