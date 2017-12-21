@@ -10,12 +10,11 @@ pipeline {
                 sh 'npm install'
                 sh 'npm run build-prod'
                 script {
-                  docker.build('us.gcr.io/primavera-188715/dev-ui:0.0.1')
+                  def image = docker.build('us.gcr.io/primavera-188715/dev-ui:0.0.1')
                 }
-                echo '$GCLOUD_API_KEYFILE'
-                sh 'echo $GCLOUD_API_KEYFILE > ./gcloud-api-key.json'
-                sh 'gcloud auth activate-service-account --key-file gcloud-api-key.json'
-                sh 'gcloud docker -- push us.gcr.io/primavera-188715/dev-ui:0.0.1'
+                docker.withRegistry('https://us.gcr.io', 'gcr:[b5999753-f2ef-4806-9369-5bd5e89c1db8]') {
+                    app.push('us.gcr.io/primavera-188715/dev-ui:0.0.1')
+                }
               }
             }
           }
