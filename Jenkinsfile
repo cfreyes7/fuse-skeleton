@@ -1,9 +1,7 @@
 pipeline {
     agent any
     environment {
-      environment {
-         GCLOUD_API_KEYFILE = credentials('b5999753-f2ef-4806-9369-5bd5e89c1db8')
-      }
+       GCLOUD_API_KEYFILE = credentials('b5999753-f2ef-4806-9369-5bd5e89c1db8')
     }
       stages {
         stage('Build') {
