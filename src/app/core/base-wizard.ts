@@ -18,7 +18,7 @@ export abstract class BaseWizard {
     this._wizardService.show();
   }
 
-  protected close() {
+  close() {
     this._wizardService.close().then(() => {
       this._router.navigate(['/app', {outlets: {wizard: null}}]);
     });
