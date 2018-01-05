@@ -1,4 +1,4 @@
-# Fuse2
+# RedWagon Skeleton UI
 
 Material Design Admin Template with Angular 5+ and Angular Material 2
 
