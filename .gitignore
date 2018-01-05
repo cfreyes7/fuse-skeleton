@@ -15,7 +15,6 @@
 .c9/
 *.launch
 .settings/
-*.sublime-workspace
 
 # IDE - VSCode
 .vscode/*
@@ -38,5 +37,5 @@ testem.log
 /e2e/*.map
 
 # System Files
-.DS_Store
 Thumbs.db
+yarn.lock
