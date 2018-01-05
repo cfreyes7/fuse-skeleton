@@ -1,0 +1,17 @@
+:host {
+  position: relative;
+}
+
+.mat-toolbar {
+  background: white;
+  color: inherit;
+  position: relative;
+
+  .loading-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+  }
+}

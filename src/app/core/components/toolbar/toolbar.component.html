@@ -1,0 +1,27 @@
+<mat-toolbar class="p-0 mat-elevation-z1">
+  <!--<mat-progress-bar class="loading-bar" color="accent" mode="indeterminate"></mat-progress-bar>-->
+  <mat-toolbar-row>
+    FLOX
+  </mat-toolbar-row>
+
+  <mat-toolbar-row>
+    <button mat-raised-button color="primary" [matMenuTriggerFor]="appMenu">
+      New
+      <mat-icon>arrow_drop_down</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-menu #appMenu="matMenu">
+  <button mat-menu-item>
+    <mat-icon>person_add</mat-icon>
+    New Patient
+  </button>
+  <button mat-menu-item>
+    <mat-icon>assignment</mat-icon>
+    New Task
+  </button>
+  <button mat-menu-item (click)="displayQuickCase()">
+    <mat-icon>class</mat-icon>
+    New Case
+  </button>
+</mat-menu>

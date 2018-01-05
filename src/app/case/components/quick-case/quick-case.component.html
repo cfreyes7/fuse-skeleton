@@ -1,0 +1,78 @@
+<div fxLayout="column" fxFill>
+  <div fxFlex="100" class="pl-12 pr-12" style="overflow-y: auto" fusePerfectScrollbar>
+    <mat-toolbar>
+      New Case
+    </mat-toolbar>
+    <hr>
+    <form [formGroup]="caseForm" novalidate id="quickCaseForm" (ngSubmit)="onSubmit(caseForm)">
+      <div fxLayout="row">
+        <mat-form-field ngxErrors="case" fxFlex="50%">
+          <input matInput placeholder="Subkect Case" formControlName="case">
+          <mat-error ngxError="case" when="touched">
+            Subkect Case is required
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <mat-form-field ngxErrors="description">
+        <textarea matInput formControlName="description" placeholder="Description" matTextareaAutosize
+                  matAutosizeMinRows="2" matAutosizeMaxRows="5"></textarea>
+        <mat-error ngxError="required" when="touched">
+          Description is required
+        </mat-error>
+      </mat-form-field>
+      <div>Status</div>
+      <mat-button-toggle-group formControlName="status">
+        <mat-button-toggle value="OPEN">
+          Open
+        </mat-button-toggle>
+        <mat-button-toggle value="IN_PROGRESS">
+          In Progress
+        </mat-button-toggle>
+        <mat-button-toggle value="FINISH">
+          Finished
+        </mat-button-toggle>
+      </mat-button-toggle-group>
+      <hr>
+      <div fxLayout="row" fxLayoutAlign="center center">
+        <div class="text-right pr-8" fxFlex="150px">
+          Assigned to:
+        </div>
+        <div fxFlex="100">
+          <mat-form-field>
+            <mat-chip-list #chipList>
+              <mat-chip [selectable]="true" [removable]="true">
+                <mat-icon>account_circle</mat-icon>
+                Dr. Abbey
+                <mat-icon matChipRemove>cancel</mat-icon>
+              </mat-chip>
+              <input [matChipInputFor]="chipList">
+            </mat-chip-list>
+          </mat-form-field>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center center">
+        <div class="text-right pr-8" fxFlex="150px">
+          <mat-checkbox>Link a Patient</mat-checkbox>
+        </div>
+        <div fxFlex="100">
+          <mat-form-field>
+            <mat-chip-list #chipList>
+              <mat-chip [selectable]="true" [removable]="true">
+                <mat-icon>account_circle</mat-icon>
+                John Doe
+                <mat-icon matChipRemove>cancel</mat-icon>
+              </mat-chip>
+              <input [matChipInputFor]="chipList">
+            </mat-chip-list>
+          </mat-form-field>
+        </div>
+      </div>
+      <hr>
+      <h3 class="subheading-1 text-bold">Transportation</h3>
+    </form>
+  </div>
+  <mat-toolbar fxLayout="row" fxLayoutAlign="center center" class="bottom-bar">
+    <button mat-button (click)="close()" type="button">Cancel</button>
+    <button mat-button color="primary" form="quickCaseForm" type="submit">Create Case</button>
+  </mat-toolbar>
+</div>
