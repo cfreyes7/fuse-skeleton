@@ -21,4 +21,8 @@ export class CaseDashboardComponent implements OnInit {
   showPersonalInfo() {
     let dialogRef = this.dialog.open(PersonalInfoComponent);
   }
+
+  preventPropagetion(e: any) {
+    e.stopPropagation();
+  }
 }

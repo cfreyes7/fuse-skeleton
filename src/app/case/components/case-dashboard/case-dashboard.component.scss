@@ -12,8 +12,18 @@ flox-case-dashboard {
 
   .mat-content {
     align-items: center;
+    position: relative;
+
     > div {
       padding: 10px 0;
+      &:last-child {
+        padding-right: 20px;
+      }
+    }
+
+    .more-vert {
+      position: absolute;
+      right: 0;
     }
   }
 
@@ -30,6 +40,10 @@ flox-case-dashboard {
   .header-label {
     color: mat-color($foreground, secondary-text);
     font-weight: 500;
+
+    &:last-child {
+      padding-right: 20px;
+    }
   }
 
   h6 {

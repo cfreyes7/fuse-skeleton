@@ -41,6 +41,9 @@
           <div>In Progress</div>
           <span class="mat-caption">1 month</span>
         </div>
+        <button mat-icon-button [matMenuTriggerFor]="appMenu" class="more-vert" (click)="preventPropagetion($event)">
+          <mat-icon>more_vert</mat-icon>
+        </button>
       </mat-expansion-panel-header>
 
       <div fxLayout="row" fxLayoutGap="10px">
@@ -102,13 +105,13 @@
     <mat-expansion-panel hideToggle #itemRow>
       <mat-expansion-panel-header *ngIf="!itemRow.expanded">
         <div fxFlex class="text-center">
-            <div><span class="mat-subheading-1">Patient Group</span><span class="ml-8 badge">9</span></div>
-            <div class="flox-avatar-wrapper">
-              <img class="flox-avatar small" src="assets/images/avatars/alice.jpg" alt="">
-              <img class="flox-avatar small" src="assets/images/avatars/alice.jpg" alt="">
-              <img class="flox-avatar small" src="assets/images/avatars/alice.jpg" alt="">
-              <img class="flox-avatar small" src="assets/images/avatars/alice.jpg" alt="">
-            </div>
+          <div><span class="mat-subheading-1">Patient Group</span><span class="ml-8 badge">9</span></div>
+          <div class="flox-avatar-wrapper">
+            <img class="flox-avatar small" src="assets/images/avatars/alice.jpg" alt="">
+            <img class="flox-avatar small" src="assets/images/avatars/alice.jpg" alt="">
+            <img class="flox-avatar small" src="assets/images/avatars/alice.jpg" alt="">
+            <img class="flox-avatar small" src="assets/images/avatars/alice.jpg" alt="">
+          </div>
         </div>
         <div fxFlex class="text-center">
           Unknown
@@ -123,6 +126,9 @@
           <div>In Progress</div>
           <span class="mat-caption">1 month</span>
         </div>
+        <button mat-icon-button [matMenuTriggerFor]="appMenu" class="more-vert" (click)="preventPropagetion($event)">
+          <mat-icon>more_vert</mat-icon>
+        </button>
       </mat-expansion-panel-header>
 
       <div fxLayout="row" fxLayoutGap="10px">
@@ -225,3 +231,12 @@
     </mat-expansion-panel>
   </mat-accordion>
 </div>
+<mat-menu #appMenu="matMenu">
+  <button mat-menu-item>Assigned to</button>
+  <button mat-menu-item>Add Note</button>
+  <button mat-menu-item>Add to Transportation</button>
+  <button mat-menu-item>Send Notification</button>
+  <button mat-menu-item>Add Task</button>
+  <button mat-menu-item>Change Status</button>
+  <button mat-menu-item>Upload Documents</button>
+</mat-menu>
