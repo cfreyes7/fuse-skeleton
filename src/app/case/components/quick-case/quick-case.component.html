@@ -7,9 +7,9 @@
     <form [formGroup]="caseForm" novalidate id="quickCaseForm" (ngSubmit)="onSubmit(caseForm)">
       <div fxLayout="row">
         <mat-form-field ngxErrors="case" fxFlex="50%">
-          <input matInput placeholder="Subkect Case" formControlName="case">
+          <input matInput placeholder="Subject Case" formControlName="case">
           <mat-error ngxError="case" when="touched">
-            Subkect Case is required
+            Subject Case is required
           </mat-error>
         </mat-form-field>
       </div>
@@ -52,7 +52,7 @@
       </div>
       <div fxLayout="row" fxLayoutAlign="center center">
         <div class="text-right pr-8" fxFlex="150px">
-          <mat-checkbox>Link a Patient</mat-checkbox>
+          <mat-checkbox formControlName="linkPatient">Link a Patient</mat-checkbox>
         </div>
         <div fxFlex="100">
           <mat-form-field>
@@ -69,6 +69,29 @@
       </div>
       <hr>
       <h3 class="subheading-1 text-bold">Transportation</h3>
+      <div fxLayout="row" formGroupName="transportation" fxLayoutGap="10px">
+        <mat-form-field fxFlex="25" ngxErrors="transportation.date">
+          <input matInput [matDatepicker]="picker" placeholder="Date" formControlName="date">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error ngxError="required" when="touched">
+            Date is required
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field fxFlex ngxErrors="transportation.location">
+          <textarea matInput formControlName="location" placeholder="Location" matTextareaAutosize
+                    matAutosizeMaxRows="5"></textarea>
+          <mat-error ngxError="required" when="touched">
+            Location is required
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <hr>
+      <h3 class="subheading-1 text-bold">Attachments</h3>
+      <flox-file-list #fileList></flox-file-list>
+      <div fxLayout="row" fxLayoutAlign="end end" class="pb-8">
+        <flox-upload multiple [fileList]="fileList" formControlName="files"></flox-upload>
+      </div>
     </form>
   </div>
   <mat-toolbar fxLayout="row" fxLayoutAlign="center center" class="bottom-bar">

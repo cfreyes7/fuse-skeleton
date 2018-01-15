@@ -1,3 +1,227 @@
-<p>
-  case-dashboard works!
-</p>
+<div class="pt-8 pr-8">
+  <div fxLayout="row" fxLayoutAlign="center center" class="py-12">
+    <div fxFlex class="text-center header-label">
+      Patient
+    </div>
+    <div fxFlex class="text-center header-label">
+      Reason
+    </div>
+    <div fxFlex class="text-center header-label">
+      Case Duration
+    </div>
+    <div fxFlex class="text-center header-label">
+      Diagnosis
+    </div>
+    <div fxFlex class="text-center header-label">
+      Status
+    </div>
+  </div>
+  <mat-accordion>
+    <mat-expansion-panel hideToggle *ngFor="let row of rows" #itemRow>
+      <mat-expansion-panel-header *ngIf="!itemRow.expanded">
+        <div fxFlex class="text-center" fxLayout="row" fxLayoutAlign="center center">
+          <div class="pr-4 flox-avatar-wrapper">
+            <img class="flox-avatar small" src="assets/images/avatars/alice.jpg" alt="">
+          </div>
+          <div>
+            <div class="mat-subheading-1">Abbey Christensen</div>
+            <span class="mat-caption">Male, 35y / Feb 12 - 1990</span>
+          </div>
+        </div>
+        <div fxFlex class="text-center">
+          Unknown
+        </div>
+        <div fxFlex class="text-center">
+          3 months
+        </div>
+        <div fxFlex class="text-center">
+          Diabetes Insipidus
+        </div>
+        <div fxFlex class="text-center">
+          <div>In Progress</div>
+          <span class="mat-caption">1 month</span>
+        </div>
+      </mat-expansion-panel-header>
+
+      <div fxLayout="row" fxLayoutGap="10px">
+        <div fxFlex>
+          <h6>Patient Information</h6>
+          <div fxLayout="row">
+            <div class="pr-8">
+              <div class="flox-avatar-wrapper">
+                <img class="flox-avatar huge" src="assets/images/avatars/alice.jpg" alt="patient avatar">
+                <div class="flox-status">
+                  <mat-icon>accessible</mat-icon>
+                </div>
+              </div>
+            </div>
+            <div fxFlex>
+              <div class="mat-headline">Abbey Christensen</div>
+              <div class="mat-subheading-2 divider m-0">Male, 35y / Feb 12 - 1990</div>
+              <div fxLayout="row" fxLayoutAlign="end end">
+                <a mat-button class="pr-4" (click)="showPersonalInfo()">Patient Information
+                  <mat-icon>keyboard_arrow_down</mat-icon>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div fxFlex>
+          <h6>Case information</h6>
+          <div fxLayout="row">
+            <div fxFlex>
+              <div class="header-label">Reason</div>
+              <span>Unknown</span>
+            </div>
+            <div fxFlex>
+              <div class="header-label">Case Duration</div>
+              <span>3 months</span>
+            </div>
+          </div>
+          <div class="pt-16">
+            <div class="header-label">Diagnosis</div>
+            <span>Diabetes Insipidus</span>
+          </div>
+        </div>
+        <div fxFlex="150px">
+          <h6>1 month ago</h6>
+          <button mat-raised-button color="accent">
+            <span class="text-uppercase">In Progress</span>
+          </button>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+        <div><span class="flox-issue">Problems</span> <span class="badge">3</span></div>
+        <div><span class="flox-issue">Medications</span> <span class="badge">3</span></div>
+        <div><span class="flox-issue">Allergies</span> <span class="badge">3</span></div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="end end">
+        <button mat-button color="accent">View Patient Chart</button>
+      </div>
+    </mat-expansion-panel>
+    <mat-expansion-panel hideToggle #itemRow>
+      <mat-expansion-panel-header *ngIf="!itemRow.expanded">
+        <div fxFlex class="text-center">
+            <div><span class="mat-subheading-1">Patient Group</span><span class="ml-8 badge">9</span></div>
+            <div class="flox-avatar-wrapper">
+              <img class="flox-avatar small" src="assets/images/avatars/alice.jpg" alt="">
+              <img class="flox-avatar small" src="assets/images/avatars/alice.jpg" alt="">
+              <img class="flox-avatar small" src="assets/images/avatars/alice.jpg" alt="">
+              <img class="flox-avatar small" src="assets/images/avatars/alice.jpg" alt="">
+            </div>
+        </div>
+        <div fxFlex class="text-center">
+          Unknown
+        </div>
+        <div fxFlex class="text-center">
+          3 months
+        </div>
+        <div fxFlex class="text-center">
+          Diabetes Insipidus
+        </div>
+        <div fxFlex class="text-center">
+          <div>In Progress</div>
+          <span class="mat-caption">1 month</span>
+        </div>
+      </mat-expansion-panel-header>
+
+      <div fxLayout="row" fxLayoutGap="10px">
+        <div fxFlex>
+          <h6>Patient Information</h6>
+          <div fxLayoutWrap="row" fxLayoutGap="10px">
+            <div fxFlex="90px">
+              <div class="flox-avatar-wrapper">
+                <img class="flox-avatar huge" src="assets/images/avatars/alice.jpg" alt="patient avatar">
+                <div class="flox-status">
+                  <mat-icon>accessible</mat-icon>
+                </div>
+              </div>
+            </div>
+            <div fxFlex="90px">
+              <div class="flox-avatar-wrapper">
+                <img class="flox-avatar huge" src="assets/images/avatars/alice.jpg" alt="patient avatar">
+                <div class="flox-status">
+                  <mat-icon>accessible</mat-icon>
+                </div>
+              </div>
+            </div>
+            <div fxFlex="90px">
+              <div class="flox-avatar-wrapper">
+                <img class="flox-avatar huge" src="assets/images/avatars/alice.jpg" alt="patient avatar">
+                <div class="flox-status">
+                  <mat-icon>accessible</mat-icon>
+                </div>
+              </div>
+            </div>
+            <div fxFlex="90px">
+              <div class="flox-avatar-wrapper">
+                <img class="flox-avatar huge" src="assets/images/avatars/alice.jpg" alt="patient avatar">
+                <div class="flox-status">
+                  <mat-icon>accessible</mat-icon>
+                </div>
+              </div>
+            </div>
+            <div fxFlex="90px">
+              <div class="flox-avatar-wrapper">
+                <img class="flox-avatar huge" src="assets/images/avatars/alice.jpg" alt="patient avatar">
+                <div class="flox-status">
+                  <mat-icon>accessible</mat-icon>
+                </div>
+              </div>
+            </div>
+            <div fxFlex="90px">
+              <div class="flox-avatar-wrapper">
+                <img class="flox-avatar huge" src="assets/images/avatars/alice.jpg" alt="patient avatar">
+                <div class="flox-status">
+                  <mat-icon>accessible</mat-icon>
+                </div>
+              </div>
+            </div>
+            <div fxFlex="90px">
+              <div class="flox-avatar-wrapper">
+                <img class="flox-avatar huge" src="assets/images/avatars/alice.jpg" alt="patient avatar">
+                <div class="flox-status">
+                  <mat-icon>accessible</mat-icon>
+                </div>
+              </div>
+            </div>
+            <div fxFlex="90px">
+              <div class="flox-avatar-wrapper">
+                <img class="flox-avatar huge" src="assets/images/avatars/alice.jpg" alt="patient avatar">
+                <div class="flox-status">
+                  <mat-icon>accessible</mat-icon>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div fxFlex>
+          <h6>Case information</h6>
+          <div fxLayout="row">
+            <div fxFlex>
+              <div class="header-label">Reason</div>
+              <span>Unknown</span>
+            </div>
+            <div fxFlex>
+              <div class="header-label">Case Duration</div>
+              <span>3 months</span>
+            </div>
+          </div>
+          <div class="pt-16">
+            <div class="header-label">Diagnosis</div>
+            <span>Diabetes Insipidus</span>
+          </div>
+        </div>
+        <div fxFlex="150px">
+          <h6>1 month ago</h6>
+          <button mat-raised-button color="accent">
+            <span class="text-uppercase">In Progress</span>
+          </button>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="end end">
+        <button mat-button color="accent">View Details</button>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

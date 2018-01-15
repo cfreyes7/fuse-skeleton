@@ -9,12 +9,12 @@ import {WizardService} from './services/wizard.service';
 import {ToolbarComponent} from './components/toolbar/toolbar.component';
 import {NavbarComponent} from './components/navbar/navbar.component';
 import {FormValidatorService} from './services/form-validator.service';
+import {SvgRegisterService} from './services/svg-register.service';
 
 @NgModule({
   imports: [
     SharedModule,
     MatSidenavModule,
-
     RouterModule
   ],
   declarations: [
@@ -26,7 +26,8 @@ import {FormValidatorService} from './services/form-validator.service';
   providers: [
     SplashScreenService,
     WizardService,
-    FormValidatorService
+    FormValidatorService,
+    SvgRegisterService
   ]
 })
 export class CoreModule {

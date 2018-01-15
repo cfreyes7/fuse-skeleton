@@ -7,13 +7,17 @@ export const routes: Routes = [
     component: LayoutComponent,
     children: [
       {
-        path: 'wizard',
+        path: 'form',
         component: WizardLayoutComponent,
-        outlet: 'wizard',
+        outlet: 'form',
         children: [
           {
             path: 'cases',
             loadChildren: './case/case.module#CaseModule'
+          },
+          {
+            path: 'patient',
+            loadChildren: './patient/patient.module#PatientModule'
           }
         ]
       },

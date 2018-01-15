@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
 import {SplashScreenService} from './core/services/splash-screen.service';
 import {Router} from '@angular/router';
+import {SvgRegisterService} from './core';
 
 @Component({
   selector: 'flox-root',
@@ -12,9 +13,10 @@ import {Router} from '@angular/router';
 export class AppComponent {
   constructor(private fuseSplashScreen: SplashScreenService,
               private translate: TranslateService,
-              private router: Router) {
+              private router: Router,
+              private svgRegister: SvgRegisterService) {
 
-    this.router.navigate(['/app', {outlets: {wizard: null}}]);
+    this.router.navigate(['/app', {outlets: {form: null}}]);
 
     // Add languages
     this.translate.addLangs(['en', 'tr']);

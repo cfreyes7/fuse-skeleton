@@ -1,0 +1,85 @@
+<div [formGroup]="generalForm">
+  <h3 class="subheading-1 text-bold">Personal Information</h3>
+  <div fxLayout="row" fxLayoutGap="20px">
+    <mat-form-field ngxErrors="firstName" fxFlex="50%">
+      <input matInput placeholder="First Name" formControlName="firstName">
+      <mat-error ngxError="required" when="touched">
+        First Name is required
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field ngxErrors="lastName" fxFlex="50%">
+      <input matInput placeholder="Last Name" formControlName="lastName">
+      <mat-error ngxError="required" when="touched">
+        Last Name is required
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayoutGap="20px">
+    <mat-form-field ngxErrors="socialSecurity" fxFlex="50%">
+      <input matInput placeholder="Social Security" formControlName="socialSecurity">
+      <mat-error ngxError="required" when="touched">
+        Social Security is required
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field ngxErrors="socialSecurity" fxFlex="50%">
+      <input matInput placeholder="Marital Status" formControlName="maritalStatus">
+      <mat-error ngxError="required" when="touched">
+        Marital Status is required
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayoutGap="20px">
+    <mat-form-field ngxErrors="dob" fxFlex="50%">
+      <input matInput [matDatepicker]="picker" placeholder="Date Birthday" formControlName="dob">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error ngxError="required" when="touched">
+        Date Birthday is required
+      </mat-error>
+    </mat-form-field>
+    <div fxFlex="50%" formArrayName="lang">
+      <mat-form-field ngxErrors="lang.0">
+        <input matInput placeholder="Language" formControlName="0">
+        <mat-error ngxError="required" when="touched">
+          Language is required
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+  <ng-template ngFor let-controls [ngForOf]="languagesControl">
+    <div fxLayoutWrap="row" formArrayName="lang">
+      <div fxFlex="50%" class="pr-12" *ngFor="let i of controls">
+        <mat-form-field>
+          <input matInput placeholder="Language" [formControlName]="i">
+          <button matSuffix mat-icon-button type="button">
+            <mat-icon matSuffix (click)="removeLang(i)">remove_circle</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+    </div>
+  </ng-template>
+  <div fxLayout="row" fxLayoutAlign="end">
+    <button type="button" mat-button (click)="addLanguage()">Add other language</button>
+  </div>
+  <div fxLayout="row" fxLayoutGap="20px">
+    <mat-form-field ngxErrors="ethnicity" fxFlex="50%">
+      <input matInput placeholder="Ethnicity" formControlName="ethnicity">
+      <mat-error ngxError="required" when="touched">
+        Ethnicity is required
+      </mat-error>
+    </mat-form-field>
+    <div fxFlex="50%">
+      <label class="mat-label"> Sexual Orientation</label>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayoutGap="20px">
+    <div fxFlex="50%" class="pr-8">
+      <mat-form-field ngxErrors="race">
+        <input matInput placeholder="Race" formControlName="race">
+        <mat-error ngxError="required" when="touched">
+          Race is required
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+</div>

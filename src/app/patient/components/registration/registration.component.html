@@ -1,0 +1,29 @@
+<div [formGroup]="registrationForm">
+  <div fxLayout="row" fxLayoutGap="20px">
+    <div fxFlex="50%" class="pr-8">
+      <mat-form-field ngxErrors="date">
+        <input matInput [matDatepicker]="picker" placeholder="Start Date" formControlName="date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error ngxError="required" when="touched">
+          Start Date is required
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div fxLayout="row" fxLayoutGap="20px">
+    <mat-form-field ngxErrors="assignedProvider" fxFlex="50%">
+      <input matInput placeholder="Assigned Provider" formControlName="assignedProvider">
+      <mat-error ngxError="required" when="touched">
+        Assigned Provider is required
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field ngxErrors="physician" fxFlex="50%">
+      <input matInput placeholder="Primary Care Physician" formControlName="physician">
+      <mat-error ngxError="required" when="touched">
+        Primary Care Physician is required
+      </mat-error>
+    </mat-form-field>
+  </div>
+</div>

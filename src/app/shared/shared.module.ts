@@ -9,11 +9,22 @@ import {
   MatMenuModule,
   MatToolbarModule,
   MatChipsModule,
-  MatCheckboxModule
+  MatCheckboxModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatTabsModule,
+  MatSelectModule,
+  MatRadioModule,
+  MatExpansionModule,
+  MatListModule,
+  MatDialogModule
 } from '@angular/material';
 import {FusePerfectScrollbarDirective} from './directives/fuse-perfect-scrollbar/fuse-perfect-scrollbar.directive';
 import {ReactiveFormsModule} from '@angular/forms';
 import {NgxErrorsModule} from '@ultimate/ngxerrors';
+import {FileListComponent} from './components/file-list/file-list.component';
+import {UploadComponent} from './components/upload/upload.component';
+import {PersonalInfoComponent} from './components/personal-info/personal-info.component';
 
 @NgModule({
   imports: [
@@ -28,10 +39,21 @@ import {NgxErrorsModule} from '@ultimate/ngxerrors';
     MatButtonToggleModule,
     MatChipsModule,
     MatCheckboxModule,
-    NgxErrorsModule
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatTabsModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatExpansionModule,
+    MatListModule,
+    NgxErrorsModule,
+    MatDialogModule
   ],
   declarations: [
-    FusePerfectScrollbarDirective
+    FusePerfectScrollbarDirective,
+    FileListComponent,
+    UploadComponent,
+    PersonalInfoComponent
   ],
   exports: [
     CommonModule,
@@ -46,8 +68,22 @@ import {NgxErrorsModule} from '@ultimate/ngxerrors';
     NgxErrorsModule,
     MatChipsModule,
     MatCheckboxModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatTabsModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatExpansionModule,
+    MatListModule,
+    MatDialogModule,
 
-    FusePerfectScrollbarDirective
+    FusePerfectScrollbarDirective,
+    UploadComponent,
+    FileListComponent,
+    PersonalInfoComponent
+  ],
+  entryComponents: [
+    PersonalInfoComponent
   ]
 })
 export class SharedModule {

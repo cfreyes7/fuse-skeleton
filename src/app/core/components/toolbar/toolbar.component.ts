@@ -15,6 +15,10 @@ export class ToolbarComponent implements OnInit {
   }
 
   displayQuickCase() {
-    this.router.navigate(['/app', {outlets: {wizard: 'wizard/cases/quick'}}]);
+    this.router.navigate(['/app', {outlets: {form: 'form/cases/quick'}}]);
+  }
+
+  displayQuickPatient() {
+    this.router.navigate(['/app', {outlets: {form: 'form/patient/quick'}}]);
   }
 }

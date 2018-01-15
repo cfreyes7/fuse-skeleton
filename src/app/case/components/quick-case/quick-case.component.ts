@@ -1,5 +1,5 @@
 import {Component, Injector, OnInit} from '@angular/core';
-import {BaseWizard, FormValidatorService} from '../../../core';
+import {BaseForm, FormValidatorService} from '../../../core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
@@ -7,7 +7,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
   templateUrl: './quick-case.component.html',
   styleUrls: ['./quick-case.component.scss']
 })
-export class QuickCaseComponent extends BaseWizard implements OnInit {
+export class QuickCaseComponent extends BaseForm implements OnInit {
 
   caseForm: FormGroup;
 
@@ -21,10 +21,22 @@ export class QuickCaseComponent extends BaseWizard implements OnInit {
     this.caseForm = this.fb.group({
       case: ['', Validators.required],
       description: ['', Validators.required],
-      status: 'OPEN'
+      status: 'OPEN',
+      linkPatient: false,
+      transportation: this.fb.group({
+        date: ['', Validators.required],
+        location: ['', Validators.required]
+      }),
+      files: null
+    });
+    this.caseForm.get('files').valueChanges.subscribe((res) => {
+      console.log(res);
     });
   }
 
+  onchange() {
+    console.log(arguments);
+  }
 
   onSubmit(form: FormGroup) {
     if (this.formValidator.validate(form)) {
