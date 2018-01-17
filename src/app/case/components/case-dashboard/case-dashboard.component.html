@@ -1,4 +1,16 @@
-<div class="pt-8 pr-8">
+<div class="pt-12 pr-8">
+  <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+    <span class="h1 pl-12">Cases</span>
+    <mat-icon>keyboard_arrow_right</mat-icon>
+    <span class="case-count">32 open cases</span>
+  </div>
+  <div class="flox-avatar-wrapper py-8 pl-12" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+    <img class="flox-avatar small" src="assets/images/avatars/alice.jpg" alt="">
+    <img class="flox-avatar small" src="assets/images/avatars/alice.jpg" alt="">
+    <img class="flox-avatar small" src="assets/images/avatars/alice.jpg" alt="">
+    <img class="flox-avatar small" src="assets/images/avatars/alice.jpg" alt="">
+    <mat-icon>more_horiz</mat-icon>
+  </div>
   <div fxLayout="row" fxLayoutAlign="center center" class="py-12">
     <div fxFlex class="text-center header-label">
       Patient
@@ -231,7 +243,7 @@
     </mat-expansion-panel>
   </mat-accordion>
 </div>
-<mat-menu #appMenu="matMenu">
+<mat-menu overlapTrigger="false" #appMenu="matMenu">
   <button mat-menu-item>Assigned to</button>
   <button mat-menu-item>Add Note</button>
   <button mat-menu-item>Add to Transportation</button>
