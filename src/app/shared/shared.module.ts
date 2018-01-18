@@ -17,8 +17,8 @@ import {
   MatRadioModule,
   MatExpansionModule,
   MatListModule,
-  MatDialogModule
-} from '@angular/material';
+  MatDialogModule, MatGridListModule
+} from "@angular/material";
 import {FusePerfectScrollbarDirective} from './directives/fuse-perfect-scrollbar/fuse-perfect-scrollbar.directive';
 import {ReactiveFormsModule} from '@angular/forms';
 import {NgxErrorsModule} from '@ultimate/ngxerrors';
@@ -47,7 +47,8 @@ import {PersonalInfoComponent} from './components/personal-info/personal-info.co
     MatExpansionModule,
     MatListModule,
     NgxErrorsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatGridListModule
   ],
   declarations: [
     FusePerfectScrollbarDirective,
@@ -76,6 +77,7 @@ import {PersonalInfoComponent} from './components/personal-info/personal-info.co
     MatExpansionModule,
     MatListModule,
     MatDialogModule,
+    MatGridListModule,
 
     FusePerfectScrollbarDirective,
     UploadComponent,

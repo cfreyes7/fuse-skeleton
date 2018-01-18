@@ -1,27 +1,3 @@
-:host {
-  position: relative;
-}
-
-.mat-toolbar {
-  background: white;
-  color: inherit;
-  position: relative;
-
-  .loading-bar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-  }
-}
-
-.logo {
-  position: absolute;
-  left: 20px;
-  top: 20px;
-}
-
-mat-toolbar-row {
-  padding-left: 200px;
+.img-circle {
+  border-radius: 30px;
 }

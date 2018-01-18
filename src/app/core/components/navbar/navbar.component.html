@@ -1,14 +1,9 @@
-<div>
-  <div class="menu-item" fxLayout="row" fxLayoutAlign="start center" routerLink="/app/case-dashboard" routerLinkActive="active">
-    <mat-icon fxFlex="30px">assignment</mat-icon>
-    <span>Cases</span>
-  </div>
-  <div class="menu-item" fxLayout="row" fxLayoutAlign="start center">
-    <mat-icon fxFlex="30px">assignment</mat-icon>
-    <span>Reports</span>
-  </div>
-  <div class="menu-item" fxLayout="row" fxLayoutAlign="start center">
-    <mat-icon fxFlex="30px">assignment</mat-icon>
-    <span>My Tasks</span>
-  </div>
-</div>
+<nav mat-tab-nav-bar>
+  <a mat-tab-link
+     *ngFor="let link of navLinks"
+     [routerLink]="link.path"
+     routerLinkActive #rla="routerLinkActive"
+     [active]="rla.isActive">
+    {{link.label | uppercase }}
+  </a>
+</nav>

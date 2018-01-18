@@ -40,7 +40,10 @@ export class SvgRegisterService {
       }, {
         name: 'medical-id',
         source: 'medical-id'
-      },
+      }, {
+        name: 'logo',
+        source: 'logo'
+      }
     ];
   }
 
