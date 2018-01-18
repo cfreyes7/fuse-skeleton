@@ -27,14 +27,17 @@ export class CaseDashboardComponent implements OnInit {
         name: 'All',
         color: null
       }, {
-        name: 'High',
-        color: 'danger'
+        name: 'Close',
+        color: 'warn'
       }, {
-        name: 'Medium',
+        name: 'Open',
+        color: 'primary'
+      }, {
+        name: 'Unassigned',
         color: 'warning'
       }, {
-        name: 'Low',
-        color: 'success'
+        name: 'Extended',
+        color: 'accent'
       },
     ];
     this.priority = this.priorities[0];

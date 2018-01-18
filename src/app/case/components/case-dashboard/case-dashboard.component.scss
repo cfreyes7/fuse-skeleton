@@ -64,14 +64,17 @@ flox-case-dashboard {
   border-radius: 50%;
   margin-right: 8px;
 
-  &.danger {
+  &.warn {
     background: mat-color($warn);
   }
   &.warning {
     background: #F8CB5B;
   }
-  &.success {
+  &.primary {
     background: mat-color($primary);
+  }
+  &.accent {
+    background: mat-color($accent);
   }
 }
 
