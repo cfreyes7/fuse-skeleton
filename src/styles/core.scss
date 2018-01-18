@@ -1,3 +1,4 @@
+@import '~@covalent/core/theming/all-theme';
 // ngx-datatable
 @import '~@swimlane/ngx-datatable/release/index.css';
 @import '~@swimlane/ngx-datatable/release/themes/material.css';
@@ -12,6 +13,7 @@
 
 // Include theme styles for core and each component used in your app.
 @include angular-material-theme($theme);
+@include covalent-theme($theme);
 
 // Partials
 @import "partials/reset";

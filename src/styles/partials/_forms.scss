@@ -19,3 +19,23 @@ label.mat-label {
   font-size: 16px;
   font-weight: 400;
 }
+
+.td-search-wrapper {
+  background-color: mat-color($background, card);
+
+  td-search-input {
+    display: block;
+    flex: 100%;
+  }
+}
+
+.td-search-input {
+  height: 40px;
+  background-color: white;
+  .mat-form-field-wrapper {
+    padding-bottom: 0px;
+  }
+  .mat-form-field-infix {
+    border-top: none;
+  }
+}
