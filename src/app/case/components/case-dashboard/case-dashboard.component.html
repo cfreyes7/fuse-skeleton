@@ -1,35 +1,62 @@
-<div class="pt-12 pr-8">
-  <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
-    <span class="h1 pl-12">Cases</span>
-    <mat-icon>keyboard_arrow_right</mat-icon>
-    <span class="case-count">32 open cases</span>
+<span class="mat-display-1">Cases</span>
+
+<div class="px-12">
+  <div fxLayout="row" fxLayoutGap="20px" class="py-12">
+    <button fxFlex="1 1 auto" mat-raised-button>
+      <mat-icon>search</mat-icon>
+      <span class="text-uppercase">Search</span>
+    </button>
+    <button fxFlex="1 1 auto" mat-raised-button [color]="myCases ? 'primary': null" (click)="toggleMyCases()">
+      <span class="text-uppercase">View My Cases</span>
+    </button>
+    <div fxLayout="row" fxFlex="100" fxLayoutAlign="end center" fxLayoutGap="20px">
+      <div class="mat-elevation-z2 priority">
+        <span class="text-uppercase px-12">Status</span>
+        <button mat-button [matMenuTriggerFor]="priorityMenu" disableRipple>
+          <span>{{priority.name}}</span>
+          <mat-icon>arrow_drop_down</mat-icon>
+        </button>
+      </div>
+      <button mat-raised-button>
+        <span class="text-uppercase">Filters</span>
+        <mat-icon>arrow_drop_down</mat-icon>
+      </button>
+    </div>
   </div>
-  <div class="flox-avatar-wrapper py-8 pl-12" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+
+  <div class="flox-avatar-wrapper py-8 pl-12" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px"
+       *ngIf="myCases">
     <img class="flox-avatar small" src="assets/images/avatars/alice.jpg" alt="">
     <img class="flox-avatar small" src="assets/images/avatars/alice.jpg" alt="">
     <img class="flox-avatar small" src="assets/images/avatars/alice.jpg" alt="">
     <img class="flox-avatar small" src="assets/images/avatars/alice.jpg" alt="">
-    <button mat-icon-button><mat-icon>more_horiz</mat-icon></button>
+    <button mat-icon-button>
+      <mat-icon>more_horiz</mat-icon>
+    </button>
   </div>
+
+  <!--header-->
   <div fxLayout="row" fxLayoutAlign="center center" class="py-12">
     <div fxFlex class="text-center header-label">
       Patient
     </div>
     <div fxFlex class="text-center header-label">
-      Reason
-    </div>
-    <div fxFlex class="text-center header-label">
-      Case Duration
-    </div>
-    <div fxFlex class="text-center header-label">
-      Diagnosis
-    </div>
-    <div fxFlex class="text-center header-label">
       Status
     </div>
+    <div fxFlex class="text-center header-label">
+      Planned Type
+    </div>
+    <div fxFlex class="text-center header-label">
+      POC Type
+    </div>
+    <div fxFlex class="text-center header-label">
+      Main Dx
+    </div>
   </div>
-  <mat-accordion>
-    <mat-expansion-panel hideToggle *ngFor="let row of rows" #itemRow>
+
+  <!--case list-->
+  <mat-accordion class="expand-list">
+    <mat-expansion-panel hideToggle *ngFor="let row of rows" #itemRow [ngClass]="row">
       <mat-expansion-panel-header *ngIf="!itemRow.expanded">
         <div fxFlex class="text-center" fxLayout="row" fxLayoutAlign="center center">
           <div class="pr-4 flox-avatar-wrapper">
@@ -41,17 +68,18 @@
           </div>
         </div>
         <div fxFlex class="text-center">
-          Unknown
+          <div>In Progress</div>
+          <span class="mat-caption">Last Update:</span>
+          <span class="mat-caption text-accent">12/01/2017</span>
         </div>
         <div fxFlex class="text-center">
-          3 months
+          Planned Type
+        </div>
+        <div fxFlex class="text-center">
+          POC Type
         </div>
         <div fxFlex class="text-center">
           Diabetes Insipidus
-        </div>
-        <div fxFlex class="text-center">
-          <div>In Progress</div>
-          <span class="mat-caption">1 month</span>
         </div>
         <button mat-icon-button [matMenuTriggerFor]="appMenu" class="more-vert" (click)="preventPropagetion($event)">
           <mat-icon>more_vert</mat-icon>
@@ -111,138 +139,14 @@
         <div><span class="flox-issue">Allergies</span> <span class="badge">3</span></div>
       </div>
       <div fxLayout="row" fxLayoutAlign="end end">
+        <button mat-button (click)="itemRow.expanded = false">Close</button>
         <button mat-button color="accent">View Patient Chart</button>
-      </div>
-    </mat-expansion-panel>
-    <mat-expansion-panel hideToggle #itemRow>
-      <mat-expansion-panel-header *ngIf="!itemRow.expanded">
-        <div fxFlex class="text-center">
-          <div><span class="mat-subheading-1">Patient Group</span><span class="ml-8 badge">9</span></div>
-          <div class="flox-avatar-wrapper">
-            <img class="flox-avatar small" src="assets/images/avatars/alice.jpg" alt="">
-            <img class="flox-avatar small" src="assets/images/avatars/alice.jpg" alt="">
-            <img class="flox-avatar small" src="assets/images/avatars/alice.jpg" alt="">
-            <img class="flox-avatar small" src="assets/images/avatars/alice.jpg" alt="">
-          </div>
-        </div>
-        <div fxFlex class="text-center">
-          Unknown
-        </div>
-        <div fxFlex class="text-center">
-          3 months
-        </div>
-        <div fxFlex class="text-center">
-          Diabetes Insipidus
-        </div>
-        <div fxFlex class="text-center">
-          <div>In Progress</div>
-          <span class="mat-caption">1 month</span>
-        </div>
-        <button mat-icon-button [matMenuTriggerFor]="appMenu" class="more-vert" (click)="preventPropagetion($event)">
-          <mat-icon>more_vert</mat-icon>
-        </button>
-      </mat-expansion-panel-header>
-
-      <div fxLayout="row" fxLayoutGap="10px">
-        <div fxFlex>
-          <h6>Patient Information</h6>
-          <div fxLayoutWrap="row" fxLayoutGap="10px">
-            <div fxFlex="90px">
-              <div class="flox-avatar-wrapper">
-                <img class="flox-avatar huge" src="assets/images/avatars/alice.jpg" alt="patient avatar">
-                <div class="flox-status">
-                  <mat-icon>accessible</mat-icon>
-                </div>
-              </div>
-            </div>
-            <div fxFlex="90px">
-              <div class="flox-avatar-wrapper">
-                <img class="flox-avatar huge" src="assets/images/avatars/alice.jpg" alt="patient avatar">
-                <div class="flox-status">
-                  <mat-icon>accessible</mat-icon>
-                </div>
-              </div>
-            </div>
-            <div fxFlex="90px">
-              <div class="flox-avatar-wrapper">
-                <img class="flox-avatar huge" src="assets/images/avatars/alice.jpg" alt="patient avatar">
-                <div class="flox-status">
-                  <mat-icon>accessible</mat-icon>
-                </div>
-              </div>
-            </div>
-            <div fxFlex="90px">
-              <div class="flox-avatar-wrapper">
-                <img class="flox-avatar huge" src="assets/images/avatars/alice.jpg" alt="patient avatar">
-                <div class="flox-status">
-                  <mat-icon>accessible</mat-icon>
-                </div>
-              </div>
-            </div>
-            <div fxFlex="90px">
-              <div class="flox-avatar-wrapper">
-                <img class="flox-avatar huge" src="assets/images/avatars/alice.jpg" alt="patient avatar">
-                <div class="flox-status">
-                  <mat-icon>accessible</mat-icon>
-                </div>
-              </div>
-            </div>
-            <div fxFlex="90px">
-              <div class="flox-avatar-wrapper">
-                <img class="flox-avatar huge" src="assets/images/avatars/alice.jpg" alt="patient avatar">
-                <div class="flox-status">
-                  <mat-icon>accessible</mat-icon>
-                </div>
-              </div>
-            </div>
-            <div fxFlex="90px">
-              <div class="flox-avatar-wrapper">
-                <img class="flox-avatar huge" src="assets/images/avatars/alice.jpg" alt="patient avatar">
-                <div class="flox-status">
-                  <mat-icon>accessible</mat-icon>
-                </div>
-              </div>
-            </div>
-            <div fxFlex="90px">
-              <div class="flox-avatar-wrapper">
-                <img class="flox-avatar huge" src="assets/images/avatars/alice.jpg" alt="patient avatar">
-                <div class="flox-status">
-                  <mat-icon>accessible</mat-icon>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div fxFlex>
-          <h6>Case information</h6>
-          <div fxLayout="row">
-            <div fxFlex>
-              <div class="header-label">Reason</div>
-              <span>Unknown</span>
-            </div>
-            <div fxFlex>
-              <div class="header-label">Case Duration</div>
-              <span>3 months</span>
-            </div>
-          </div>
-          <div class="pt-16">
-            <div class="header-label">Diagnosis</div>
-            <span>Diabetes Insipidus</span>
-          </div>
-        </div>
-        <div fxFlex="150px">
-          <h6>1 month ago</h6>
-          <button mat-raised-button color="accent">
-            <span class="text-uppercase">In Progress</span>
-          </button>
-        </div>
-      </div>
-      <div fxLayout="row" fxLayoutAlign="end end">
-        <button mat-button color="accent">View Details</button>
       </div>
     </mat-expansion-panel>
   </mat-accordion>
 </div>
+
+<!--Row menu-->
 <mat-menu overlapTrigger="false" #appMenu="matMenu">
   <button mat-menu-item>Assigned to</button>
   <button mat-menu-item>Add Note</button>
@@ -251,4 +155,10 @@
   <button mat-menu-item>Add Task</button>
   <button mat-menu-item>Change Status</button>
   <button mat-menu-item>Upload Documents</button>
+</mat-menu>
+
+<mat-menu #priorityMenu="matMenu">
+  <button mat-menu-item *ngFor="let p of priorities" (click)="setPriority(p)">
+    <span class="pointer" [ngClass]="p.color"></span>{{p.name}}
+  </button>
 </mat-menu>

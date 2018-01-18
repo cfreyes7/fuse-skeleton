@@ -1,31 +1,9 @@
 @import '../../../../styles/variables/theme';
 @import '~@angular/material/theming';
 
-$label-color: mat-color($foreground, text);
-
 flox-case-dashboard {
-  .mat-expansion-panel-header {
-    padding: 0;
-    height: 66px !important;
-    color: $label-color;
-  }
-
-  .mat-content {
-    align-items: center;
-    position: relative;
-
-    > div {
-      padding: 10px 0;
-      &:last-child {
-        padding-right: 20px;
-      }
-    }
-
-    .more-vert {
-      position: absolute;
-      right: 0;
-    }
-  }
+  display: block;
+  padding: 0 30px;
 
   .mat-title,
   .mat-subheading-1 {
@@ -35,15 +13,6 @@ flox-case-dashboard {
 
   .divider {
     border-top: 1px solid mat-color($foreground, divider);
-  }
-
-  .header-label {
-    color: mat-color($foreground, secondary-text);
-    font-weight: 500;
-
-    &:last-child {
-      padding-right: 20px;
-    }
   }
 
   h6 {
@@ -62,10 +31,6 @@ flox-case-dashboard {
     text-decoration: none;
   }
 
-  .mat-expansion-panel-body {
-    padding: 10px;
-  }
-
   .badge {
     min-width: 20px;
     height: 20px;
@@ -81,6 +46,32 @@ flox-case-dashboard {
   .flox-issue {
     color: mat-color($foreground, secondary-text);
     font-size: 12px;
+  }
+
+  .priority {
+    background: mat-color($background, card);
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+}
+
+.pointer {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 8px;
+
+  &.danger {
+    background: mat-color($warn);
+  }
+  &.warning {
+    background: #F8CB5B;
+  }
+  &.success {
+    background: mat-color($primary);
   }
 }
 

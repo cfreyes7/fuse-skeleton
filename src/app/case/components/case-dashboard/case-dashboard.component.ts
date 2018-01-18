@@ -10,19 +10,49 @@ import {PersonalInfoComponent} from '../../../shared';
 })
 export class CaseDashboardComponent implements OnInit {
 
-  rows = [1, 2];
+  myCases: boolean;
+
+  rows = ['open', 'open', 'extended', 'extended', 'close', 'close', 'unassigned', 'unassigned'];
+
+  priority: any;
+
+  priorities: Array<{ name: string, color: string }> = [];
 
   constructor(private dialog: MatDialog) {
   }
 
   ngOnInit() {
+    this.priorities = [
+      {
+        name: 'All',
+        color: null
+      }, {
+        name: 'High',
+        color: 'danger'
+      }, {
+        name: 'Medium',
+        color: 'warning'
+      }, {
+        name: 'Low',
+        color: 'success'
+      },
+    ];
+    this.priority = this.priorities[0];
   }
 
   showPersonalInfo() {
-    let dialogRef = this.dialog.open(PersonalInfoComponent);
+    this.dialog.open(PersonalInfoComponent);
   }
 
   preventPropagetion(e: any) {
     e.stopPropagation();
+  }
+
+  setPriority(value: any) {
+    this.priority = value;
+  }
+
+  toggleMyCases() {
+    this.myCases = !this.myCases;
   }
 }
