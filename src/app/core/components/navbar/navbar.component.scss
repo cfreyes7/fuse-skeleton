@@ -1,24 +1,12 @@
 :host {
   display: block;
   position: relative;
-  padding-top: 15px;
-  padding-right: 15px;
-  overflow-y: auto;
 }
 
-.menu-item {
-  height: 40px;
-  padding: 4px 4px 4px 20px;
-  cursor: pointer;
+a.mat-tab-link {
+  height: 64px;
+}
 
-  &:hover {
-    background-color: rgba(0, 0, 0, .04);
-  }
-
-  &.active {
-    background-color: rgba(0, 0, 0, .06);
-    span {
-      font-weight: bold;
-    }
-  }
+a.mat-tab-link:hover {
+  text-decoration: none !important;
 }
