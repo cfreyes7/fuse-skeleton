@@ -4,11 +4,8 @@
   </mat-sidenav>
   <mat-sidenav-content fxLayout="column">
     <flox-toolbar></flox-toolbar>
-    <div fxFlex="100" fxLayout="row">
-      <flox-navbar fxFlex="20" fusePerfectScrollbar></flox-navbar>
-      <main fxFlex="80" fusePerfectScrollbar class="pr-4">
-        <router-outlet></router-outlet>
-      </main>
-    </div>
+    <main fxFlex="100" fusePerfectScrollbar>
+      <router-outlet></router-outlet>
+    </main>
   </mat-sidenav-content>
 </mat-sidenav-container>
