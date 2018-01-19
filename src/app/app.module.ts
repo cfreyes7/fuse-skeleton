@@ -33,7 +33,7 @@ import {FormValidatorService} from "./core/services/form-validator.service";
     FuseConfigService,
     FuseNavigationService,
     FormContentService,
-    FormValidatorService
+    FormValidatorService,
   ],
   bootstrap: [
     AppComponent
