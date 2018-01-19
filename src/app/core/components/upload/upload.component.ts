@@ -30,10 +30,10 @@ export class UploadComponent implements OnInit, ControlValueAccessor {
   private _multiple: boolean;
 
   onChange = (v: any) => {
-  }
+  };
 
   onTouched = () => {
-  }
+  };
 
   constructor() {
   }
@@ -94,9 +94,7 @@ export class UploadComponent implements OnInit, ControlValueAccessor {
   }
 
   updateSelection(files: File[]) {
-    this.modelValue = this.multiple
-      ? (files.length ? files : null)
-      : (files.length ? files[0] : null);
+    this.modelValue = files.length ? (this.multiple ? files : files[0]) : null;
     this.onChange(this.modelValue);
   }
 }

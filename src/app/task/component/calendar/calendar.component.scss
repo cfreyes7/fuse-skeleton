@@ -1,5 +1,5 @@
 @import "node_modules/angular-calendar/scss/angular-calendar";
-@import '../../../core/scss/variables/theme';
+@import '../../../../styles/variables/theme';
 @import '~@angular/material/theming';
 
 .cal-month-view {
@@ -9,21 +9,6 @@
         .cal-cell {
             font-weight: 500;
         }
-    }
-
-    .cal-day-cell {
-
-        // @include media-breakpoint(lg) {
-        //     min-height: 150px;
-        // }
-
-        // @include media-breakpoint(gt-lg) {
-        //     min-height: 200px;
-        // }
-
-        // &.cal-open {
-        //     @include mat-elevation(3);
-        // }
     }
 
     .cal-open-day-events {
@@ -41,7 +26,6 @@
             align-items: center;
             justify-content: start;
             background-color: white;
-            // @include mat-elevation(1);
             transition: box-shadow 300ms ease;
 
             &:first-of-type {
@@ -52,9 +36,7 @@
                 margin-bottom: 16px;
             }
 
-            &:hover {
-                // @include mat-elevation(3);
-            }
+
 
             .cal-event {
                 top: 0;
@@ -121,7 +103,7 @@
 
             .cal-event-title {
                 display: block;
-                //padding: 21px 24px;
+                padding: 21px 24px;
                 line-height: 1;
                 text-decoration: none;
                 color: black;
@@ -208,11 +190,7 @@
         background-color: #FAFAFA;
         color: #FFFFFF;
 
-        // @include media-breakpoint(xs) {
-        //     height: 164px;
-        //     min-height: 164px;
-        //     max-height: 164px;
-        // }
+
 
         &:before {
             content: '';

@@ -76,22 +76,8 @@ export class CalendarComponent implements OnInit {
 
       ngOnInit()
       {
-          /**
-           * Watch re-render-refresh for updating db
-           */
-        //   this.refresh.subscribe(updateDB => {
-        //       // console.warn('REFRESH');
-        //       if ( updateDB )
-        //       {
-        //           // console.warn('UPDATE DB');
-        //           this.calendarService.updateEvents(this.events);
-        //       }
-        //   });
 
-        //   this.calendarService.onEventsUpdated.subscribe(events => {
               this.setEvents();
-            //   this.refresh.next();
-        //   });
       }
 
       setEvents()
@@ -109,7 +95,6 @@ export class CalendarComponent implements OnInit {
        */
       beforeMonthViewRender({header, body})
       {
-          // console.info('beforeMonthViewRender');
           /**
            * Get the selected day
            */
@@ -164,7 +149,6 @@ export class CalendarComponent implements OnInit {
       {
           event.start = newStart;
           event.end = newEnd;
-          // console.warn('Dropped or resized', event);
           this.refresh.next(true);
       }
 
