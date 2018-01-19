@@ -4,7 +4,7 @@ import {animate, AnimationBuilder, AnimationPlayer, style} from '@angular/animat
 import {NavigationEnd, Router} from '@angular/router';
 
 @Injectable()
-export class SplashScreenService {
+export class FuseSplashScreenService {
   splashScreenEl;
   public player: AnimationPlayer;
 

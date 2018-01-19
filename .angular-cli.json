@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
-    "name": "flox"
+    "name": "primavera"
   },
   "apps": [
     {
@@ -9,7 +9,6 @@
       "outDir": "dist",
       "assets": [
         "assets",
-        "lang",
         "favicon.ico"
       ],
       "index": "index.html",

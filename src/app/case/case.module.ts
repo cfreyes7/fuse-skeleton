@@ -1,16 +1,15 @@
 import {NgModule} from '@angular/core';
-import {SharedModule} from '../shared/shared.module';
+import {QuickCaseComponent} from './components/quick-case/quick-case.component';
+import {SharedModule} from '../core/modules/shared.module';
 import {RouterModule} from '@angular/router';
-import {routes} from './case.router';
-import {CaseDashboardComponent} from './components/case-dashboard/case-dashboard.component';
-import { QuickCaseComponent } from './components/quick-case/quick-case.component';
+import {routes} from './case.routes';
 
 @NgModule({
   imports: [
     SharedModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [CaseDashboardComponent, QuickCaseComponent]
+  declarations: [QuickCaseComponent]
 })
 export class CaseModule {
 }
