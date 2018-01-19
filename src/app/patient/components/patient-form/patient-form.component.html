@@ -7,56 +7,88 @@
       <mat-tab-group>
         <mat-tab label="General">
           <h3>Personal Information</h3>
-          <mat-form-field>
-            <input matInput formControlName="firstName" placeholder="First Name" />
-          </mat-form-field>
-          <mat-form-field>
-            <input matInput formControlName="lastName" placeholder="Last Name" />
-          </mat-form-field>
-          <mat-form-field>
-            <input matInput formControlName="socialSecurity" placeholder="Social Security" />
-          </mat-form-field>
-          <mat-form-field>
-            <input matInput formControlName="maritalStatus" placeholder="Marital Status" />
-          </mat-form-field>
-          <mat-form-field>
-            <input matInput [matDatepicker]="picker" placeholder="Date Birthday" />
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker formControlName="dob"></mat-datepicker>
-          </mat-form-field>
-          <mat-form-field>
-            <mat-chip-list #chipLanguages formControlName="language">
-              <mat-chip [selectable]="true" [removable]="true" *ngFor="let lang of languages" (remove)="removeLanguage(lang)">
-                {{lang}}
-                <mat-icon matChipRemove>cancel</mat-icon>
-              </mat-chip>
-              <input placeholder="Add new language"
-                     [matChipInputFor]="chipLanguages"
-                     [matChipInputAddOnBlur]="true"
-                     (matChipInputTokenEnd)="addLanguage($event)" />
-            </mat-chip-list>
-          </mat-form-field>
-          <mat-select placeholder="Ethnicity" formControlName="ethnicity">
-            <mat-option *ngFor="let eth of ethnicities" [value]="eth">
-              {{ eth }}
-            </mat-option>
-          </mat-select>
+          <div fxLayout="row" fxLayoutWrap="20px">
+            <mat-form-field fxFlex>
+              <input matInput formControlName="firstName" placeholder="First Name" />
+            </mat-form-field>
+            <mat-form-field fxFlex>
+              <input matInput formControlName="lastName" placeholder="Last Name" />
+            </mat-form-field>
+          </div>
+          <div fxLayout="row" fxLayoutWrap="20px">
+            <mat-form-field fxFlex>
+              <input matInput formControlName="socialSecurity" placeholder="Social Security" />
+            </mat-form-field>
+            <mat-form-field fxFlex>
+              <input matInput formControlName="maritalStatus" placeholder="Marital Status" />
+            </mat-form-field>
+          </div>
+          <div fxLayout="row" fxLayoutWrap="20px">
+            <mat-form-field fxFlex>
+              <input matInput [matDatepicker]="picker" placeholder="Date Birthday" />
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker formControlName="dob"></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field fxFlex>
+              <mat-chip-list #chipLanguages formControlName="language">
+                <mat-chip [selectable]="true" [removable]="true" *ngFor="let lang of languages" (remove)="removeLanguage(lang)">
+                  {{lang}}
+                  <mat-icon matChipRemove>cancel</mat-icon>
+                </mat-chip>
+                <input placeholder="Add new language"
+                       [matChipInputFor]="chipLanguages"
+                       [matChipInputAddOnBlur]="true"
+                       (matChipInputTokenEnd)="addLanguage($event)" />
+              </mat-chip-list>
+            </mat-form-field>
+          </div>
+          <div fxLayout="row" fxLayoutWrap="20px">
+            <mat-select placeholder="Gender" formControlName="gender" fxFlex>
+              <mat-option *ngFor="let gender of genders" [value]="gender">
+                {{ gender }}
+              </mat-option>
+            </mat-select>
+            <mat-select placeholder="Ethnicity" formControlName="ethnicity" fxFlex>
+              <mat-option *ngFor="let eth of ethnicities" [value]="eth">
+                {{ eth }}
+              </mat-option>
+            </mat-select>
+          </div>
           <h4>Insurance</h4>
           <mat-checkbox formControlName="insPrimary">Primary</mat-checkbox>
-          <mat-form-field>
-            <input matInput formControlName="insGroupName" placeholder="Group Name" />
-          </mat-form-field>
-          <mat-form-field>
-            <input matInput formControlName="insGroupId" placeholder="Group Id" />
-          </mat-form-field>
-          <mat-form-field>
-            <input matInput formControlName="insPlanCode" placeholder="Plan Code" />
-          </mat-form-field>
-          <mat-form-field>
-            <input matInput formControlName="insClaimMember" placeholder="Claim Member" />
-          </mat-form-field>
+          <div fxLayout="row" fxLayoutWrap="20px">
+            <mat-form-field fxFlex>
+              <input matInput formControlName="insGroupName" placeholder="Group Name" />
+            </mat-form-field>
+            <mat-form-field fxFlex>
+              <input matInput formControlName="insGroupId" placeholder="Group Id" />
+            </mat-form-field>
+          </div>
+          <div fxLayout="row" fxLayoutWrap="20px">
+            <mat-form-field fxFlex>
+              <input matInput formControlName="insPlanCode" placeholder="Plan Code" />
+            </mat-form-field>
+            <mat-form-field fxFlex>
+              <input matInput formControlName="insClaimMember" placeholder="Claim Member" />
+            </mat-form-field>
+          </div>
         </mat-tab>
-        <mat-tab label="Employment">Content 2</mat-tab>
+        <mat-tab label="Employment">
+          <h3>Work Information</h3>
+          <mat-select placeholder="Employee status" formControlName="workStatus" fxFlex>
+            <mat-option *ngFor="let status of employeeStatuses" [value]="status">
+              {{ status }}
+            </mat-option>
+          </mat-select>
+          <div fxLayout="row" fxLayoutWrap="20px">
+            <mat-form-field fxFlex>
+              <input matInput formControlName="workEmployeeName" placeholder="Employee name" />
+            </mat-form-field>
+            <mat-form-field fxFlex>
+              <input matInput formControlName="workEmployeeNumber" placeholder="Work phone" />
+            </mat-form-field>
+          </div>
+        </mat-tab>
         <mat-tab label="Registration"></mat-tab>
       </mat-tab-group>
     </form>
