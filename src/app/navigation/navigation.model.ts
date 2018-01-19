@@ -70,13 +70,6 @@ export class FuseNavigationModel implements FuseNavigationModelInterface {
               'icon': 'description',
               'url': '/app/report/task',
               'exactMatch': true
-            }, {
-              'id': 'poc',
-              'title': 'POC Metrics',
-              'type': 'item',
-              'url': '/app/report/poc',
-              'icon': 'description',
-              'exactMatch': true
             }]
           }
         ]
