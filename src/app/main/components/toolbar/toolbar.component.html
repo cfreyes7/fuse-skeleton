@@ -1,4 +1,4 @@
-<mat-toolbar class="p-0 mat-elevation-z1">
+<mat-toolbar class="p-0">
 
   <mat-progress-bar *ngIf="showLoadingBar" class="loading-bar" color="accent" mode="indeterminate"></mat-progress-bar>
 
@@ -55,11 +55,7 @@
 
       </mat-menu>
 
-      <div class="toolbar-separator"></div>
-
       <fuse-search-bar (onInput)="search($event)"></fuse-search-bar>
-
-      <div class="toolbar-separator"></div>
 
       <button mat-button fxHide fxShow.gt-xs
               class="language-button"
@@ -80,8 +76,6 @@
         </button>
 
       </mat-menu>
-
-      <div class="toolbar-separator" fxHide fxShow.gt-xs></div>
 
       <button mat-icon-button (click)="displayQuickCase()"
               class="mat-icon-button quick-panel-toggle-button"

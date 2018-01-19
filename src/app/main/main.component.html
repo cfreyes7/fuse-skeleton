@@ -4,7 +4,7 @@
 
     <!-- TOOLBAR: Above -->
     <ng-container *ngIf="fuseSettings.layout.toolbar === 'above'">
-      <fuse-toolbar class="above" [ngClass]="fuseSettings.colorClasses.toolbar"></fuse-toolbar>
+      <fuse-toolbar class="above"></fuse-toolbar>
     </ng-container>
     <!-- / TOOLBAR: Above -->
 
@@ -29,7 +29,7 @@
 
         <!-- TOOLBAR: Below -->
         <ng-container *ngIf="fuseSettings.layout.toolbar === 'below'">
-          <fuse-toolbar class="below" [ngClass]="fuseSettings.colorClasses.toolbar"></fuse-toolbar>
+          <fuse-toolbar class="below"></fuse-toolbar>
         </ng-container>
         <!-- / TOOLBAR: Below -->
 
@@ -49,11 +49,34 @@
     </div>
 
   </div>
+  <button class="fab-actions" mat-fab [matMenuTriggerFor]="appMenu">
+    <mat-icon>add</mat-icon>
+  </button>
 
   <!-- QUICK PANEL -->
-  <mat-sidenav position="end" mode="over" disableClose>
+  <mat-sidenav class="form-container" position="end" mode="over" disableClose>
     <router-outlet name="form"></router-outlet>
   </mat-sidenav>
   <!-- / QUICK PANEL -->
 
 </mat-sidenav-container>
+<mat-menu #appMenu="matMenu" overlapTrigger="false" class="fab-menu-panel">
+  <div class="menu-item">
+    <span class="item-title">New Patient</span>
+    <button mat-mini-fab>
+      <mat-icon>person_add</mat-icon>
+    </button>
+  </div>
+  <div class="menu-item">
+    <span class="item-title">New Task</span>
+    <button mat-mini-fab>
+      <mat-icon>assignment</mat-icon>
+    </button>
+  </div>
+  <div class="menu-item">
+    <span class="item-title">New Case</span>
+    <button mat-mini-fab (click)="displayQuickCase()">
+      <mat-icon>create_new_folder</mat-icon>
+    </button>
+  </div>
+</mat-menu>
