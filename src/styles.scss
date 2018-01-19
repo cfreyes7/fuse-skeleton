@@ -53,3 +53,8 @@
   @include mat-elevation(2);
   margin-bottom: 10px;
 }
+
+.search-wrapper {
+  background: mat-color($background, card);
+  @include mat-elevation(3);
+}
