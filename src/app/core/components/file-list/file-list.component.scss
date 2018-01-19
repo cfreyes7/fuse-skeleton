@@ -1,0 +1,19 @@
+:host {
+  display: block;
+}
+
+.file-item {
+  display: inline-block;
+  position: relative;
+  background: #efefef;
+  width: 130px;
+  height: 115px;
+
+  button {
+    width: 100%;
+  }
+
+  .description {
+    background: white;
+  }
+}
