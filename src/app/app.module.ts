@@ -3,15 +3,15 @@ import {BrowserModule} from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {RouterModule} from '@angular/router';
+import {TranslateModule} from '@ngx-translate/core';
 import 'hammerjs';
-import {SharedModule} from './core/modules/shared.module';
+import {routes} from './app.routes';
 import {AppComponent} from './app.component';
+import {SharedModule} from './core/modules/shared.module';
 import {FuseMainModule} from './main/main.module';
 import {FuseSplashScreenService} from './core/services/splash-screen.service';
 import {FuseConfigService} from './core/services/config.service';
 import {FuseNavigationService} from './core/components/navigation/navigation.service';
-import {TranslateModule} from '@ngx-translate/core';
-import {routes} from './app.routes';
 import {FormContentService} from './core/services/form-content.service';
 import {FormValidatorService} from './core/services/form-validator.service';
 
@@ -33,7 +33,7 @@ import {FormValidatorService} from './core/services/form-validator.service';
     FuseConfigService,
     FuseNavigationService,
     FormContentService,
-    FormValidatorService
+    FormValidatorService,
   ],
   bootstrap: [
     AppComponent

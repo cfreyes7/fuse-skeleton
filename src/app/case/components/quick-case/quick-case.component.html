@@ -3,9 +3,189 @@
     <mat-toolbar>
       New Case
     </mat-toolbar>
+    <div class="divider"></div>
+    <form [formGroup]="caseForm" class="ml-24" novalidate id="quickCaseForm" (ngSubmit)="onSubmit(caseForm)">
+      <div fxLayout="row">
+        <mat-form-field fxFlex="30">
+          <mat-select placeholder="Type">
+            <mat-option *ngFor="let type of types" [value]="type.value">
+              {{ type.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div fxFlex="10"></div>
+        <mat-form-field fxFlex="20">
+          <mat-select placeholder="Status">
+            <mat-option *ngFor="let stat of status" [value]="stat.value">
+              {{ stat.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div fxFlex="10"></div>
+        <mat-form-field fxFlex="30">
+          <mat-select placeholder="Center">
+            <mat-option *ngFor="let center of centers" [value]="center.value">
+              {{ center.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="divider"></div>
+      <div fxLayout="row" fxLayoutAlign="center center">
+        <div class="text-right pr-8" fxFlex="150px">
+          <mat-checkbox formControlName="linkPatient">Link a Patient</mat-checkbox>
+        </div>
+        <div fxFlex="100">
+          <mat-form-field>
+            <mat-chip-list #chipList>
+              <mat-chip *ngFor="let patient of patients" (remove)="removePatient(patient)" [selectable]="selectable" [removable]="removable">
+                <img class="avatar small" src="assets/images/avatars/andrew.jpg">
+                {{patient.name}}
+                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+              </mat-chip>
+              <input [matChipInputFor]="chipList"
+                     [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                     [matChipInputAddOnBlur]="addOnBlur"
+                     (matChipInputTokenEnd)="addPatient($event)">
+            </mat-chip-list>
+          </mat-form-field>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center center">
+        <div fxLayout="column" fxFlex="100">
+          <div fxLayout="row" fxLayoutAlign="start start" class="text-right pr-8">
+            Main DX:
+          </div>
+          <div fxFlex="100">
+            <mat-form-field class="chip-list">
+              <mat-chip-list #chipList>
+                <mat-chip *ngFor="let chip of chips"  (remove)="removeChip(chip)" [selectable]="selectable" [removable]="removable">
+                  {{chip.name}}
+                  <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                </mat-chip>
+                <input [matChipInputFor]="chipList"
+                       [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                       [matChipInputAddOnBlur]="addOnBlur"
+                       (matChipInputTokenEnd)="addChip($event)">
+              </mat-chip-list>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <div fxLayout="row">
+        <div fxFlex="8"></div>
+        <mat-form-field fxFlex="67">
+          <mat-select placeholder="PCP">
+            <mat-option *ngFor="let pcp of pcps" [value]="pcp.value">
+              {{ pcp.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div fxFlex="5"></div>
+        <div fxFlex="20" fxLayoutAlign="start center">
+          <mat-checkbox formControlName="linkPatient">Notify PCP</mat-checkbox>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="end center">
+        <div fxFlex="8"></div>
+        <mat-form-field fxFlex="32">
+          <input matInput [matDatepicker]="start" placeholder="Admision Notification">
+          <mat-datepicker-toggle matSuffix [for]="start"></mat-datepicker-toggle>
+          <mat-datepicker #start></mat-datepicker>
+        </mat-form-field>
+        <div fxFlex="3"></div>
+        <mat-form-field fxFlex="32">
+          <input matInput [matDatepicker]="end" placeholder="Admision Notification">
+          <mat-datepicker-toggle matSuffix [for]="end"></mat-datepicker-toggle>
+          <mat-datepicker #end></mat-datepicker>
+        </mat-form-field>
+        <div fxFlex="5"></div>
+        <div fxFlex="20">
+          <span>Yes</span>
+          <mat-slide-toggle color="accent"></mat-slide-toggle>
+          <span>No</span>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div fxLayout="row" fxLayoutAlign="end center">
+        <mat-form-field fxFlex="35">
+          <mat-select placeholder="Planned">
+            <mat-option *ngFor="let planned of planneds" [value]="planned.value">
+              {{ planned.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div fxFlex="2"></div>
+        <mat-form-field fxFlex="24">
+          <input matInput [matDatepicker]="date" placeholder="Dicharged Date">
+          <mat-datepicker-toggle matSuffix [for]="date"></mat-datepicker-toggle>
+          <mat-datepicker #date></mat-datepicker>
+        </mat-form-field>
+        <div fxFlex="2"></div>
+        <mat-form-field fxFlex="35">
+          <mat-select placeholder="DX / QA">
+            <mat-option *ngFor="let dx of dxs" [value]="dx.value">
+              {{ dx.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="end center">
+        <mat-form-field fxFlex="73">
+          <mat-select placeholder="Facility">
+            <mat-option *ngFor="let fac of facility" [value]="fac.value">
+              {{ fac.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div fxFlex="5"></div>
+        <div fxFlex="20">
+          <span>Yes</span>
+          <mat-slide-toggle color="accent"></mat-slide-toggle>
+          <span>No</span>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div fxLayout="row" fxLayoutAlign="center center">
+        <div fxLayout="column" fxFlex="100">
+          <div fxLayout="row" fxLayoutAlign="start start" class="text-right pr-8">
+            Assigned to(CM):
+          </div>
+          <div fxFlex="100">
+            <mat-form-field>
+              <mat-chip-list #chipList>
+                <mat-chip *ngFor="let assigned of assigneds"  (remove)="removeAssign(assigned)"[selectable]="selectable" [removable]="removable">
+                  <img class="avatar small" src="assets/images/avatars/alice.jpg">
+                  {{assigned.name}}
+                  <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                </mat-chip>
+                <input [matChipInputFor]="chipList"
+                       [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                       [matChipInputAddOnBlur]="addOnBlur"
+                       (matChipInputTokenEnd)="addAssign($event)">
+              </mat-chip-list>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <div fxLayout="row">
+        <div fxFlex="20">
+          <h3 class="subheading-1 text-bold">Attached Notes</h3>
+        </div>
+        <div fxFlex="60"></div>
+        <div fxFlex="20">
+          <div>
+            <flox-upload multiple [fileList]="fileList" formControlName="files"></flox-upload>
+          </div>
+        </div>
+      </div>
+      <div fxLayout="row">
+        <flox-file-list #fileList></flox-file-list>
+      </div>
+    </form>
   </div>
   <mat-toolbar fxLayout="row" fxLayoutAlign="center center" class="bottom-bar">
-    <button mat-button (click)="close()" type="button">Cancel</button>
-    <button mat-button color="primary" type="submit">Create Case</button>
+    <button mat-button (click)="close()" type="button">{{'Cancel' | uppercase }}</button>
+    <button mat-button color="accent" form="quickCaseForm" type="submit">{{'Save' | uppercase }}</button>
   </mat-toolbar>
 </div>

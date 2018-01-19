@@ -10,13 +10,13 @@ export class FileListComponent {
 
   fileList: File[] = [];
 
-  private _uploadInput: UploadComponent;
+  private uploadInput: UploadComponent;
 
   constructor() {
   }
 
   linkInput(input: UploadComponent) {
-    this._uploadInput = input;
+    this.uploadInput = input;
   }
 
   addFile(file: File, multipe = false) {
@@ -46,8 +46,9 @@ export class FileListComponent {
 
   removeByPos(index: number) {
     this.fileList.splice(index, 1);
-    if (this._uploadInput) {
-      this._uploadInput.updateSelection(this.fileList);
+    if (this.uploadInput) {
+      this.uploadInput.updateSelection(this.fileList);
     }
   }
 }
+
