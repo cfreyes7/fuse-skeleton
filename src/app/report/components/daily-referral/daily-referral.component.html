@@ -15,7 +15,7 @@
         <mat-icon>arrow_drop_down</mat-icon>
       </button>
 
-      <mat-menu #menuDaily="matMenu">
+      <mat-menu #menuDaily="matMenu" overlapTrigger="false">
         <button mat-menu-item>
           <mat-icon>dialpad</mat-icon>
           <span>Redial</span>
@@ -35,7 +35,7 @@
         <mat-icon>arrow_drop_down</mat-icon>
       </button>
 
-      <mat-menu #menuCenter="matMenu">
+      <mat-menu #menuCenter="matMenu" overlapTrigger="false">
         <button mat-menu-item>
           <mat-icon>dialpad</mat-icon>
           <span>Redial</span>
@@ -93,5 +93,41 @@
       </div>
     </mat-card>
   </div>
+
+  <div fxLayout="row" fxLayoutAlign="center center">
+    <div class="table-container">
+      <mat-table #table [dataSource]="dataSource" class="table">
+        <div id="row-container">
+          <ng-container matColumnDef="date">
+            <mat-header-cell *matHeaderCellDef> Date</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.date}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="mbmd">
+            <mat-header-cell *matHeaderCellDef> Daily Referrals Received MBBR/MBMD</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.mbmd}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="mbme">
+            <mat-header-cell *matHeaderCellDef> Daily Referrals Received MBME</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.mbme}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="mbmh">
+            <mat-header-cell *matHeaderCellDef> Daily Referrals Received MBMN/MBMH</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.mbmh}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="mmwh">
+            <mat-header-cell *matHeaderCellDef> Daily Referrals Received MMWH</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.mmwh}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="mmww">
+            <mat-header-cell *matHeaderCellDef> Daily Referrals Received MMWW</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.mmww}}</mat-cell>
+          </ng-container>
+        </div>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+    </div>
+  </div>
+
 </div>
 

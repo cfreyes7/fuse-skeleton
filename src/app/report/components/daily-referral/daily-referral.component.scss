@@ -20,3 +20,7 @@ span {
   color: mat-color($foreground, secondary-text);
 }
 
+.mat-column-date {
+  max-width: 64px;
+}
+
