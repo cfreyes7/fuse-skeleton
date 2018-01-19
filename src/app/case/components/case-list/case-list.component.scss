@@ -4,8 +4,3 @@
 :host {
   display: block;
 }
-
-.search-wrapper {
-  background: mat-color($background, card);
-  @include mat-elevation(3);
-}
