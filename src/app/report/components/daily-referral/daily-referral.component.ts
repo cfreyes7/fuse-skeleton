@@ -9,6 +9,7 @@ import {MatTableDataSource} from '@angular/material';
 export class DailyReferralComponent implements OnInit {
   displayedColumns = ['date', 'mbmd', 'mbme', 'mbmh', 'mmwh', 'mmww'];
   dataSource = new MatTableDataSource<Element>(REPORT_DATA);
+  dateSelected: Date = new Date();
 
   constructor() {
   }
