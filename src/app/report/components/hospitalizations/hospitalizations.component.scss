@@ -1,58 +1,36 @@
 @import '../../../core/scss/variables/theme';
 @import '~@angular/material/theming';
 
+.main-container {
+  padding: 2% 3%;
+  width: 100%;
+  .example-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 3%;
+  }
+  .mat-table {
+    overflow: auto;
+    max-height: 500px;
+  }
+}
+
 span {
   color: mat-color($foreground, secondary-text);
 }
 
 .mat-column-center,
 .mat-column-insurance,
-.mat-column-facility {
+.mat-column-facility,
+.mat-column-admision_date {
   max-width: 85px;
 }
 
-.mat-column-discharged_date,
-.mat-column-admision_date {
+.mat-column-discharged_date {
   max-width: 130px;
 }
 
 .mat-column-pcp {
   max-width: 100px;
 }
-
-.flox-avatar-wrapper {
-  position: relative;
-
-  .flox-avatar {
-    height: 60px;
-    width: 60px;
-    border-radius: 50%;
-
-    &.small {
-      height: 30px;
-      width: 30px;
-    }
-
-    &.huge {
-      height: 90px;
-      width: 90px;
-    }
-
-  }
-
-  .flox-status {
-    align-items: center;
-    background: mat-color($accent, 500);
-    border-radius: 50%;
-    bottom: 0;
-    color: white;
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    right: 0;
-    width: 30px;
-    height: 30px;
-  }
-
-}
-

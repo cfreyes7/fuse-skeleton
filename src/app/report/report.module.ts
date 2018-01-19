@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
+import {MatTableModule} from '@angular/material';
 import {HospitalizationsComponent} from './components/hospitalizations/hospitalizations.component';
 import {DailyReferralComponent} from './components/daily-referral/daily-referral.component';
 import {TaskReportsComponent} from './components/task-reports/task-reports.component';
@@ -10,6 +11,7 @@ import {routes} from './report.routes';
 @NgModule({
   imports: [
     SharedModule,
+    MatTableModule,
     RouterModule.forChild(routes)
   ],
   declarations: [
