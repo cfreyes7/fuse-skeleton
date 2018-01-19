@@ -1,3 +1,68 @@
-<p>
-  hospitalizations works!
-</p>
+<div class="main-container">
+  <div fxLayout="row" fxLayoutGap="20px">
+    <div fxFlex="100" fxLayout="row" fxLayoutAlign="start center" id="header">
+      <span class="h1">Dashboard - Reports</span>
+      <mat-icon>keyboard_arrow_right</mat-icon>
+      <span class="h1">Summary Report</span>
+    </div>
+    <div fxLayout="row" fxFlex="100" fxLayoutAlign="end center" fxLayoutGap="20px">
+      <button mat-raised-button>
+        <mat-icon>file_download</mat-icon>
+        EXPORT
+      </button>
+      <button mat-raised-button>
+        <mat-icon>print</mat-icon>
+        PRINT
+      </button>
+    </div>
+  </div>
+
+  <div fxLayout="row" fxLayoutAlign="center center">
+    <div class="example-container mat-elevation-z8">
+      <mat-table #table [dataSource]="dataSource">
+        <div id="row-container">
+          <ng-container matColumnDef="patient">
+            <mat-header-cell *matHeaderCellDef> Patient</mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <div fxFlex class="text-center py-12" fxLayout="row" fxLayoutAlign="start center">
+                <div class="pr-4 flox-avatar-wrapper">
+                  <img class="flox-avatar small" src="assets/images/avatars/alice.jpg" alt="">
+                </div>
+                <div>
+                  <div class="mat-subheading-1 mb-0 text-left">{{element.patient}}</div>
+                  <span class="mat-caption">Male, 35y / Feb 12 - 1990</span>
+                </div>
+              </div>
+            </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="center">
+            <mat-header-cell *matHeaderCellDef> Center</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.center}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="pcp">
+            <mat-header-cell *matHeaderCellDef> PCP</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.pcp}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="insurance">
+            <mat-header-cell *matHeaderCellDef> Insurance</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.insurance}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="admision_date">
+            <mat-header-cell *matHeaderCellDef> Admision Date</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.admision_date}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="discharged_date">
+            <mat-header-cell *matHeaderCellDef> Discharged Date</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.discharged_date}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="facility">
+            <mat-header-cell *matHeaderCellDef> Facility</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.facility}}</mat-cell>
+          </ng-container>
+        </div>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+    </div>
+  </div>
+</div>
