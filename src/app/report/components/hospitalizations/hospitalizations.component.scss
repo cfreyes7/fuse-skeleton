@@ -1,0 +1,36 @@
+@import '../../../core/scss/variables/theme';
+@import '~@angular/material/theming';
+
+.main-container {
+  padding: 2% 3%;
+  width: 100%;
+  .example-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 3%;
+  }
+  .mat-table {
+    overflow: auto;
+    max-height: 500px;
+  }
+}
+
+span {
+  color: mat-color($foreground, secondary-text);
+}
+
+.mat-column-center,
+.mat-column-insurance,
+.mat-column-facility,
+.mat-column-admision_date {
+  max-width: 85px;
+}
+
+.mat-column-discharged_date {
+  max-width: 130px;
+}
+
+.mat-column-pcp {
+  max-width: 100px;
+}
