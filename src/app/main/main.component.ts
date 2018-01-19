@@ -25,8 +25,8 @@ export class FuseMainComponent implements OnInit, AfterViewInit, OnDestroy {
               private _elementRef: ElementRef,
               private fuseConfig: FuseConfigService,
               private platform: Platform,
-              private formContent: FormContentService,
               private router: Router,
+              private formContent: FormContentService,
               @Inject(DOCUMENT) private document: any) {
     this.onSettingsChanged =
       this.fuseConfig.onSettingsChanged

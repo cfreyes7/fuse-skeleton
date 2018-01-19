@@ -10,10 +10,5 @@ export const routes: Routes = [
   {
     path: 'list',
     component: CaseListComponent
-  },
-  {
-    path: '',
-    redirectTo: 'list',
-    pathMatch: 'full'
   }
 ];
