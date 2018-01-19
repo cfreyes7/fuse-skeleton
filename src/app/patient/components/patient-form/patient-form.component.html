@@ -3,7 +3,7 @@
     <mat-toolbar>
       New Patient
     </mat-toolbar>
-    <form formGroup="patientForm">
+    <form [formGroup]="patientForm">
       <mat-tab-group>
         <mat-tab label="General">
           <h3>Personal Information</h3>
@@ -25,7 +25,7 @@
             <mat-datepicker #picker formControlName="dob"></mat-datepicker>
           </mat-form-field>
           <mat-form-field>
-            <mat-chip-list #chipLanguages [formControlName]="language">
+            <mat-chip-list #chipLanguages formControlName="language">
               <mat-chip [selectable]="true" [removable]="true" *ngFor="let lang of languages" (remove)="removeLanguage(lang)">
                 {{lang}}
                 <mat-icon matChipRemove>cancel</mat-icon>
@@ -36,17 +36,13 @@
                      (matChipInputTokenEnd)="addLanguage($event)" />
             </mat-chip-list>
           </mat-form-field>
-          <mat-form-field>
-            <mat-select placeholder="Ethnicity" formControlName="ethnicity">
-              <mat-option *ngFor="let eth of ethnicities" [value]="eth">
-                {{ eth }}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
+          <mat-select placeholder="Ethnicity" formControlName="ethnicity">
+            <mat-option *ngFor="let eth of ethnicities" [value]="eth">
+              {{ eth }}
+            </mat-option>
+          </mat-select>
           <h4>Insurance</h4>
-          <mat-form-field>
-            <mat-checkbox [formControlName]="insPrimary">Primary</mat-checkbox>
-          </mat-form-field>
+          <mat-checkbox formControlName="insPrimary">Primary</mat-checkbox>
           <mat-form-field>
             <input matInput formControlName="insGroupName" placeholder="Group Name" />
           </mat-form-field>
@@ -67,6 +63,6 @@
   </div>
   <mat-toolbar fxLayout="row" fxLayoutAlign="center center" class="bottom-bar">
     <button mat-button (click)="close()" type="button">{{'Cancel' | uppercase}}</button>
-    <button mat-button color="primary" type="submit">{{'Save information' | uppercase}}</button>
+    <button mat-button color="primary" type="submit">{{'Save' | uppercase}}</button>
   </mat-toolbar>
 </div>
