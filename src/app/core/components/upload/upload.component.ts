@@ -1,7 +1,7 @@
 import {Component, ElementRef, forwardRef, Input, OnInit, ViewChild} from '@angular/core';
-import {FileListComponent} from '../file-list/file-list.component';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {coerceBooleanProperty} from '@angular/cdk/coercion';
+import {FileListComponent} from '../file-list/file-list.component';
 
 @Component({
   selector: 'flox-upload',
@@ -27,13 +27,13 @@ export class UploadComponent implements OnInit, ControlValueAccessor {
 
   modelValue: any;
 
-  private _multiple: boolean;
+  private multipleUp: boolean;
 
   onChange = (v: any) => {
-  };
+  }
 
   onTouched = () => {
-  };
+  }
 
   constructor() {
   }
@@ -45,12 +45,12 @@ export class UploadComponent implements OnInit, ControlValueAccessor {
   }
 
   get multiple(): boolean {
-    return this._multiple;
+    return this.multipleUp;
   }
 
   @Input()
   set multiple(value: boolean) {
-    this._multiple = coerceBooleanProperty(value);
+    this.multipleUp = coerceBooleanProperty(value);
   }
 
   writeValue(value: any): void {
@@ -94,7 +94,9 @@ export class UploadComponent implements OnInit, ControlValueAccessor {
   }
 
   updateSelection(files: File[]) {
-    this.modelValue = files.length ? (this.multiple ? files : files[0]) : null;
+    this.modelValue = this.multiple
+      ? (files.length ? files : null)
+      : (files.length ? files[0] : null);
     this.onChange(this.modelValue);
   }
 }

@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { FileListComponent } from './file-list.component';
+import {NO_ERRORS_SCHEMA} from '@angular/core';
 
 describe('FileListComponent', () => {
   let component: FileListComponent;
@@ -8,9 +8,10 @@ describe('FileListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FileListComponent ]
+      declarations: [ FileListComponent ],
+      schemas: [NO_ERRORS_SCHEMA]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

@@ -1,11 +1,131 @@
 <div fxLayout="column" fxFill>
-  <div fxFlex="100" class="pl-12 pr-12" style="overflow-y: auto" fusePerfectScrollbar>
+  <div fxFlex="100" class="pl-12 pr-12" style="overflow-y: auto" FusePerfectScrollbar>
     <mat-toolbar>
       New Case
     </mat-toolbar>
+    <hr>
+    <form [formGroup]="caseForm" class="ml-24" novalidate id="quickCaseForm" (ngSubmit)="onSubmit(caseForm)">
+      <div fxLayout="row">
+        <mat-form-field fxFlex="25">
+          <mat-select placeholder="Type">
+            <mat-option *ngFor="let type of types" [value]="type.value">
+              {{ type.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div fxFlex="5"></div>
+        <mat-form-field fxFlex="25">
+          <mat-select placeholder="Status">
+            <mat-option *ngFor="let stat of status" [value]="stat.value">
+              {{ stat.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <hr>
+      <div fxLayout="row" fxLayoutAlign="center center">
+        <div class="text-right pr-8" fxFlex="150px">
+          <mat-checkbox formControlName="linkPatient">Link a Patient</mat-checkbox>
+        </div>
+        <div fxFlex="100">
+          <mat-form-field>
+            <mat-chip-list #chipList>
+              <mat-chip [selectable]="true" [removable]="true">
+                <img class="avatar" src="assets/images/avatars/andrew.jpg">
+                John Doe
+                <mat-icon matChipRemove>cancel</mat-icon>
+              </mat-chip>
+              <input [matChipInputFor]="chipList">
+            </mat-chip-list>
+          </mat-form-field>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center center">
+        <div fxLayout="column" fxFlex="100">
+          <div fxLayout="row" fxLayoutAlign="start start" class="text-right pr-8">
+            Main DX:
+          </div>
+          <div fxFlex="100">
+            <mat-form-field>
+              <mat-chip-list #chipList>
+                <mat-chip [selectable]="true" [removable]="true">
+                  150.9 HEART FAILURE UNESPECIFIED
+                  <mat-icon matChipRemove>cancel</mat-icon>
+                </mat-chip>
+                <mat-chip [selectable]="true" [removable]="true">
+                  N39.0 UTI SITE NOT SPECIFIC
+                  <mat-icon matChipRemove>cancel</mat-icon>
+                </mat-chip>
+                <mat-chip [selectable]="true" [removable]="true">
+                  N39.0 UTI SITE NOT SPECIFIC
+                  <mat-icon matChipRemove>cancel</mat-icon>
+                </mat-chip>
+                <input [matChipInputFor]="chipList">
+              </mat-chip-list>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <div fxLayout="row">
+        <div fxFlex="30"></div>
+        <mat-form-field fxFlex="25">
+          <mat-select placeholder="Center">
+            <mat-option *ngFor="let center of centers" [value]="center.value">
+              {{ center.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div fxFlex="5"></div>
+        <mat-form-field fxFlex="40">
+          <mat-select placeholder="PCP">
+            <mat-option *ngFor="let pcp of pcps" [value]="pcp.value">
+              {{ pcp.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="end center">
+        <div fxFlex="60"></div>
+        <div class="text-right">
+          <mat-checkbox formControlName="linkPatient">Notify PCP</mat-checkbox>
+        </div>
+      </div>
+      <hr>
+      <div fxLayout="row" fxLayoutAlign="center center">
+        <div fxLayout="column" fxFlex="100">
+          <div fxLayout="row" fxLayoutAlign="start start" class="text-right pr-8">
+            Assigned to(CM):
+          </div>
+          <div fxFlex="100">
+            <mat-form-field>
+              <mat-chip-list #chipList>
+                <mat-chip [selectable]="true" [removable]="true">
+                  <img class="avatar" src="assets/images/avatars/alice.jpg">
+                  Liz Carrillo
+                  <mat-icon matChipRemove>cancel</mat-icon>
+                </mat-chip>
+                <input [matChipInputFor]="chipList">
+              </mat-chip-list>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <div fxLayout="row">
+        <div fxFlex="20">
+          <h3 class="subheading-1 text-bold">Attached Notes</h3>
+        </div>
+        <div fxFlex="60"></div>
+        <div fxFlex="20">
+          <flox-file-list #fileList></flox-file-list>
+          <div>
+            <flox-upload multiple [fileList]="fileList" formControlName="files"></flox-upload>
+          </div>
+        </div>
+      </div>
+    </form>
   </div>
   <mat-toolbar fxLayout="row" fxLayoutAlign="center center" class="bottom-bar">
     <button mat-button (click)="close()" type="button">Cancel</button>
-    <button mat-button color="primary" type="submit">Create Case</button>
+    <button mat-button color="primary" form="quickCaseForm" type="submit">Save Information</button>
   </mat-toolbar>
 </div>

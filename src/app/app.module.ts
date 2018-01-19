@@ -13,7 +13,7 @@ import {FuseNavigationService} from './core/components/navigation/navigation.ser
 import {TranslateModule} from '@ngx-translate/core';
 import {routes} from './app.routes';
 import {FormContentService} from './core/services/form-content.service';
-import {FormValidatorService} from './core/services/form-validator.service';
+import {FormValidatorService} from "./core/services/form-validator.service";
 
 @NgModule({
   declarations: [
