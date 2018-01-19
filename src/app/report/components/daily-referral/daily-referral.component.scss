@@ -1,23 +1,15 @@
 @import '../../../core/scss/variables/theme';
 @import '~@angular/material/theming';
 
-.table-container {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  margin-top: 3%;
-}
-
-.mat-table {
-  overflow: auto;
-  max-height: 500px;
-}
-
 span {
   color: mat-color($foreground, secondary-text);
 }
 
 .mat-column-date {
   max-width: 64px;
+}
+
+.mat-menu-panel {
+  max-width: 100% !important;
 }
 

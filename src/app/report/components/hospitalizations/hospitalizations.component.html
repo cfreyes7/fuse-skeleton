@@ -8,10 +8,23 @@
   </div>
   <div fxLayout="row" fxLayoutGap="20px">
     <div fxFlex="100" fxLayoutAlign="start center">
-      <button mat-raised-button>
+      <button mat-raised-button [matMenuTriggerFor]="menuDates">
         Dec 1, 2017 And Dec 05, 2017
         <mat-icon>arrow_drop_down</mat-icon>
       </button>
+
+      <mat-menu #menuDates="matMenu" overlapTrigger="false">
+        <div class="mat-typography container">
+          <div fxLayout="row" fxLayoutGap="50px" fxLayoutAlign="center">
+            <div fxLayout="column">
+              <mat-calendar [selected]="dateSelected"></mat-calendar>
+            </div>
+            <div fxLayout="column">
+              <mat-calendar [selected]="dateSelected"></mat-calendar>
+            </div>
+          </div>
+        </div>
+      </mat-menu>
     </div>
     <div fxLayout="row" fxFlex="100" fxLayoutAlign="end center" fxLayoutGap="20px">
       <button mat-raised-button>
@@ -26,7 +39,7 @@
   </div>
 
   <div fxLayout="row" fxLayoutAlign="center center">
-    <div class="table-container">
+    <div class="table-container mt-24">
       <mat-table #table [dataSource]="dataSource" class="table">
         <div id="row-container">
           <ng-container matColumnDef="patient">
