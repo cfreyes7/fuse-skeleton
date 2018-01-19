@@ -18,10 +18,15 @@ export class FuseNavigationModel implements FuseNavigationModelInterface {
       }, {
         'id': 'report',
         'title': 'Reports',
-        'translate': 'NAV.SAMPLE.TITLE',
         'type': 'collapse',
         'icon': 'assignment',
         'children': [{
+          'id': 'dashboard',
+          'title': 'Dashboard',
+          'type': 'item',
+          'icon': 'description',
+          'url': '/app/report/dashboard'
+        }, {
           'id': 'hospitalization',
           'title': 'Hospitalization',
           'type': 'item',
