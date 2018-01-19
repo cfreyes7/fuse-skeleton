@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
-import {MatTableModule, MatCardModule} from '@angular/material';
+import {MatTableModule, MatCardModule, MatMenuModule} from '@angular/material';
 import {HospitalizationsComponent} from './components/hospitalizations/hospitalizations.component';
 import {DailyReferralComponent} from './components/daily-referral/daily-referral.component';
 import {TaskReportsComponent} from './components/task-reports/task-reports.component';
@@ -14,6 +14,7 @@ import {routes} from './report.routes';
     SharedModule,
     MatTableModule,
     MatCardModule,
+    MatMenuModule,
     RouterModule.forChild(routes)
   ],
   declarations: [

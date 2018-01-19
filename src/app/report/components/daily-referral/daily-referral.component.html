@@ -6,4 +6,65 @@
       <span class="h1">Referral Report</span>
     </div>
   </div>
+
+  <div fxLayout="row" fxLayoutGap="20px">
+    <div fxFlex="100" fxLayoutAlign="start center" fxLayoutGap="10px">
+
+      <button mat-raised-button [matMenuTriggerFor]="menuDaily">
+        DAILY
+        <mat-icon>arrow_drop_down</mat-icon>
+      </button>
+
+      <mat-menu #menuDaily="matMenu">
+        <button mat-menu-item>
+          <mat-icon>dialpad</mat-icon>
+          <span>Redial</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>voicemail</mat-icon>
+          <span>Check voicemail</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>notifications_off</mat-icon>
+          <span>Disable alerts</span>
+        </button>
+      </mat-menu>
+
+      <button mat-raised-button [matMenuTriggerFor]="menuCenter">
+        CENTER
+        <mat-icon>arrow_drop_down</mat-icon>
+      </button>
+
+      <mat-menu #menuCenter="matMenu">
+        <button mat-menu-item>
+          <mat-icon>dialpad</mat-icon>
+          <span>Redial</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>voicemail</mat-icon>
+          <span>Check voicemail</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>notifications_off</mat-icon>
+          <span>Disable alerts</span>
+        </button>
+      </mat-menu>
+
+      <button mat-raised-button>
+        Dec 1, 2017 And Dec 05, 2017
+        <mat-icon>arrow_drop_down</mat-icon>
+      </button>
+    </div>
+    <div fxLayout="row" fxFlex="100" fxLayoutAlign="end center" fxLayoutGap="20px">
+      <button mat-raised-button>
+        <mat-icon>file_download</mat-icon>
+        EXPORT
+      </button>
+      <button mat-raised-button>
+        <mat-icon>print</mat-icon>
+        PRINT
+      </button>
+    </div>
+  </div>
 </div>
+
