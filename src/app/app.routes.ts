@@ -19,6 +19,10 @@ export const routes: Routes = [
           {
             path: 'task',
             loadChildren: './task/task.module#TaskModule'
+          },
+          {
+            path: 'patients',
+            loadChildren: './patient/patient.module#PatientModule'
           }
         ]
       }, {

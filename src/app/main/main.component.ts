@@ -61,7 +61,15 @@ export class FuseMainComponent implements OnInit, AfterViewInit, OnDestroy {
     this._renderer.removeClass(this._elementRef.nativeElement, className);
   }
 
+  displayQuickCase() {
+    this.router.navigate(['/app', {outlets: {form: 'form/cases/quick'}}]);
+  }
+
   displayQuickTask() {
     this.router.navigate(['/app', {outlets: {form: 'form/task/quick'}}]);
+  }
+
+  displayQuickPatient() {
+    this.router.navigate(['/app', {outlets: {form: 'form/patients/new'}}]);
   }
 }
