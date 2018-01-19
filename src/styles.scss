@@ -53,3 +53,18 @@
   @include mat-elevation(2);
   margin-bottom: 10px;
 }
+
+.search-wrapper {
+  background: mat-color($background, card);
+  @include mat-elevation(3);
+}
+
+.mat-menu-panel {
+  max-width: 100% !important;
+}
+
+.table-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}

@@ -7,7 +7,7 @@ import {FuseNavigationService} from './core/components/navigation/navigation.ser
 import {FuseNavigationModel} from './navigation/navigation.model';
 import {locale as navigationEnglish} from './navigation/i18n/en';
 import {locale as navigationTurkish} from './navigation/i18n/tr';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'fuse-root',
@@ -19,9 +19,13 @@ export class AppComponent {
               private fuseSplashScreen: FuseSplashScreenService,
               private translate: TranslateService,
               private router: Router,
+              private route: ActivatedRoute,
               private translationLoader: FuseTranslationLoaderService) {
 
-    this.router.navigate(['/app', {outlets: {form: null}}]);
+    if (new RegExp('\/\/form:form\/').test(window.location.pathname)) {
+      this.router.navigate(['/app', {outlets: {form: null}}]);
+    }
+
     // Add languages
     this.translate.addLangs(['en', 'tr']);
 

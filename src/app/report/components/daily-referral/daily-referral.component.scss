@@ -1,0 +1,15 @@
+@import '../../../core/scss/variables/theme';
+@import '~@angular/material/theming';
+
+span {
+  color: mat-color($foreground, secondary-text);
+}
+
+.mat-column-date {
+  max-width: 64px;
+}
+
+.mat-menu-panel {
+  max-width: 100% !important;
+}
+
