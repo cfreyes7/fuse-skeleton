@@ -41,7 +41,7 @@
               <mat-chip *ngFor="let patient of patients" (remove)="removePatient(patient)" [selectable]="selectable" [removable]="removable">
                 <img class="avatar small" src="assets/images/avatars/andrew.jpg">
                 {{patient.name}}
-                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                <mat-icon fxLayoutAlign="center center" matChipRemove *ngIf="removable">cancel</mat-icon>
               </mat-chip>
               <input [matChipInputFor]="chipList"
                      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
@@ -61,7 +61,7 @@
               <mat-chip-list #chipList>
                 <mat-chip *ngFor="let chip of chips"  (remove)="removeChip(chip)" [selectable]="selectable" [removable]="removable">
                   {{chip.name}}
-                  <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                  <mat-icon fxLayoutAlign="center center" matChipRemove *ngIf="removable">cancel</mat-icon>
                 </mat-chip>
                 <input [matChipInputFor]="chipList"
                        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
@@ -157,7 +157,7 @@
                 <mat-chip *ngFor="let assigned of assigneds"  (remove)="removeAssign(assigned)"[selectable]="selectable" [removable]="removable">
                   <img class="avatar small" src="assets/images/avatars/alice.jpg">
                   {{assigned.name}}
-                  <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                  <mat-icon fxLayoutAlign="center center" matChipRemove *ngIf="removable">cancel</mat-icon>
                 </mat-chip>
                 <input [matChipInputFor]="chipList"
                        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
