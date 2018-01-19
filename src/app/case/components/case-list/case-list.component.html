@@ -1,14 +1,17 @@
 <div class="px-20 page-layout" fusePerfectScrollbar style="width: 100%">
   <div fxLayout="row" fxLayoutGap="20px" class="py-12">
-    <div fxFlex="40" class="td-search-wrapper mat-elevation-z2" fxLayout="row">
-
+    <div fxFlex="40" class="search-wrapper" fxLayout="row">
+      <button mat-icon-button>
+        <mat-icon>search</mat-icon>
+      </button>
+      <input type="text" placeholder="Search">
     </div>
     <div fxLayout="row" fxFlex="100" fxLayoutAlign="end center" fxLayoutGap="20px">
       <button mat-raised-button [color]="myCases ? 'primary': null" (click)="toggleMyCases()">
         <span class="text-uppercase">View My Cases</span>
       </button>
       <div class="mat-elevation-z2 priority">
-        <span class="text-uppercase px-12">Status</span>
+        <span class="text-uppercase px-12 font-weight-500">Status</span>
         <button mat-button [matMenuTriggerFor]="priorityMenu" disableRipple>
           <span class="text-uppercase">{{priority.name}}</span>
           <mat-icon>arrow_drop_down</mat-icon>
@@ -33,30 +36,46 @@
   </div>
 
 
-  <mat-table [dataSource]="dataSource" class="table">
+  <mat-table [dataSource]="dataSource" class="table pt-12">
 
     <!-- Position Column -->
-    <ng-container matColumnDef="position">
-      <mat-header-cell *matHeaderCellDef> No.</mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.position}}</mat-cell>
+    <ng-container matColumnDef="patient">
+      <mat-header-cell *matHeaderCellDef> Patient</mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <div fxLayout="row">
+          <img class="avatar" src="assets/images/avatars/alice.jpg" alt="">
+          <div>
+            <div class="font-weight-500">John Doe</div>
+            <span class="mat-caption">Male,  35y / Feb 12 - 1990</span>
+          </div>
+        </div>
+      </mat-cell>
     </ng-container>
 
     <!-- Name Column -->
-    <ng-container matColumnDef="name">
-      <mat-header-cell *matHeaderCellDef> Name</mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.name}}</mat-cell>
+    <ng-container matColumnDef="status">
+      <mat-header-cell *matHeaderCellDef> Status</mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <div>Open</div>
+        <div>Last Update: <span class="text-accent">12/01/2018</span></div>
+      </mat-cell>
     </ng-container>
 
     <!-- Weight Column -->
-    <ng-container matColumnDef="weight">
-      <mat-header-cell *matHeaderCellDef> Weight</mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.weight}}</mat-cell>
+    <ng-container matColumnDef="pocType">
+      <mat-header-cell *matHeaderCellDef> POC / Type</mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <div>Hospitalization</div>
+        <span class="mat-caption">Snif</span>
+      </mat-cell>
     </ng-container>
 
     <!-- Symbol Column -->
-    <ng-container matColumnDef="symbol">
-      <mat-header-cell *matHeaderCellDef> Symbol</mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.symbol}}</mat-cell>
+    <ng-container matColumnDef="mainDx">
+      <mat-header-cell *matHeaderCellDef> Main Dx</mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        R53.81 Other malaise / SO2.40DD Maxillary fracture, left side, 7thD
+      </mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
