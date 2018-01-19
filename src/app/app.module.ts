@@ -13,6 +13,7 @@ import {FuseNavigationService} from './core/components/navigation/navigation.ser
 import {TranslateModule} from '@ngx-translate/core';
 import {routes} from './app.routes';
 import {FormContentService} from './core/services/form-content.service';
+import {FormValidatorService} from './core/services/form-validator.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {FormContentService} from './core/services/form-content.service';
     FuseSplashScreenService,
     FuseConfigService,
     FuseNavigationService,
-    FormContentService
+    FormContentService,
+    FormValidatorService
   ],
   bootstrap: [
     AppComponent

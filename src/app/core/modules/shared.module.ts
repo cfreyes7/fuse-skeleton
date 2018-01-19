@@ -22,6 +22,8 @@ import {FuseTranslationLoaderService} from '../services/translation-loader.servi
 import {CookieService} from 'ngx-cookie-service';
 import {TranslateModule} from '@ngx-translate/core';
 import {FuseNavbarVerticalService} from '../../main/components/navbar/vertical/navbar-vertical.service';
+import {FileListComponent} from '../components/file-list/file-list.component';
+import {UploadComponent} from '../components/upload/upload.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import {FuseNavbarVerticalService} from '../../main/components/navbar/vertical/n
     FuseHighlightComponent,
     FuseIfOnDomDirective,
     FusePerfectScrollbarDirective,
-    FuseMaterialColorPickerComponent
+    FuseMaterialColorPickerComponent,
+    FileListComponent,
+    UploadComponent,
   ],
   imports: [
     FlexLayoutModule,
@@ -62,7 +66,10 @@ import {FuseNavbarVerticalService} from '../../main/components/navbar/vertical/n
     NgxDatatableModule,
     FuseIfOnDomDirective,
     FuseMaterialColorPickerComponent,
-    TranslateModule
+    TranslateModule,
+    FuseConfirmDialogComponent,
+    UploadComponent,
+    FileListComponent
   ],
   entryComponents: [
     FuseConfirmDialogComponent
