@@ -9,6 +9,7 @@ import {MatTableDataSource} from '@angular/material';
 export class HospitalizationsComponent implements OnInit {
   displayedColumns = ['patient', 'center', 'pcp', 'insurance', 'admision_date', 'discharged_date', 'facility'];
   dataSource = new MatTableDataSource<Element>(CASE_DATA);
+  dateSelected: Date = new Date();
 
   constructor() {
   }
