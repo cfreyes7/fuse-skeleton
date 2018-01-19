@@ -1,5 +1,5 @@
 <div fxLayout="column" fxFill>
-  <div fxFlex="100" class="pl-12 pr-12" style="overflow-y: auto" FusePerfectScrollbar>
+  <div fxFlex="100" class="pl-12 pr-12" style="overflow-y: auto" fusePerfectScrollbar>
     <mat-toolbar>
       New Case
     </mat-toolbar>
@@ -104,7 +104,6 @@
           <span>Yes</span>
           <mat-slide-toggle color="accent"></mat-slide-toggle>
           <span>No</span>
-
         </div>
       </div>
       <div class="divider"></div>
@@ -186,7 +185,7 @@
     </form>
   </div>
   <mat-toolbar fxLayout="row" fxLayoutAlign="center center" class="bottom-bar">
-    <button mat-button (click)="close()" type="button">Cancel</button>
-    <button mat-button color="accent" form="quickCaseForm" type="submit">Save Information</button>
+    <button mat-button (click)="close()" type="button">{{'Cancel' | uppercase }}</button>
+    <button mat-button color="accent" form="quickCaseForm" type="submit">{{'Save' | uppercase }}</button>
   </mat-toolbar>
 </div>

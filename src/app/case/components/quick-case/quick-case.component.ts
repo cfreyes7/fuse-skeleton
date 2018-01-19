@@ -11,7 +11,7 @@ import {FormValidatorService} from '../../../core/services/form-validator.servic
   styleUrls: ['./quick-case.component.scss']
 })
 export class QuickCaseComponent extends BaseForm implements OnInit {
-  visible = true;
+
   selectable = true;
   removable = true;
   addOnBlur = true;
