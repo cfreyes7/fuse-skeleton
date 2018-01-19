@@ -21,6 +21,9 @@ export const routes: Routes = [
             loadChildren: './task/task.module#TaskModule'
           }
         ]
+      }, {
+        path: 'report',
+        loadChildren: './report/report.module#ReportModule'
       },
       {
         path: 'task',
