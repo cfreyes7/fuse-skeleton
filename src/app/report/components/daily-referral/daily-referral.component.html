@@ -45,33 +45,16 @@
       </button>
 
       <mat-menu #menuDates="matMenu" overlapTrigger="false">
-        <!--<div class="mat-typography container">-->
-          <!--<div fxLayout="column">-->
-            <!--<div fxLayout="row" fxLayoutAlign="end">-->
-              <!--<mat-checkbox>-->
-                <!--Include today-->
-              <!--</mat-checkbox>-->
-              <!--<mat-form-field>-->
-                <!--<mat-select placeholder="Filter date">-->
-                  <!--<mat-option>Fixed</mat-option>-->
-                  <!--<mat-option *ngFor="let item of range" [value]="item.value">-->
-                    <!--{{ item.label }}-->
-                  <!--</mat-option>-->
-                <!--</mat-select>-->
-              <!--</mat-form-field>-->
-            <!--</div>-->
-          <!--</div>-->
-          <!--<div fxLayout="row" fxLayoutGap="50px" fxLayoutAlign="center">-->
-            <!--<div fxLayout="column">-->
-              <!--<p fxLayoutAlign="center">Start Date</p>-->
-              <!--<mat-calendar [selected]="dateSelected"></mat-calendar>-->
-            <!--</div>-->
-            <!--<div fxLayout="column">-->
-              <!--<p fxLayoutAlign="center">End Date</p>-->
-              <!--<mat-calendar [selected]="dateSelected"></mat-calendar>-->
-            <!--</div>-->
-          <!--</div>-->
-        <!--</div>-->
+        <div class="mat-typography container">
+          <div fxLayout="row" fxLayoutGap="50px" fxLayoutAlign="center">
+            <div fxLayout="column">
+              <mat-calendar [selected]="dateSelected"></mat-calendar>
+            </div>
+            <div fxLayout="column">
+              <mat-calendar [selected]="dateSelected"></mat-calendar>
+            </div>
+          </div>
+        </div>
       </mat-menu>
 
     </div>
@@ -115,7 +98,7 @@
   </div>
 
   <div fxLayout="row" fxLayoutAlign="center center">
-    <div class="table-container">
+    <div class="table-container mt-24">
       <mat-table #table [dataSource]="dataSource" class="table">
         <div id="row-container">
           <ng-container matColumnDef="date">
