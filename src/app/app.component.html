@@ -1,1 +1,24 @@
 <router-outlet></router-outlet>
+<button class="fab-actions" mat-fab [matMenuTriggerFor]="appMenu">
+  <mat-icon>add</mat-icon>
+</button>
+<mat-menu #appMenu="matMenu" overlapTrigger="false" class="fab-menu-panel">
+  <div class="menu-item">
+    <span class="item-title">New Patient</span>
+    <button mat-mini-fab>
+      <mat-icon>person_add</mat-icon>
+    </button>
+  </div>
+  <div class="menu-item">
+    <span class="item-title">New Task</span>
+    <button mat-mini-fab>
+      <mat-icon>assignment</mat-icon>
+    </button>
+  </div>
+  <div class="menu-item">
+    <span class="item-title">New Case</span>
+    <button mat-mini-fab>
+      <mat-icon>create_new_folder</mat-icon>
+    </button>
+  </div>
+</mat-menu>
