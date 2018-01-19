@@ -1,15 +1,14 @@
-flox-report-dashboard {
-
-  .mat-column-open,
-  .mat-column-extended,
-  .mat-column-caseCount,
-  .mat-column-close {
-    max-width: 64px;
+.main-container {
+  padding: 2% 3%;
+  width: 100%;
+  .table-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 3%;
   }
-
-  .table-no-border {
-    .mat-row {
-      border-bottom: none !important;
-    }
+  .mat-table {
+    overflow: auto;
+    max-height: 500px;
   }
 }
