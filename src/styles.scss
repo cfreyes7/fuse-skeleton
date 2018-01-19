@@ -48,3 +48,8 @@
 .form-container {
   width: 50vw;
 }
+
+.table {
+  @include mat-elevation(2);
+  margin-bottom: 10px;
+}

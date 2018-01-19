@@ -5,6 +5,7 @@ import {Platform} from '@angular/cdk/platform';
 import {DOCUMENT} from '@angular/common';
 import {MatSidenav} from '@angular/material';
 import {FormContentService} from '../core/services/form-content.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'fuse-main',
@@ -24,6 +25,7 @@ export class FuseMainComponent implements OnInit, AfterViewInit, OnDestroy {
               private _elementRef: ElementRef,
               private fuseConfig: FuseConfigService,
               private platform: Platform,
+              private router: Router,
               private formContent: FormContentService,
               @Inject(DOCUMENT) private document: any) {
     this.onSettingsChanged =
@@ -57,5 +59,9 @@ export class FuseMainComponent implements OnInit, AfterViewInit, OnDestroy {
 
   removeClass(className: string) {
     this._renderer.removeClass(this._elementRef.nativeElement, className);
+  }
+
+  displayQuickCase() {
+    this.router.navigate(['/app', {outlets: {form: 'form/cases/quick'}}]);
   }
 }

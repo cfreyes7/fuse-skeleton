@@ -1,0 +1,82 @@
+<div class="px-20 page-layout" fusePerfectScrollbar style="width: 100%">
+  <div fxLayout="row" fxLayoutGap="20px" class="py-12">
+    <div fxFlex="40" class="td-search-wrapper mat-elevation-z2" fxLayout="row">
+
+    </div>
+    <div fxLayout="row" fxFlex="100" fxLayoutAlign="end center" fxLayoutGap="20px">
+      <button mat-raised-button [color]="myCases ? 'primary': null" (click)="toggleMyCases()">
+        <span class="text-uppercase">View My Cases</span>
+      </button>
+      <div class="mat-elevation-z2 priority">
+        <span class="text-uppercase px-12">Status</span>
+        <button mat-button [matMenuTriggerFor]="priorityMenu" disableRipple>
+          <span class="text-uppercase">{{priority.name}}</span>
+          <mat-icon>arrow_drop_down</mat-icon>
+        </button>
+      </div>
+      <button mat-raised-button>
+        <span class="text-uppercase">Filters</span>
+        <mat-icon>arrow_drop_down</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <div class="flox-avatar-wrapper py-8 pl-12" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px"
+       *ngIf="!myCases">
+    <img class="avatar" src="assets/images/avatars/alice.jpg" alt="">
+    <img class="avatar" src="assets/images/avatars/alice.jpg" alt="">
+    <img class="avatar" src="assets/images/avatars/alice.jpg" alt="">
+    <img class="avatar" src="assets/images/avatars/alice.jpg" alt="">
+    <button mat-icon-button>
+      <mat-icon>more_horiz</mat-icon>
+    </button>
+  </div>
+
+
+  <mat-table [dataSource]="dataSource" class="table">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <mat-header-cell *matHeaderCellDef> No.</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.position}}</mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Name</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.name}}</mat-cell>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="weight">
+      <mat-header-cell *matHeaderCellDef> Weight</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.weight}}</mat-cell>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="symbol">
+      <mat-header-cell *matHeaderCellDef> Symbol</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.symbol}}</mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>
+
+<!--Row menu-->
+<mat-menu overlapTrigger="false" #appMenu="matMenu">
+  <button mat-menu-item>Assigned to</button>
+  <button mat-menu-item>Add Note</button>
+  <button mat-menu-item>Add to Transportation</button>
+  <button mat-menu-item>Send Notification</button>
+  <button mat-menu-item>Add Task</button>
+  <button mat-menu-item>Change Status</button>
+  <button mat-menu-item>Upload Documents</button>
+</mat-menu>
+
+<mat-menu #priorityMenu="matMenu">
+  <button mat-menu-item *ngFor="let p of priorities" (click)="setPriority(p)">
+    <span class="pointer" [ngClass]="p.color"></span>{{p.name}}
+  </button>
+</mat-menu>

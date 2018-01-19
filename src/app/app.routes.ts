@@ -18,6 +18,10 @@ export const routes: Routes = [
             loadChildren: './case/case.module#CaseModule'
           }
         ]
+      },
+      {
+        path: 'cases',
+        loadChildren: './case/case.module#CaseModule'
       }
     ]
   },
