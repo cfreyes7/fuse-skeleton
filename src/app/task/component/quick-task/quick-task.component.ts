@@ -19,12 +19,34 @@ export class QuickTaskComponent extends BaseForm implements OnInit {
   }
   tasks = [
     {
-      value    : 'select-0',
-      viewValue: 'Select'
+      value    : 'referral',
+      viewValue: 'Referral'
     },
     {
-      value    : 'selected-1',
-      viewValue: 'Selected'
+      value    : 'medication_alert',
+      viewValue: 'Medication Alert'
+    },
+    {
+      value    : 'hospitalized',
+      viewValue: 'Hospitalized'
+    },
+    {
+      value    : 'death',
+      viewValue: 'Death'
+    }
+  ];
+  prioritys = [
+    {
+      value    : 'low',
+      viewValue: 'LOW'
+    },
+    {
+      value    : 'medium',
+      viewValue: 'MEDIUM'
+    },
+    {
+      value    : 'high',
+      viewValue: 'HIGH'
     }
   ];
 
