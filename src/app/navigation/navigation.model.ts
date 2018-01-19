@@ -38,6 +38,45 @@ export class FuseNavigationModel implements FuseNavigationModelInterface {
               'bg': '#F44336',
               'fg': '#FFFFFF'
             }
+          }, {
+            'id': 'report',
+            'title': 'Reports',
+            'translate': 'NAV.SAMPLE.TITLE',
+            'type': 'collapse',
+            'icon': 'assignment',
+            'children': [
+              {
+                'id': 'hospitalization',
+                'title': 'Hospitalization',
+                'type': 'item',
+                'icon': 'description',
+                'url': '/apps/e-commerce/dashboard'
+              },
+              {
+                'id': 'daily',
+                'title': 'Daily Referral',
+                'type': 'item',
+                'icon': 'description',
+                'url': '/apps/e-commerce/products',
+                'exactMatch': true
+              },
+              {
+                'id': 'task',
+                'title': 'Task Reports',
+                'type': 'item',
+                'icon': 'description',
+                'url': '/apps/e-commerce/products/1/printed-dress',
+                'exactMatch': true
+              },
+              {
+                'id': 'poc',
+                'title': 'POC Metrics',
+                'type': 'item',
+                'url': '/apps/e-commerce/orders',
+                'icon': 'description',
+                'exactMatch': true
+              }
+            ]
           }
         ]
       }
