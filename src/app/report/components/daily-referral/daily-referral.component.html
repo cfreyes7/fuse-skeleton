@@ -1,4 +1,4 @@
-<div class="main-container">
+<div class="page-layout blank px-20" fusePerfectScrollbar>
   <div fxLayout="row" fxLayoutGap="20px" class="pb-12">
     <div fxFlex="100" fxLayout="row" fxLayoutAlign="start center" id="header">
       <span class="h1">Dashboard - Reports</span>
@@ -16,17 +16,14 @@
       </button>
 
       <mat-menu #menuDaily="matMenu" overlapTrigger="false">
-        <button mat-menu-item>
-          <mat-icon>dialpad</mat-icon>
-          <span>Redial</span>
+        <button mat-menu-item="">
+          <span>Daily</span>
         </button>
-        <button mat-menu-item>
-          <mat-icon>voicemail</mat-icon>
-          <span>Check voicemail</span>
+        <button mat-menu-item="">
+          <span>Week</span>
         </button>
-        <button mat-menu-item>
-          <mat-icon>notifications_off</mat-icon>
-          <span>Disable alerts</span>
+        <button mat-menu-item="">
+          <span>Month</span>
         </button>
       </mat-menu>
 
@@ -36,24 +33,47 @@
       </button>
 
       <mat-menu #menuCenter="matMenu" overlapTrigger="false">
-        <button mat-menu-item>
-          <mat-icon>dialpad</mat-icon>
-          <span>Redial</span>
-        </button>
-        <button mat-menu-item>
-          <mat-icon>voicemail</mat-icon>
-          <span>Check voicemail</span>
-        </button>
-        <button mat-menu-item>
-          <mat-icon>notifications_off</mat-icon>
-          <span>Disable alerts</span>
+        <button mat-menu-item="">
+          <mat-icon>local_hospital</mat-icon>
+          <span>MBMC</span>
         </button>
       </mat-menu>
 
-      <button mat-raised-button>
+      <button mat-raised-button [matMenuTriggerFor]="menuDates">
         Dec 1, 2017 And Dec 05, 2017
         <mat-icon>arrow_drop_down</mat-icon>
       </button>
+
+      <mat-menu #menuDates="matMenu" overlapTrigger="false">
+        <!--<div class="mat-typography container">-->
+          <!--<div fxLayout="column">-->
+            <!--<div fxLayout="row" fxLayoutAlign="end">-->
+              <!--<mat-checkbox>-->
+                <!--Include today-->
+              <!--</mat-checkbox>-->
+              <!--<mat-form-field>-->
+                <!--<mat-select placeholder="Filter date">-->
+                  <!--<mat-option>Fixed</mat-option>-->
+                  <!--<mat-option *ngFor="let item of range" [value]="item.value">-->
+                    <!--{{ item.label }}-->
+                  <!--</mat-option>-->
+                <!--</mat-select>-->
+              <!--</mat-form-field>-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div fxLayout="row" fxLayoutGap="50px" fxLayoutAlign="center">-->
+            <!--<div fxLayout="column">-->
+              <!--<p fxLayoutAlign="center">Start Date</p>-->
+              <!--<mat-calendar [selected]="dateSelected"></mat-calendar>-->
+            <!--</div>-->
+            <!--<div fxLayout="column">-->
+              <!--<p fxLayoutAlign="center">End Date</p>-->
+              <!--<mat-calendar [selected]="dateSelected"></mat-calendar>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+      </mat-menu>
+
     </div>
     <div fxLayout="row" fxFlex="100" fxLayoutAlign="end center" fxLayoutGap="20px">
       <button mat-raised-button>
