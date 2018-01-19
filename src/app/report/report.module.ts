@@ -7,6 +7,7 @@ import {TaskReportsComponent} from './components/task-reports/task-reports.compo
 import {PocMetricsComponent} from './components/poc-metrics/poc-metrics.component';
 import {SharedModule} from '../core/modules/shared.module';
 import {routes} from './report.routes';
+import { ReportDashboardComponent } from './components/report-dashboard/report-dashboard.component';
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import {routes} from './report.routes';
     HospitalizationsComponent,
     DailyReferralComponent,
     TaskReportsComponent,
-    PocMetricsComponent]
+    PocMetricsComponent,
+    ReportDashboardComponent]
 })
 export class ReportModule {
 }
