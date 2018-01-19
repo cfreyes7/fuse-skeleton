@@ -64,7 +64,4 @@ export class FuseMainComponent implements OnInit, AfterViewInit, OnDestroy {
   displayQuickTask() {
     this.router.navigate(['/app', {outlets: {form: 'form/task/quick'}}]);
   }
-  displayQuickCase() {
-    this.router.navigate(['/app', {outlets: {form: 'form/case/quick'}}]);
-  }
 }
