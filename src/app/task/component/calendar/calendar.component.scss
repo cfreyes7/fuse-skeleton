@@ -1,5 +1,5 @@
-@import "node_modules/angular-calendar/scss/angular-calendar";
-@import '../../../../styles/variables/theme';
+@import "~angular-calendar/scss/angular-calendar";
+@import '../../../core/scss/variables/theme';
 @import '~@angular/material/theming';
 
 .cal-month-view {

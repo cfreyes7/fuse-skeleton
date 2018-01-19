@@ -12,12 +12,12 @@ export class FuseNavigationModel implements FuseNavigationModelInterface {
         'type': 'group',
         'children': [
           {
-            'id': 'sample',
-            'title': 'Sample',
+            'id': 'cases',
+            'title': 'Cases',
             'translate': 'NAV.SAMPLE.TITLE',
             'type': 'item',
             'icon': 'email',
-            'url': '/sample',
+            'url': '/app/cases',
             'badge': {
               'title': 25,
               'translate': 'NAV.SAMPLE.BADGE',

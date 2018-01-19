@@ -1,6 +1,4 @@
-import {
-    CalendarEventAction
-} from 'angular-calendar';
+import { CalendarEventAction } from 'angular-calendar';
 
 import {
     startOfDay,
@@ -12,18 +10,6 @@ import {
     isSameMonth,
     addHours
 } from 'date-fns';
-// import { CalendarEvent } from 'calendar-utils/dist/calendar-utils';
-
-/*
-export interface EventAction
-{
-    label: string;
-    cssClass?: string;
-
-    onClick({event}: {
-        event: CalendarEvent;
-    }): any;
-}*/
 
 export class CalendarEventModel
 {
