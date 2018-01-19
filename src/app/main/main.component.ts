@@ -25,8 +25,8 @@ export class FuseMainComponent implements OnInit, AfterViewInit, OnDestroy {
               private _elementRef: ElementRef,
               private fuseConfig: FuseConfigService,
               private platform: Platform,
-              private router: Router,
               private formContent: FormContentService,
+              private router: Router,
               @Inject(DOCUMENT) private document: any) {
     this.onSettingsChanged =
       this.fuseConfig.onSettingsChanged
@@ -61,7 +61,7 @@ export class FuseMainComponent implements OnInit, AfterViewInit, OnDestroy {
     this._renderer.removeClass(this._elementRef.nativeElement, className);
   }
 
-  displayQuickCase() {
-    this.router.navigate(['/app', {outlets: {form: 'form/cases/quick'}}]);
+  displayQuickTask() {
+    this.router.navigate(['/app', {outlets: {form: 'form/task/quick'}}]);
   }
 }
