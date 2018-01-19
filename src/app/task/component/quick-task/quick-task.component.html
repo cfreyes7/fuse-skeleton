@@ -7,9 +7,9 @@
     <form [formGroup]="taskForm" novalidate id="quickCaseForm" (ngSubmit)="onSubmit(taskForm)">
       <div fxLayout="row">
         <mat-form-field ngxErrors="case" fxFlex="50">
-          <input matInput placeholder="Subject Case" formControlName="case">
+          <input matInput placeholder="Case Subject" formControlName="case">
           <mat-error ngxError="case" when="touched">
-            Subject Case is required
+            Case Subject is required
           </mat-error>
         </mat-form-field>
 
