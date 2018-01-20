@@ -54,9 +54,9 @@ export class FuseToolbarComponent {
         'flag': 'us'
       },
       {
-        'id': 'tr',
-        'title': 'Turkish',
-        'flag': 'tr'
+        'id': 'es',
+        'title': 'Spanish',
+        'flag': 'es'
       }
     ];
 
@@ -84,14 +84,10 @@ export class FuseToolbarComponent {
   }
 
   setLanguage(lang) {
-    // Set the selected language for toolbar
-    this.selectedLanguage = lang;
-
-    // Use the selected language for translations
-    this.translate.use(lang.id);
-  }
-
-  displayQuickCase() {
-    this.router.navigate(['/app', {outlets: {form: 'form/cases/quick'}}]);
+    // // Set the selected language for toolbar
+    // this.selectedLanguage = lang;
+    //
+    // // Use the selected language for translations
+    // this.translate.use(lang.id);
   }
 }

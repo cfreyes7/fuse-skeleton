@@ -10,7 +10,7 @@ export class FuseNavigationModel implements FuseNavigationModelInterface {
         'title': 'Cases',
         'translate': 'NAV.SAMPLE.TITLE',
         'type': 'item',
-        'icon': 'email',
+        'icon': 'folder',
         'url': '/app/cases',
         'badge': {
           'title': 25,
