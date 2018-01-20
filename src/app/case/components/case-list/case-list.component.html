@@ -1,27 +1,19 @@
 <div class="px-20 page-layout blank" fusePerfectScrollbar>
-  <div fxLayout="row" fxLayoutGap="20px" class="py-12">
-    <div fxFlex="40" class="search-wrapper" fxLayout="row">
-      <button mat-icon-button>
-        <mat-icon>search</mat-icon>
-      </button>
-      <input type="text" placeholder="Search">
-    </div>
-    <div fxLayout="row" fxFlex="100" fxLayoutAlign="end center" fxLayoutGap="20px">
-      <button mat-raised-button [color]="myCases ? 'primary': null" (click)="toggleMyCases()">
-        <span class="text-uppercase">View My Cases</span>
-      </button>
-      <div class="mat-elevation-z2 priority">
-        <span class="text-uppercase px-12 font-weight-500">Status</span>
-        <button mat-button [matMenuTriggerFor]="priorityMenu" disableRipple>
-          <span class="text-uppercase">{{priority.name}}</span>
-          <mat-icon>arrow_drop_down</mat-icon>
-        </button>
-      </div>
-      <button mat-raised-button>
-        <span class="text-uppercase">Filters</span>
+  <div fxLayout="row" fxLayoutGap="20px" class="py-12" fxLayoutAlign="end center">
+    <button mat-raised-button [color]="myCases ? 'primary': null" (click)="toggleMyCases()">
+      <span class="text-uppercase">View My Cases</span>
+    </button>
+    <div class="mat-elevation-z2 priority">
+      <span class="text-uppercase px-12 font-weight-500">Status</span>
+      <button mat-button [matMenuTriggerFor]="priorityMenu" disableRipple>
+        <span class="text-uppercase">{{priority.name}}</span>
         <mat-icon>arrow_drop_down</mat-icon>
       </button>
     </div>
+    <button mat-raised-button>
+      <span class="text-uppercase">Filters</span>
+      <mat-icon>arrow_drop_down</mat-icon>
+    </button>
   </div>
 
   <div class="flox-avatar-wrapper py-8 pl-12" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px"
