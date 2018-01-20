@@ -23,6 +23,10 @@ export const routes: Routes = [
           {
             path: 'patients',
             loadChildren: './patient/patient.module#PatientModule'
+          },
+          {
+            path: 'poc',
+            loadChildren: './poc/poc.module#PocModule'
           }
         ]
       }, {
