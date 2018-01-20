@@ -9,6 +9,8 @@ pipeline {
       }
       stage('Build') {
         steps {
+          sh 'gcloud components install docker-credential-gcr'
+          sh 'docker-credential-gcr configure-docker'
           script {
             GIT_COMMIT = checkout(scm).GIT_COMMIT
             def image = docker.build("us.gcr.io/primavera-188715/casemanagement-ui:${GIT_COMMIT}")
