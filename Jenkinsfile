@@ -9,17 +9,11 @@ pipeline {
       }
       stage('Build') {
         steps {
-          sh 'gcloud components install docker-credential-gcr'
-          sh 'docker-credential-gcr configure-docker'
-          wrap(delegate: [$class: 'NodeJSBuildWrapper', nodeJSInstallationName: 'angular-cli' ]) {
-            sh 'npm install'
-            sh 'npm run build-prod'
-            script {
-              GIT_COMMIT = checkout(scm).GIT_COMMIT
-              def image = docker.build("us.gcr.io/primavera-188715/casemanagement-ui:${GIT_COMMIT}")
-              docker.withRegistry('https://us.gcr.io', 'gcr:Primavera-Dev') {
-                image.push()
-              }
+          script {
+            GIT_COMMIT = checkout(scm).GIT_COMMIT
+            def image = docker.build("us.gcr.io/primavera-188715/casemanagement-ui:${GIT_COMMIT}")
+            docker.withRegistry('https://us.gcr.io', 'gcr:Primavera-Dev') {
+              image.push()
             }
           }
         }

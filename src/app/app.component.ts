@@ -1,13 +1,14 @@
 import {Component} from '@angular/core';
-import {FuseSplashScreenService} from './core/services/splash-screen.service';
+import {ActivatedRoute, Router} from '@angular/router';
 import {TranslateService} from '@ngx-translate/core';
-import {FuseTranslationLoaderService} from './core/services/translation-loader.service';
 
+import {FuseSplashScreenService} from './core/services/splash-screen.service';
+import {FuseTranslationLoaderService} from './core/services/translation-loader.service';
 import {FuseNavigationService} from './core/components/navigation/navigation.service';
 import {FuseNavigationModel} from './navigation/navigation.model';
 import {locale as navigationEnglish} from './navigation/i18n/en';
 import {locale as navigationTurkish} from './navigation/i18n/tr';
-import {ActivatedRoute, Router} from '@angular/router';
+import {SvgRegisterService} from './core/services/svg-register.service';
 
 @Component({
   selector: 'fuse-root',
@@ -20,9 +21,9 @@ export class AppComponent {
               private translate: TranslateService,
               private router: Router,
               private route: ActivatedRoute,
-              private translationLoader: FuseTranslationLoaderService) {
+              private translationLoader: FuseTranslationLoaderService, private svgRegister: SvgRegisterService) {
 
-    if (new RegExp('\/\/form:form\/').test(window.location.pathname)) {
+    if (new RegExp('form:form\/').test(window.location.pathname)) {
       this.router.navigate(['/app', {outlets: {form: null}}]);
     }
 

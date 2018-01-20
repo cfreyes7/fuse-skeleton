@@ -14,6 +14,7 @@ import {FuseConfigService} from './core/services/config.service';
 import {FuseNavigationService} from './core/components/navigation/navigation.service';
 import {FormContentService} from './core/services/form-content.service';
 import {FormValidatorService} from './core/services/form-validator.service';
+import {SvgRegisterService} from './core/services/svg-register.service';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import {FormValidatorService} from './core/services/form-validator.service';
     FuseNavigationService,
     FormContentService,
     FormValidatorService,
+    SvgRegisterService
   ],
   bootstrap: [
     AppComponent

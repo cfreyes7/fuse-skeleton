@@ -36,9 +36,15 @@ export const routes: Routes = [
       {
         path: 'cases',
         loadChildren: './case/case.module#CaseModule'
-      }
+      },
+      {
+        path: '',
+        redirectTo: 'cases',
+        pathMatch: 'full'
+      },
     ]
   },
   {path: '', redirectTo: 'app', pathMatch: 'full'},
+
   {path: '**', redirectTo: 'app'}
 ];
