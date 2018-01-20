@@ -10,7 +10,7 @@ export class FuseNavigationModel implements FuseNavigationModelInterface {
         'title': 'Cases',
         'translate': 'NAV.SAMPLE.TITLE',
         'type': 'item',
-        'icon': 'folder',
+        'icon': 'create_new_folder',
         'url': '/app/cases',
         'badge': {
           'title': 25,
@@ -24,7 +24,7 @@ export class FuseNavigationModel implements FuseNavigationModelInterface {
         'title': 'Task',
         'translate': 'NAV.SAMPLE.TITLE',
         'type': 'item',
-        'icon': 'event',
+        'icon': 'assignment',
         'url': '/app/task',
         'badge': {
           'title': 25,
@@ -37,7 +37,7 @@ export class FuseNavigationModel implements FuseNavigationModelInterface {
         'title': 'Reports',
         'translate': 'NAV.SAMPLE.TITLE',
         'type': 'collapse',
-        'icon': 'assignment',
+        'icon': 'insert_chart',
         'children': [{
           'id': 'dashboard',
           'title': 'Dashboard',
