@@ -18,7 +18,7 @@ export class CaseSummaryComponent implements OnInit {
   constructor() {
     this.details = [
       {
-        title: 'Problem or necesity',
+        title: 'Problem or necessity',
         subdetail: [
           {
             items:
@@ -28,11 +28,11 @@ export class CaseSummaryComponent implements OnInit {
                   active: true
                 },
                 {
-                  text: 'Decresead cardiac output',
+                  text: 'Decresead cardiac rhythm',
                   active: true
                 },
                 {
-                  text: 'Heart rare',
+                  text: 'Rare heart',
                   active: true
                 },
                 {
@@ -40,7 +40,7 @@ export class CaseSummaryComponent implements OnInit {
                   active: true
                 },
                 {
-                  text: 'Altered vital signs',
+                  text: 'Altereded vital signs',
                   active: true
                 },
                 {
