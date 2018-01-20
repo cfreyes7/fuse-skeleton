@@ -73,20 +73,36 @@
             </mat-form-field>
           </div>
           <div fxLayout="row" fxLayoutGap="20px">
-            <mat-select placeholder="Gender" formControlName="gender" fxFlex>
-              <mat-option *ngFor="let gender of genders" [value]="gender">
-                {{ gender }}
-              </mat-option>
-            </mat-select>
-            <mat-select placeholder="Ethnicity" formControlName="ethnicity" fxFlex>
-              <mat-option *ngFor="let eth of ethnicities" [value]="eth">
-                {{ eth }}
-              </mat-option>
-            </mat-select>
+            <div fxLayout="column" fxFlex>
+              <div fxLayout="row" fxLayoutAlign="start center">
+                Gender
+              </div>
+              <div fxLayout="row" fxLayoutAlign="start center">
+                <button mat-button fxFlex="40">
+                  <mat-icon svgIcon="male"></mat-icon>
+                  Male
+                </button>
+                <span fxFlex>|</span>
+                <button mat-button fxFlex="40">
+                  <mat-icon svgIcon="female"></mat-icon>
+                  Female
+                </button>
+              </div>
+            </div>
+            <div fxLayout="column" fxFlex>
+              <div fxLayout="row" fxLayoutAlign="start center" class="border-bottom">Ethnicity</div>
+              <div fxLayout="row" fxLayoutAlign="center center">
+                <mat-select placeholder="Race" formControlName="ethnicity" fxFlex>
+                  <mat-option *ngFor="let eth of ethnicities" [value]="eth">
+                    {{ eth }}
+                  </mat-option>
+                </mat-select>
+              </div>
+            </div>
           </div>
           <h4>Insurance</h4>
           <mat-checkbox formControlName="insPrimary">Primary</mat-checkbox>
-          <div fxLayout="row" fxLayoutWrap="20px">
+          <div fxLayout="row" fxLayoutGap="20px">
             <mat-form-field fxFlex>
               <input matInput formControlName="insGroupName" placeholder="Group name" />
               <mat-error ngxErrors="insGroupName">
