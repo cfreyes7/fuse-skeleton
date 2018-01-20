@@ -15,7 +15,7 @@ export class FuseNavigationModel implements FuseNavigationModelInterface {
         'badge': {
           'title': 25,
           'translate': 'NAV.SAMPLE.BADGE',
-          'bg': '#F44336',
+          'bg': '#1DE9B6',
           'fg': '#FFFFFF'
         }
       },
@@ -29,7 +29,7 @@ export class FuseNavigationModel implements FuseNavigationModelInterface {
         'badge': {
           'title': 25,
           'translate': 'NAV.SAMPLE.BADGE',
-          'bg': '#F44336',
+          'bg': '#1DE9B6',
           'fg': '#FFFFFF'
         }
       }, {

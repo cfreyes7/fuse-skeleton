@@ -68,3 +68,16 @@
   flex-direction: column;
   width: 100%;
 }
+
+.nav .nav-item .nav-link.active {
+  background-color: transparent;
+  color: white;
+}
+
+.nav .nav-item .nav-link.active mat-icon{
+  color: mat-color($accent) !important;
+}
+
+.nav .nav-item .nav-link.active .nav-link-badge {
+  background-color: mat_color($accent) !important;
+}
