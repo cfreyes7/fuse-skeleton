@@ -1,4 +1,4 @@
-<div class="mat-elevation-z2 mr-8 file-item" *ngFor="let file of fileList; i as index">
+<div class="mat-elevation-z2 mr-8 mb-8 file-item" *ngFor="let file of fileList; i as index">
   <div fxLayout="column" fxFill>
     <button fxFlex="60" type="button" class="button-file" mat-button (click)="removeByPos(i)">{{'remove' | uppercase }}</button>
     <div fxFlex="40" class="description">
