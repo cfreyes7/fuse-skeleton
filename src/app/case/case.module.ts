@@ -4,6 +4,7 @@ import {SharedModule} from '../core/modules/shared.module';
 import {RouterModule} from '@angular/router';
 import {routes} from './case.routes';
 import {CaseListComponent} from './components/case-list/case-list.component';
+import {CaseSummaryComponent} from './components/case-summary/case-summary.component';
 
 @NgModule({
   imports: [
@@ -12,7 +13,8 @@ import {CaseListComponent} from './components/case-list/case-list.component';
   ],
   declarations: [
     QuickCaseComponent,
-    CaseListComponent
+    CaseListComponent,
+    CaseSummaryComponent
   ]
 })
 export class CaseModule {

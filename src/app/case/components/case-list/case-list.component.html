@@ -41,7 +41,7 @@
     <!-- Position Column -->
     <ng-container matColumnDef="patient">
       <mat-header-cell *matHeaderCellDef> Patient</mat-header-cell>
-      <mat-cell *matCellDef="let element">
+      <mat-cell *matCellDef="let element" routerLink="/app/cases/summary">
         <div fxLayout="row">
           <img class="avatar" src="assets/images/avatars/alice.jpg" alt="">
           <div>
