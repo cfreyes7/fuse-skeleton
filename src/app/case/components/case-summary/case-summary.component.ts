@@ -28,11 +28,11 @@ export class CaseSummaryComponent implements OnInit {
                   active: true
                 },
                 {
-                  text: 'Decresead cardiac rhythm',
+                  text: 'Decresead cardiac output',
                   active: true
                 },
                 {
-                  text: 'Rare heart',
+                  text: 'Heart rare',
                   active: true
                 },
                 {
@@ -40,7 +40,7 @@ export class CaseSummaryComponent implements OnInit {
                   active: true
                 },
                 {
-                  text: 'Altereded vital signs',
+                  text: 'Altered vital signs',
                   active: true
                 },
                 {
