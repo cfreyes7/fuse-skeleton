@@ -13,8 +13,10 @@ export class PatientFormComponent extends BaseForm implements OnInit {
   patientForm: FormGroup;
   languages = [];
   ethnicities = ['White', 'Black'];
-  genders = ['Male', 'Female'];
+  activeGender = true;
   employeeStatuses = ['unemployed', 'employed'];
+  providers = ['Jhon', 'Charles', 'Jane'];
+  physicians = ['Jhon', 'Charles', 'Jane'];
 
   constructor(injector: Injector, private fb: FormBuilder) {
     super(injector);
@@ -25,7 +27,6 @@ export class PatientFormComponent extends BaseForm implements OnInit {
       maritalStatus: ['', Validators.required],
       dob: ['', Validators.required],
       language: ['', Validators.required],
-      gender: ['', Validators.required],
       ethnicity: ['', Validators.required],
       insPrimary: ['', Validators.required],
       insGroupName: ['', Validators.required],
@@ -34,7 +35,10 @@ export class PatientFormComponent extends BaseForm implements OnInit {
       insClaimMember: ['', Validators.required],
       workEmployeeName: ['', Validators.required],
       workEmployeeNumber: ['', Validators.required],
-      workStatus: ['', Validators.required]
+      workStatus: ['', Validators.required],
+      startDate: ['', Validators.required],
+      provider: ['', Validators.required],
+      physician: ['', Validators.required]
     });
   }
 
@@ -53,6 +57,10 @@ export class PatientFormComponent extends BaseForm implements OnInit {
     if (index >= 0) {
       this.languages.splice(index, 1);
     }
+  }
+
+  changeGender(flag) {
+    this.activeGender = flag;
   }
 
 }

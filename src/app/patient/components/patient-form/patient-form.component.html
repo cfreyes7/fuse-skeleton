@@ -78,15 +78,16 @@
                 Gender
               </div>
               <div fxLayout="row" fxLayoutAlign="start center">
-                <button mat-button fxFlex="40">
-                  <mat-icon svgIcon="male"></mat-icon>
+                <button mat-button fxFlex (click)="changeGender(true)">
+                  <mat-icon svgIcon="male" [ngClass]="{'active': activeGender}"></mat-icon>
                   Male
                 </button>
-                <span fxFlex>|</span>
-                <button mat-button fxFlex="40">
-                  <mat-icon svgIcon="female"></mat-icon>
+                <span>|</span>
+                <button mat-button fxFlex (click)="changeGender(false)">
+                  <mat-icon svgIcon="female" [ngClass]="{'active': !activeGender}"></mat-icon>
                   Female
                 </button>
+                <span fxFill></span>
               </div>
             </div>
             <div fxLayout="column" fxFlex>
@@ -165,7 +166,33 @@
             </mat-form-field>
           </div>
         </mat-tab>
-        <mat-tab label="Registration"></mat-tab>
+        <mat-tab label="Registration">
+          <div fxLayout="row" fxLayoutGap="20px">
+            <mat-form-field fxFlex="50">
+              <input matInput [matDatepicker]="startDate" placeholder="Start Date" />
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #startDate formControlName="dob"></mat-datepicker>
+              <mat-error ngxErrors="dob">
+                <div ngxError="required">
+                  Date birthday is required
+                </div>
+              </mat-error>
+            </mat-form-field>
+            <span></span>
+          </div>
+          <div fxLayout="row" fxLayoutGap="20px">
+            <mat-select placeholder="Asigned Provider" formControlName="provider" fxFlex>
+              <mat-option *ngFor="let provider of providers" [value]="provider">
+                {{ provider }}
+              </mat-option>
+            </mat-select>
+            <mat-select placeholder="Primary Care Physician" formControlName="physician" fxFlex>
+              <mat-option *ngFor="let physician of physicians" [value]="physician">
+                {{ physician }}
+              </mat-option>
+            </mat-select>
+          </div>
+        </mat-tab>
       </mat-tab-group>
     </form>
   </div>
