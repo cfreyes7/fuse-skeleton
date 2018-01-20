@@ -15,6 +15,7 @@ export class QuickCaseComponent extends BaseForm implements OnInit {
   selectable = true;
   removable = true;
   addOnBlur = true;
+  selected = '';
   caseForm: FormGroup;
 
   constructor(injector: Injector,
@@ -24,25 +25,6 @@ export class QuickCaseComponent extends BaseForm implements OnInit {
     super(injector);
   }
   separatorKeysCodes = [ENTER, COMMA];
-  types = [
-    {
-      value    : 'dm-0',
-      viewValue: 'DM'
-    },
-    {
-      value    : 'hospitalization-1',
-      viewValue: 'Hospitalization'
-    },
-    {
-      value    : 'referral-2',
-      viewValue: 'Referral Pts'
-    },
-    {
-      value    : 'more-3',
-      viewValue: '11 or more Rxs'
-    }
-
-  ];
   status = [
     {
       value    : 'open-0',
@@ -77,30 +59,46 @@ export class QuickCaseComponent extends BaseForm implements OnInit {
     {
       value    : 'one-0',
       viewValue: 'UMHC SYLVESTERCOMPREHENSIVE CANCER CTR'
+    }
+  ];
+  cms = [
+    {
+      value    : 'one-0',
+      viewValue: 'Liz Carrillo',
+      img      : 'assets/images/avatars/alice.jpg'
     },
     {
       value    : 'two-1',
-      viewValue: 'Otro'
+      viewValue: 'Boyle Diaz',
+      img      : 'assets/images/avatars/andrew.jpg'
     }
   ];
   dxs = [
     {
       value    : 'one-0',
       viewValue: 'Need Appoiment'
-    },
-    {
-      value    : 'two-1',
-      viewValue: 'Otro'
     }
   ];
   planneds = [
     {
-      value    : 'one-0',
-      viewValue: 'Planned'
+      value    : 'er-0',
+      viewValue: 'ER'
     },
     {
-      value    : 'two-1',
-      viewValue: 'Otro'
+      value    : 'obs-1',
+      viewValue: 'OBS'
+    },
+    {
+      value    : 'inpatient-1',
+      viewValue: 'Inpatient'
+    },
+    {
+      value    : 'rehab-1',
+      viewValue: 'Rehab'
+    },
+    {
+      value    : 'snf-1',
+      viewValue: 'SNF'
     }
   ];
   chips = [
@@ -110,9 +108,6 @@ export class QuickCaseComponent extends BaseForm implements OnInit {
   ];
   patients = [
     { name: 'Jhon Doe' },
-  ];
-  assigneds = [
-    { name: 'Liz Carrillo' },
   ];
   ngOnInit() {
     this.caseForm = this.fb.group({
@@ -149,37 +144,5 @@ export class QuickCaseComponent extends BaseForm implements OnInit {
       this.chips.splice(index, 1);
     }
   }
-  addAssign(event: MatChipInputEvent): void {
-    const input = event.input;
-    const value = event.value;
-    if ((value || '').trim()) {
-      this.assigneds.push({ name: value.trim() });
-    }
-    if (input) {
-      input.value = '';
-    }
-  }
-  removeAssign(assigneds: any): void {
-    const index = this.assigneds.indexOf(assigneds);
-    if (index >= 0) {
-      this.assigneds.splice(index, 1);
-    }
-  }
-  addPatient(event: MatChipInputEvent): void {
-    const input = event.input;
-    const value = event.value;
-    if ((value || '').trim()) {
-      this.patients.push({ name: value.trim() });
-    }
-    if (input) {
-      input.value = '';
-    }
-  }
-  removePatient(patients: any): void {
-    const index = this.patients.indexOf(patients);
-    if (index >= 0) {
-      this.patients.splice(index, 1);
-    }
-  }
-
 }
+
