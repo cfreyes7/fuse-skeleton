@@ -83,11 +83,8 @@ export class FuseToolbarComponent {
     console.log(value);
   }
 
-  setLanguage(lang) {
-    // // Set the selected language for toolbar
-    // this.selectedLanguage = lang;
-    //
-    // // Use the selected language for translations
-    // this.translate.use(lang.id);
+  showNotifications() {
+    console.log('as')
+    this.router.navigate(['/app', {outlets: {form: 'form/notifications/list'}}]);
   }
 }
