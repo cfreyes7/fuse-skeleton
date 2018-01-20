@@ -170,7 +170,7 @@
           <div fxLayout="row" fxLayoutGap="20px">
             <mat-form-field fxFlex="50">
               <input matInput [matDatepicker]="startDate" placeholder="Start Date" />
-              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
               <mat-datepicker #startDate formControlName="dob"></mat-datepicker>
               <mat-error ngxErrors="dob">
                 <div ngxError="required">
@@ -181,7 +181,7 @@
             <span></span>
           </div>
           <div fxLayout="row" fxLayoutGap="20px">
-            <mat-select placeholder="Asigned Provider" formControlName="provider" fxFlex>
+            <mat-select placeholder="Assigned Provider" formControlName="provider" fxFlex>
               <mat-option *ngFor="let provider of providers" [value]="provider">
                 {{ provider }}
               </mat-option>
