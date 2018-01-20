@@ -1,6 +1,6 @@
 <div fxLayout="column" fxFill>
 
-  <div fxLayout="column" style="padding: 10px 30px 10px 20px;">
+  <div style="padding: 10px 30px 10px 20px;">
     <mat-toolbar fxLayout="row" class="p-0">
       <div fxFlex="50" fxLayoutAlign="left center">Start POC</div>
       <div fxFlex="50" fxLayout="row" fxLayoutAlign="end center">
@@ -19,9 +19,9 @@
     <flox-detail *ngSwitchCase="'detail'" [data]="details"></flox-detail>
   </div>
 
-  <mat-toolbar fxLayout="row" fxLayoutAlign="center center" class="bottom-bar p-0">
-    <button mat-button (click)="close()" type="button">Cancel</button>
-    <button mat-button color="primary" type="submit">Save</button>
+  <mat-toolbar fxLayout="row" fxLayoutAlign="center center" class="bottom-bar">
+    <button mat-button (click)="close()" type="button">{{'Cancel' | uppercase}}</button>
+    <button mat-button color="primary" type="submit">{{'Save' | uppercase}}</button>
   </mat-toolbar>
 
 </div>
