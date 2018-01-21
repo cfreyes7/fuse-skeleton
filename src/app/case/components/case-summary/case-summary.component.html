@@ -87,7 +87,7 @@
 
         <ng-container matColumnDef="check">
           <mat-cell *matCellDef="let element" fxFlex="15">
-            <mat-icon fxFlex="8" style="color:#3BDDA3;">done</mat-icon>
+            <mat-icon fxFlex="8" style="color:#3BDDA3;" *ngIf="element.check">done</mat-icon>
             <!--  <mat-icon *ngIf="element.check">check</mat-icon>
             <mat-checkbox [checked]="element.check"></mat-checkbox>-->
           </mat-cell>
