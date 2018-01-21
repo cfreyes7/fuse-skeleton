@@ -1,6 +1,6 @@
-:host {
-  display: block;
-  position: relative;
-  width: 500px;
-  height: 100%;
+@import '../../core/scss/variables/theme';
+@import '~@angular/material/theming';
+
+.active {
+  color: mat-color($accent);
 }

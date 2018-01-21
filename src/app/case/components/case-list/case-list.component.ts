@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MatTableDataSource} from '@angular/material';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'flox-case-list',
@@ -10,14 +11,14 @@ export class CaseListComponent implements OnInit {
 
   myCases: boolean;
 
-  displayedColumns = ['patient', 'status', 'pocType', 'mainDx'];
+  displayedColumns = ['patient', 'status', 'pocType', 'mainDx', 'actions'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
 
   priority: any;
 
   priorities: Array<{ name: string, color: string }> = [];
 
-  constructor() {
+  constructor(private router: Router) {
   }
 
   ngOnInit() {
@@ -48,6 +49,10 @@ export class CaseListComponent implements OnInit {
 
   toggleMyCases() {
     this.myCases = !this.myCases;
+  }
+
+  openPoc() {
+    this.router.navigate(['/app', {outlets: {form: 'form/poc/system'}}]);
   }
 
 }
