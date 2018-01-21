@@ -6,7 +6,7 @@
     <div class="divider"></div>
     <form [formGroup]="caseForm" class="ml-12 mt-12" novalidate id="quickCaseForm" (ngSubmit)="onSubmit(caseForm)">
       <div fxLayout="row">
-        <mat-form-field fxFlex="25">
+        <mat-form-field fxFlex="55">
           <mat-select placeholder="Type" [(value)]="selected">
             <mat-option value="option1">DM</mat-option>
             <mat-option value="option2">Hospitalization</mat-option>
@@ -15,7 +15,7 @@
           </mat-select>
         </mat-form-field>
         <div fxFlex="3"></div>
-        <mat-form-field fxFlex="20">
+        <mat-form-field fxFlex="55">
           <mat-select placeholder="Status">
             <mat-option *ngFor="let stat of status" [value]="stat.value">
               {{ stat.viewValue }}

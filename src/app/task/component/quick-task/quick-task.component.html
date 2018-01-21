@@ -4,12 +4,12 @@
       New Task
     </mat-toolbar>
     <hr>
-    <form [formGroup]="taskForm" novalidate id="quickCaseForm" (ngSubmit)="onSubmit(taskForm)">
+    <form [formGroup]="taskForm" novalidate id="quickTaskForm" (ngSubmit)="onSubmit(taskForm)">
       <div fxLayout="row">
-        <mat-form-field ngxErrors="case" fxFlex="50">
-          <input matInput placeholder="Case Subject" formControlName="case">
-          <mat-error ngxError="case" when="touched">
-            Case Subject is required
+        <mat-form-field ngxErrors="task" fxFlex="50">
+          <input matInput placeholder="Subject" formControlName="task">
+          <mat-error ngxError="task" when="touched">
+            Subject is required
           </mat-error>
         </mat-form-field>
 
@@ -69,7 +69,7 @@
             <mat-chip-list #chipList>
               <mat-chip [selectable]="true" [removable]="true">
                 <mat-icon>account_circle</mat-icon>
-                John Doe
+                James Travis
                 <mat-icon matChipRemove>cancel</mat-icon>
               </mat-chip>
               <input [matChipInputFor]="chipList">
@@ -87,6 +87,6 @@
   </div>
   <mat-toolbar fxLayout="row" fxLayoutAlign="center center" class="bottom-bar">
     <button mat-button (click)="close()" type="button">{{'Cancel' | uppercase }}</button>
-    <button mat-button color="primary" form="quickCaseForm" type="submit">{{'Save' | uppercase }}</button>
+    <button mat-button color="primary" form="quickTaskForm" type="submit">{{'Save' | uppercase }}</button>
   </mat-toolbar>
 </div>

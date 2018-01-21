@@ -14,22 +14,26 @@ export class NotificationListComponent extends BaseForm implements OnInit {
     {
       type: 'alert',
       icon: 'error',
-      message: 'You have 5 unassign patients'
+      message: 'You have 5 unassign cases.',
+      caseId: null
     },
     {
       type: 'warning',
       icon: 'access_time',
-      message: 'You need to check Jhon Doe case'
+      message: 'You need to check Jhon Doe case',
+      caseId: '1'
     },
     {
       type: 'information',
       icon: 'notifications_active',
-      message: 'Liz Carrillo has an appointment with you today'
+      message: 'Elizabeth T. McInnis has an appointment with you today.',
+      caseId: '5'
     },
     {
       type: 'warning',
       icon: 'folder_shared',
-      message: 'Liz Carrillo has an appointment with you today'
+      message: 'Ronald A. Darlington has an appointment with you today.',
+      caseId: 6
     }
   ];
 

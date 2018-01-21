@@ -27,7 +27,7 @@ export class CaseListComponent implements OnInit {
         name: 'All',
         color: null
       }, {
-        name: 'Close',
+        name: 'Closed',
         color: 'warn'
       }, {
         name: 'Open',
@@ -51,38 +51,34 @@ export class CaseListComponent implements OnInit {
     this.myCases = !this.myCases;
   }
 
-  openPoc() {
-    this.router.navigate(['/app', {outlets: {form: 'form/poc/system'}}]);
+  openPoc(id: any) {
+    this.router.navigate(['/app', { outlets: { form: 'form/poc/system' } }]);
   }
 
 }
 
 export interface Element {
-  patient: any;
+  name: any,
+  dob: any,
+  gender: any,
+  avatar: any,
+  updated: any,
+  type: any,
+  id: any;
   status: any;
   pocType: any;
   mainDx: any;
 }
 
 const ELEMENT_DATA: Element[] = [
-  {patient: 1, status: 'Hydrogen', pocType: 1.0079, mainDx: 'H'},
-  {patient: 2, status: 'Helium', pocType: 4.0026, mainDx: 'He'},
-  {patient: 3, status: 'Lithium', pocType: 6.941, mainDx: 'Li'},
-  {patient: 4, status: 'Beryllium', pocType: 9.0122, mainDx: 'Be'},
-  {patient: 5, status: 'Boron', pocType: 10.811, mainDx: 'B'},
-  {patient: 6, status: 'Carbon', pocType: 12.0107, mainDx: 'C'},
-  {patient: 7, status: 'Nitrogen', pocType: 14.0067, mainDx: 'N'},
-  {patient: 8, status: 'Oxygen', pocType: 15.9994, mainDx: 'O'},
-  {patient: 9, status: 'Fluorine', pocType: 18.9984, mainDx: 'F'},
-  {patient: 10, status: 'Neon', pocType: 20.1797, mainDx: 'Ne'},
-  {patient: 11, status: 'Sodium', pocType: 22.9897, mainDx: 'Na'},
-  {patient: 12, status: 'Magnesium', pocType: 24.305, mainDx: 'Mg'},
-  {patient: 13, status: 'Aluminum', pocType: 26.9815, mainDx: 'Al'},
-  {patient: 14, status: 'Silicon', pocType: 28.0855, mainDx: 'Si'},
-  {patient: 15, status: 'Phosphorus', pocType: 30.9738, mainDx: 'P'},
-  {patient: 16, status: 'Sulfur', pocType: 32.065, mainDx: 'S'},
-  {patient: 17, status: 'Chlorine', pocType: 35.453, mainDx: 'Cl'},
-  {patient: 18, status: 'Argon', pocType: 39.948, mainDx: 'Ar'},
-  {patient: 19, status: 'Potassium', pocType: 39.0983, mainDx: 'K'},
-  {patient: 20, status: 'Calcium', pocType: 40.078, mainDx: 'Ca'},
+  { name: 'James Travis', dob: 'Jan 12 1976', gender: 'Male', avatar: 'james', updated: 'Jan 12, 2018', type: '11 or more Rxs', status: 'Open', id: 1, pocType: null, mainDx: 'R53.81 Other malaise / SO2.40DD Maxillary fracture, left side, 7thD' },
+  { name: 'Katherine Smith', dob: 'Jan 12 1976', gender: 'Female', avatar: 'katherine', updated: 'Jan 13, 2018', type: 'DM', status: 'Closed', id: 2, pocType: null, mainDx: 'Unknown' },
+  { name: 'Katina Aals', dob: 'Jan 12 1976', gender: 'Female', avatar: 'Katina', updated: 'Jan 13, 2018', type: 'Hospitalization', status: 'Extended', id: 3, pocType: 'SNF', mainDx: 'Unknown' },
+  { name: 'Helen M. Chacon', dob: 'Jan 12 1976', gender: 'Female', avatar: 'Helen', updated: 'Jan 13, 2018', type: 'Hospitalization', status: 'Extended', id: 4, pocType: 'OBS', mainDx: 'F10.129 Alcohol Abuse With Intoxication, Unspecified' },
+  { name: 'Elizabeth T. McInnis', dob: 'Jan 12 1976', gender: 'Female', avatar: 'Josefina', updated: 'Jan 13, 2018', type: 'Hospitalization', status: 'Open', id: 5, pocType: 'INPATIENT', mainDx: 'R56.9 UNSPECIFIED CONVULSIONS' },
+  { name: 'Ronald A. Darlington', dob: 'Jan 12 1976', gender: 'Male', avatar: 'vincent', updated: 'Jan 13, 2018', type: 'Hospitalization', status: 'Open', id: 6, pocType: 'SNF', mainDx: ' Z96.641 Presence of right artificial hip joint' },
+  { name: 'Ariel R. Keyes', dob: 'Jan 12 1976', gender: 'Male', avatar: 'Arnold', updated: 'Jan 13, 2018', type: 'Hospitalization', status: 'Open', id: 7, pocType: 'REHAB', mainDx: 'N17.9 Acute Kidney Failure, Unspecified' },
+  { name: 'James M. Simmons', dob: 'Jan 12 1976', gender: 'Male', avatar: 'garry', updated: 'Jan 13, 2018', type: 'Hospitalization', status: 'Open', id: 8, pocType: 'ER', mainDx: 'Unknown' },
+  { name: 'Mae A. Davis', dob: 'Jan 12 1976', gender: 'Female', avatar: 'Odessa', updated: 'Jan 13, 2018', type: 'Hospitalization', status: 'Open', id: 9, pocType: 'OBS to Inpatient', mainDx: 'R42 DIZZINESS AND GIDDINESS R51 HEADACHE' },
+  { name: 'Robert T. Meneses', dob: 'Jan 12 1976', gender: 'Male', avatar: 'Tyson', updated: 'Jan 13, 2018', type: 'Referred Pts', status: 'Open', id: 10, pocType: null, mainDx: 'Unknown' },
 ];

@@ -7,10 +7,10 @@
   <mat-card fxLayout="row" fxLayoutGap="20px" class="pl-20 py-12 br-yellow mat-elevation-z">
     <div fxFlex="20">
       <div fxLayout="row">
-        <img class="avatar" src="assets/images/avatars/alice.jpg" alt="">
+        <img class="avatar" src="assets/images/avatars/{{patients[id-1].avatar}}.jpg" alt="">
         <div>
-          <div class="font-weight-500">Abbey Christensen</div>
-          <span class="mat-caption">Male,  35y / Feb 12 - 1990</span>
+          <div class="font-weight-500">{{patients[id-1].name}}</div>
+          <span class="mat-caption">{{patients[id-1].gender}},  {{patients[id-1].age}} / {{patients[id-1].dob}}</span>
         </div>
       </div>
       <div class="mt-4">

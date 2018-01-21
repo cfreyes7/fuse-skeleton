@@ -5,7 +5,7 @@ import {CaseSummaryComponent} from './components/case-summary/case-summary.compo
 
 export const routes: Routes = [
   {
-    path: 'summary',
+    path: 'summary/:id',
     component: CaseSummaryComponent
   }, {
     path: 'quick',
