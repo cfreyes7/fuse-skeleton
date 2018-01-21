@@ -28,10 +28,13 @@ export class ReportDashboardComponent implements OnInit {
 }
 
 export interface TypeCase {
+  avatar: any,
+  name: any,
   cmResponsible: any;
   open: any;
   extended: any;
   close: any;
+  center: any;
 }
 
 export interface Planned {
@@ -45,21 +48,13 @@ export interface POCType {
 }
 
 const ELEMENT_DATA: TypeCase[] = [
-  {cmResponsible: 'unassigned', open: 5, extended: 2, close: 0},
-  {cmResponsible: 'List', open: 4, extended: 2, close: 2},
-  {cmResponsible: 'List', open: 4, extended: 2, close: 2},
-  {cmResponsible: 'List', open: 4, extended: 2, close: 2},
-  {cmResponsible: 'List', open: 4, extended: 2, close: 2},
-  {cmResponsible: 'List', open: 4, extended: 2, close: 2},
-  {cmResponsible: 'List', open: 4, extended: 2, close: 2},
-  {cmResponsible: 'List', open: 4, extended: 2, close: 2},
-  {cmResponsible: 'List', open: 4, extended: 2, close: 2},
-  {cmResponsible: 'List', open: 4, extended: 2, close: 2},
-  {cmResponsible: 'List', open: 4, extended: 2, close: 2},
-  {cmResponsible: 'List', open: 4, extended: 2, close: 2},
-  {cmResponsible: 'List', open: 4, extended: 2, close: 2},
-  {cmResponsible: 'List', open: 4, extended: 2, close: 2},
-  {cmResponsible: 'List', open: 4, extended: 2, close: 2},
+  { avatar: 'Reyna', name: 'Adamaris Rodriguez', cmResponsible: 'unassigned', open: 5, extended: 2, close: 0, center: 'MBME'},
+  { avatar: 'Reyna', name: 'Adamaris Rodriguez', cmResponsible: 'List', open: 5, extended: 2, close: 0, center: 'MBME'},
+  { avatar: 'Nancy', name: 'Alison Castro', cmResponsible: 'List', open: 4, extended: 2, close: 2, center: 'MBBR-MBMD'},
+  { avatar: 'Estes', name: 'Abigail Mendez', cmResponsible: 'List', open: 4, extended: 2, close: 2, center: 'MBMH-MBMN'},
+  { avatar: 'joyce', name: 'Neiza Baez', cmResponsible: 'List', open: 4, extended: 2, close: 2, center: 'MMWW'},
+  { avatar: 'Nora', name: 'Maria Bernaldo', cmResponsible: 'List', open: 4, extended: 2, close: 2, center: 'MMWH'},
+  { avatar: 'Liuyansi', name: 'Liuyansi Cabreja', cmResponsible: 'List', open: 4, extended: 2, close: 2, center: null},
 ];
 
 const ELEMENT_DATA_PLANED: Planned[] = [

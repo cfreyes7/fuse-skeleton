@@ -49,7 +49,7 @@
 
             <!-- planned Column -->
             <ng-container matColumnDef="planed">
-              <mat-header-cell *matHeaderCellDef> Planned</mat-header-cell>
+              <mat-header-cell *matHeaderCellDef> POC Planned</mat-header-cell>
               <mat-cell *matCellDef="let element">
                 {{element.planed}}
               </mat-cell>
@@ -72,7 +72,7 @@
 
             <!-- planned Column -->
             <ng-container matColumnDef="planed">
-              <mat-header-cell *matHeaderCellDef> POC Type</mat-header-cell>
+              <mat-header-cell *matHeaderCellDef> Metrics</mat-header-cell>
               <mat-cell *matCellDef="let element">
                 {{element.planed}}
               </mat-cell>
@@ -94,7 +94,7 @@
     <div fxFlex="60">
       <mat-card class="report-card mb-24">
         <mat-card-title>
-          Workload per user and type of case
+          Workload per user and status of case
         </mat-card-title>
         <mat-card-content>
           <mat-divider></mat-divider>
@@ -105,10 +105,10 @@
               <mat-header-cell *matHeaderCellDef> CM Responsible</mat-header-cell>
               <mat-cell *matCellDef="let element">
                 <div fxLayout="row" *ngIf="element.cmResponsible !== 'unassigned'; else elsePetient">
-                  <img class="avatar" src="assets/images/avatars/alice.jpg" alt="">
+                  <img class="avatar" src="assets/images/avatars/{{element.avatar}}.jpg" alt="">
                   <div>
-                    <div class="font-weight-500">John Doe</div>
-                    <span class="mat-caption">Male,  35y / Feb 12 - 1990</span>
+                    <div class="font-weight-500">{{element.name}}</div>
+                    <span class="mat-caption">{{element.center}}</span>
                   </div>
                 </div>
                 <ng-template #elsePetient>
@@ -131,7 +131,7 @@
 
             <!-- Symbol Column -->
             <ng-container matColumnDef="close">
-              <mat-header-cell *matHeaderCellDef> Close</mat-header-cell>
+              <mat-header-cell *matHeaderCellDef> Closed</mat-header-cell>
               <mat-cell *matCellDef="let element"> {{element.close}}</mat-cell>
             </ng-container>
 

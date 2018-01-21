@@ -28,39 +28,69 @@ export interface Element {
   mmww: number;
 }
 
-const REPORT_DATA: Element[] = [{
-  date: 'Dec 01',
+const REPORT_DATA: Element[] = [
+  {
+  date: 'Dec 1, 2017',
   mbme: 0,
   mbmd: 13,
   mbmh: 11,
   mmwh: 5,
   mmww: 3,
 }, {
-  date: 'Dec 01',
+  date: 'Dec 2, 2017',
   mbme: 0,
   mbmd: 13,
   mbmh: 11,
   mmwh: 5,
   mmww: 3,
 }, {
-  date: 'Dec 01',
+  date: 'Dec 3, 2017',
   mbme: 0,
   mbmd: 13,
   mbmh: 11,
   mmwh: 5,
   mmww: 3,
 }, {
-  date: 'Dec 01',
+  date: 'Dec 4, 2017',
   mbme: 0,
   mbmd: 13,
   mbmh: 11,
   mmwh: 5,
   mmww: 3,
 }, {
-  date: 'Dec 01',
+  date: 'Dec 5, 2017',
   mbme: 0,
   mbmd: 13,
   mbmh: 11,
   mmwh: 5,
   mmww: 3,
-}];
+}, {
+  date: 'Dec 6, 2017',
+  mbme: 0,
+  mbmd: 13,
+  mbmh: 11,
+  mmwh: 5,
+  mmww: 3,
+}, {
+  date: 'Dec 7, 2017',
+  mbme: 0,
+  mbmd: 13,
+  mbmh: 11,
+  mmwh: 5,
+  mmww: 3,
+}, {
+  date: 'Dec 8, 2017',
+  mbme: 0,
+  mbmd: 13,
+  mbmh: 11,
+  mmwh: 5,
+  mmww: 3,
+}, {
+  date: 'Dec 9, 2017',
+  mbme: 0,
+  mbmd: 13,
+  mbmh: 11,
+  mmwh: 5,
+  mmww: 3,
+}
+];
