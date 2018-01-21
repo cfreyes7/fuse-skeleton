@@ -32,7 +32,7 @@ export class CaseSummaryComponent implements OnInit {
                   active: true
                 },
                 {
-                  text: 'Heart rare',
+                  text: 'Heart rate',
                   active: true
                 },
                 {
