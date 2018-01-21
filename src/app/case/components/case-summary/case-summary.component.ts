@@ -1,92 +1,61 @@
-import {Component, Injector, OnInit} from '@angular/core';
-import {BaseForm} from '../../core/base-form';
-import {Observable} from 'rxjs/Observable';
+import {Component, OnInit} from '@angular/core';
+import {MatTableDataSource} from '@angular/material';
 
 @Component({
-  selector: 'flox-quick-case',
-  templateUrl: './system.component.html',
-  styleUrls: ['./system.component.scss']
+  selector: 'flox-case-summary',
+  templateUrl: './case-summary.component.html',
+  styleUrls: ['./case-summary.component.scss']
 })
-export class SystemComponent extends BaseForm implements OnInit {
-  systems: any;
-  details: any;
-  mode: string;
+export class CaseSummaryComponent implements OnInit {
+  priority: any;
+  priorities: Array<{ name: string, color: string }> = [];
 
-  constructor(injector: Injector) {
-    super(injector);
-    this.mode = 'list';
-    this.systems = [
-      {
-        text: 'Cardiovascular'
-      },
-      {
-        text: 'Respiratory'
-      },
-      {
-        text: 'Gastrointestinal'
-      },
-      {
-        text: 'Urinary'
-      },
-      {
-        text: 'Reproductive'
-      },
-      {
-        text: 'Endocrine'
-      },
-      {
-        text: 'Hematologic'
-      },
-      {
-        text: 'Muskuloskeletal'
-      },
-      {
-        text: 'Neorological'
-      },
-      {
-        text: 'Integumentary'
-      }
-    ];
+  displayedColumnsSystems = ['check', 'name', 'edit'];
+  dataSourceSystems = new MatTableDataSource<System>(ELEMENT_DATA_SYSTEM);
+  details: any;
+
+
+  constructor() {
     this.details = [
       {
-        title: 'Problem or necesity',
+        title: 'Problem or necessity',
         subdetail: [
           {
-            items: 
-            [
-              {
-                text: 'Excess or fluid deficit',
-                active: true
-              },
-              {
-                text: 'Decresead cardiac rhythm',
-                active: true
-              },
-              {
-                text: 'Rare heart',
-                active: true
-              },
-              {
-                text: 'Chest pain',
-                active: true
-              },
-              {
-                text: 'Altereded vital signs',
-                active: true
-              },
-              {
-                text: 'Pacermaker',
-                active: true
-              },
-              {
-                text: 'Increase or decrease of blood components',
-                active: true
-              },
-              {
-                text: 'Knowledge deficit',
-                active: true
-              }
-            ]
+            items:
+              [
+                {
+                  text: 'Excess or fluid deficit',
+                  active: true
+                },
+                {
+                  text: 'Decresead cardiac output',
+                  active: true
+                },
+                {
+                  text: 'Heart rare',
+                  active: true
+                },
+                {
+                  text: 'Chest pain',
+                  active: true
+                },
+                {
+                  text: 'Altered vital signs',
+                  active: true
+                },
+                {
+                  text: 'Pacermaker',
+                  active: true
+                },
+                {
+                  text: 'Increase or decrease of blood components',
+                  active: true
+                },
+                {
+                  text: 'Knowledge deficit',
+                  active: true
+                }
+              ]
           }
         ]
       },
@@ -226,10 +195,97 @@ export class SystemComponent extends BaseForm implements OnInit {
   }
 
   ngOnInit() {
-  }
-  
-  changeMode($event) {
-    this.mode = 'detail';
+
+    this.priorities = [
+      {
+        name: 'Open Case',
+        color: null
+      }, {
+        name: 'Close Case',
+        color: 'warn'
+      }
+    ];
+    this.priority = this.priorities[0];
   }
 
+  setPriority(value: any) {
+    this.priority = value;
+  }
 }
+
+export interface System {
+  name: string;
+  check: boolean;
+  edit: any;
+}
+
+const ELEMENT_DATA_SYSTEM: System[] = [
+  {
+    check: true,
+    name: 'Cardiovascular',
+    edit: null
+  },
+  {
+    check: true,
+    name: 'Respiratory',
+    edit: null
+  },
+
+  {
+    check: false,
+    name: 'Gastroinstestinal',
+    edit: null
+  },
+  {
+    check: true,
+    name: 'Urinary',
+    edit: null
+  },
+  {
+    check: true,
+    name: 'Reproductive',
+    edit: null
+  },
+
+  {
+    check: false,
+    name: 'Endocrine',
+    edit: null
+  },
+
+  {
+    check: true,
+    name: 'Hematologic',
+    edit: null
+  },
+
+  {
+    check: false,
+    name: 'Muscoloskeletal',
+    edit: null
+  },
+
+  {
+    check: false,
+    name: 'Neurological',
+    edit: null
+  },
+
+  {
+    check: true,
+    name: 'Integumentary',
+    edit: null
+  },
+
+  {
+    check: true,
+    name: 'Sensory',
+    edit: null
+  },
+
+  {
+    check: true,
+    name: 'Pyschologic/Psychiatric',
+    edit: null
+  },
+];
