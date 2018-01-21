@@ -1,0 +1,21 @@
+<mat-toolbar fxFlex="100" fxLayout="column" fxLayoutAlign="top left">
+  <mat-card-content fxLayout="column" class="content">
+    <mat-card-title class="title">SYSTEMS</mat-card-title>
+    <div fxLayout="column" fxFlex="100">
+      <mat-card *ngFor="let item of data" fxFlex="100" fxLayout="row" fxLayoutAlign="start center" class="row">
+        <mat-icon fxFlex="8" style="color:#3BDDA3;">done</mat-icon>
+        <span fxFlex="90" class="system-text">{{ item.text }}</span>
+        <div fxFlex="5">
+          <button mat-icon-button (click)="clickRow()"><mat-icon>create</mat-icon></button>
+        </div>  
+      </mat-card>
+      <div fxLayout="row" style="margin-top: 15px;">
+        <mat-form-field fxFlex="50">
+          <input matInput [matDatepicker]="picker" placeholder="Asign first appoinment">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-toolbar>

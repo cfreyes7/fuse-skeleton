@@ -28,6 +28,10 @@ export const routes: Routes = [
           {
             path: 'notifications',
             loadChildren: './notification/notification.module#NotificationModule'
+          },
+          {
+            path: 'poc',
+            loadChildren: './poc/poc.module#PocModule'
           }
         ]
       }, {
