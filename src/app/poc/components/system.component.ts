@@ -49,7 +49,7 @@ export class SystemComponent extends BaseForm implements OnInit {
     ];
     this.details = [
       {
-        title: 'Problem or necesity',
+        title: 'Problem or necessity',
         subdetail: [
           {
             items: 
