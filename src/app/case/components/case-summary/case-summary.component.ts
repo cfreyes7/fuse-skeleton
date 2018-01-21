@@ -28,11 +28,11 @@ export class CaseSummaryComponent implements OnInit {
     mainDx: any;
   }> = [];
 
-  public id: string;
+  public id: number;
 
   constructor(private route: ActivatedRoute) {
 
-    this.id = this.route.snapshot.paramMap.get('id');
+    this.id = Number(this.route.snapshot.paramMap.get('id'));
 
     this.patients = [
       { name: 'James Travis', dob: 'Jan 12 1976', gender: 'Male', avatar: 'james', updated: 'Jan 12, 2018', type: '11 or more Rxs', status: 'Open', id: 1, pocType: null, mainDx: 'R53.81 Other malaise / SO2.40DD Maxillary fracture, left side, 7thD' },
