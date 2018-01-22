@@ -41,6 +41,7 @@ export class TaskReportsComponent implements OnInit {
 }
 
 export interface Element {
+  avatar: any,
   center: any;
   caseManager: any;
   week1: any;
@@ -50,18 +51,9 @@ export interface Element {
 }
 
 const ELEMENT_DATA: Element[] = [
-  {center: 'MMWH', caseManager: 'Emily Tomson', week1: 13, week2: 11, week3: 5, week4: 3},
-  {center: 'MMWH', caseManager: 'Emily Tomson', week1: 13, week2: 11, week3: 5, week4: 3},
-  {center: 'MMWH', caseManager: 'Emily Tomson', week1: 13, week2: 11, week3: 5, week4: 3},
-  {center: 'MMWH', caseManager: 'Emily Tomson', week1: 13, week2: 11, week3: 5, week4: 3},
-  {center: 'MMWH', caseManager: 'Emily Tomson', week1: 13, week2: 11, week3: 5, week4: 3},
-  {center: 'MMWH', caseManager: 'Emily Tomson', week1: 13, week2: 11, week3: 5, week4: 3},
-  {center: 'MMWH', caseManager: 'Emily Tomson', week1: 13, week2: 11, week3: 5, week4: 3},
-  {center: 'MMWH', caseManager: 'Emily Tomson', week1: 13, week2: 11, week3: 5, week4: 3},
-  {center: 'MMWH', caseManager: 'Emily Tomson', week1: 13, week2: 11, week3: 5, week4: 3},
-  {center: 'MMWH', caseManager: 'Emily Tomson', week1: 13, week2: 11, week3: 5, week4: 3},
-  {center: 'MMWH', caseManager: 'Emily Tomson', week1: 13, week2: 11, week3: 5, week4: 3},
-  {center: 'MMWH', caseManager: 'Emily Tomson', week1: 13, week2: 11, week3: 5, week4: 3},
-  {center: 'MMWH', caseManager: 'Emily Tomson', week1: 13, week2: 11, week3: 5, week4: 3},
-  {center: 'MMWH', caseManager: 'Emily Tomson', week1: 13, week2: 11, week3: 5, week4: 3},
+  { avatar: 'Reyna', center: 'MBME', caseManager: 'Adamaris Rodriguez', week1: 13, week2: 11, week3: 5, week4: 3},
+  { avatar: 'Nancy', center: 'MBBR-MBMD', caseManager: 'Alison Castro', week1: 13, week2: 11, week3: 5, week4: 3},
+  { avatar: 'Estes', center: 'MBMH-MBMN', caseManager: 'Abigail Mendez', week1: 13, week2: 11, week3: 5, week4: 3},
+  { avatar: 'joyce', center: 'MMWW', caseManager: 'Neiza Baez', week1: 13, week2: 11, week3: 5, week4: 3},
+  {  avatar: 'Nora', center: 'MMWH', caseManager: 'Maria Bernaldo', week1: 13, week2: 11, week3: 5, week4: 3},
 ];
