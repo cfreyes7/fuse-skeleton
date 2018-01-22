@@ -10,10 +10,10 @@
         <mat-icon>arrow_drop_down</mat-icon>
       </button>
     </div>
-    <button mat-raised-button>
+    <!-- <button mat-raised-button>
       <span class="text-uppercase">Filters</span>
       <mat-icon>arrow_drop_down</mat-icon>
-    </button>
+    </button> -->
   </div>
 
   <div class="flox-avatar-wrapper py-8 pl-12" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px"
@@ -28,7 +28,7 @@
   </div>
 
 
-  <mat-table [dataSource]="dataSource" class="table pt-12">
+  <mat-table [dataSource]="dataSource">
 
     <!-- Position Column -->
     <ng-container matColumnDef="patient">
@@ -49,7 +49,7 @@
       <mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
       <mat-cell *matCellDef="let element">
         <div class="font-weight-500">{{element.status}}</div>
-        <div>Last Update: <span class="text-accent">{{element.updated}}</span></div>
+        <div>Last Update on {{element.updated}}</div>
       </mat-cell>
     </ng-container>
 
@@ -70,25 +70,25 @@
       </mat-cell>
     </ng-container>
 
-    <!-- Options -->
-    <ng-container matColumnDef="actions">
-      <mat-header-cell *matHeaderCellDef></mat-header-cell>
-      <div *matCellDef="let element">
-        <button mat-icon-button [matMenuTriggerFor]="menu">
-          <mat-icon>more_vert</mat-icon>
-        </button>
-        <mat-menu #menu="matMenu" yPosition="below">
-          <button mat-menu-item (click)="openPoc(element.id)">Start POC</button>
-          <button mat-menu-item>Assign to</button>
-          <button mat-menu-item>Add Note</button>
-          <button mat-menu-item>Add to Transportation</button>
-          <button mat-menu-item>Send Notification</button>
-          <button mat-menu-item>Add Task</button>
-          <button mat-menu-item>Change Status</button>
-          <button mat-menu-item>Upload Documents</button>
-        </mat-menu>
-      </div>
-    </ng-container>
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef fxFlex="50px"> </mat-header-cell>
+            <mat-cell *matCellDef="let element" fxFlex="50px">
+                <button mat-icon-button [matMenuTriggerFor]="menu">
+                    <mat-icon>more_vert</mat-icon>
+                  </button>
+                  <mat-menu #menu="matMenu" yPosition="below">
+                    <button mat-menu-item (click)="openPoc(element.id)">Start POC</button>
+                    <button mat-menu-item>Assign to</button>
+                    <button mat-menu-item>Add Note</button>
+                    <button mat-menu-item>Add to Transportation</button>
+                    <button mat-menu-item>Send Notification</button>
+                    <button mat-menu-item>Change Status</button>                    
+                  </mat-menu>
+            </mat-cell>
+        </ng-container>
+    
+
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>

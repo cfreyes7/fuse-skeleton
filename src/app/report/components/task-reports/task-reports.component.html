@@ -3,7 +3,7 @@
     <div fxFlex="100" fxLayout="row" fxLayoutAlign="start center" id="header">
       <span class="h1">Dashboard - Reports</span>
       <mat-icon>keyboard_arrow_right</mat-icon>
-      <span class="h1">Hospitalization Report</span>
+      <span class="h1">Tasks Report</span>
     </div>
   </div>
 
@@ -43,7 +43,7 @@
       <mat-header-cell *matHeaderCellDef> Case Manager</mat-header-cell>
       <mat-cell *matCellDef="let element">
         <div fxLayout="row" fxLayoutAlign="start center">
-          <img class="avatar" src="assets/images/avatars/alice.jpg" alt="">
+          <img class="avatar" src="assets/images/avatars/{{element.avatar}}.jpg" alt="">
           <div class="font-weight-500">
             {{element.caseManager}}
           </div>
@@ -53,7 +53,7 @@
 
     <!-- Week1 Column -->
     <ng-container matColumnDef="week1">
-      <mat-header-cell *matHeaderCellDef> Week 1 <span>Ago 04 - 2017</span></mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> Week 1 <br/><span>Dec 7, 2017</span></mat-header-cell>
       <mat-cell *matCellDef="let element">
         {{element.week1}}
       </mat-cell>
@@ -61,7 +61,7 @@
 
     <!-- Week2 Column -->
     <ng-container matColumnDef="week2">
-      <mat-header-cell *matHeaderCellDef> Week 2 <span>Ago 04 - 2017</span></mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> Week 2 <br/><span>Dec 14, 2017</span></mat-header-cell>
       <mat-cell *matCellDef="let element">
         {{element.week2}}
       </mat-cell>
@@ -69,7 +69,7 @@
 
     <!-- Week3 Column -->
     <ng-container matColumnDef="week3">
-      <mat-header-cell *matHeaderCellDef> Week 3 <span>Ago 04 - 2017</span></mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> Week 3 <br/><span>Dec 21, 2017</span></mat-header-cell>
       <mat-cell *matCellDef="let element">
         {{element.week3}}
       </mat-cell>
@@ -77,7 +77,7 @@
 
     <!-- Week4 Column -->
     <ng-container matColumnDef="week4">
-      <mat-header-cell *matHeaderCellDef> Week 4 <span>Ago 04 - 2017</span></mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> Week 4 <br/><span>Dec 28, 2017</span></mat-header-cell>
       <mat-cell *matCellDef="let element">
         {{element.week4}}
       </mat-cell>
