@@ -18,10 +18,10 @@
 
   <div class="flox-avatar-wrapper py-8 pl-12" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px"
        *ngIf="!myCases">
-    <img class="avatar" src="assets/images/avatars/alice.jpg" alt="">
-    <img class="avatar" src="assets/images/avatars/alice.jpg" alt="">
-    <img class="avatar" src="assets/images/avatars/alice.jpg" alt="">
-    <img class="avatar" src="assets/images/avatars/alice.jpg" alt="">
+    <img class="avatar" src="assets/images/avatars/jane.jpg" alt="">
+    <img class="avatar" src="assets/images/avatars/andrew.jpg" alt="">
+    <img class="avatar" src="assets/images/avatars/carl.jpg" alt="">
+    <img class="avatar" src="assets/images/avatars/Christy.jpg" alt="">
     <button mat-icon-button>
       <mat-icon>more_horiz</mat-icon>
     </button>
@@ -33,12 +33,12 @@
     <!-- Position Column -->
     <ng-container matColumnDef="patient">
       <mat-header-cell *matHeaderCellDef> Patient</mat-header-cell>
-      <mat-cell *matCellDef="let element" routerLink="/app/cases/summary">
+      <mat-cell *matCellDef="let element" routerLink="/app/cases/summary/{{element.id}}">
         <div fxLayout="row">
-          <img class="avatar" src="assets/images/avatars/alice.jpg" alt="">
+          <img class="avatar" src="assets/images/avatars/{{element.avatar}}.jpg" alt="">
           <div>
-            <div class="font-weight-500">John Doe</div>
-            <span class="mat-caption">Male,  35y / Feb 12 - 1990</span>
+            <div class="font-weight-500">{{element.name}}</div>
+            <span class="mat-caption">{{element.gender}}, {{element.dob}}</span>
           </div>
         </div>
       </mat-cell>
@@ -46,10 +46,10 @@
 
     <!-- Name Column -->
     <ng-container matColumnDef="status">
-      <mat-header-cell *matHeaderCellDef> Status</mat-header-cell>
+      <mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
       <mat-cell *matCellDef="let element">
-        <div>Open</div>
-        <div>Last Update: <span class="text-accent">12/01/2018</span></div>
+        <div class="font-weight-500">{{element.status}}</div>
+        <div>Last Update: <span class="text-accent">{{element.updated}}</span></div>
       </mat-cell>
     </ng-container>
 
@@ -57,8 +57,8 @@
     <ng-container matColumnDef="pocType">
       <mat-header-cell *matHeaderCellDef> POC / Type</mat-header-cell>
       <mat-cell *matCellDef="let element">
-        <div>Hospitalization</div>
-        <span class="mat-caption">Snif</span>
+        <div>{{element.type}}</div>
+        <span class="mat-caption">{{element.pocType}}</span>
       </mat-cell>
     </ng-container>
 
@@ -66,19 +66,26 @@
     <ng-container matColumnDef="mainDx">
       <mat-header-cell *matHeaderCellDef> Main Dx</mat-header-cell>
       <mat-cell *matCellDef="let element">
-        R53.81 Other malaise / SO2.40DD Maxillary fracture, left side, 7thD
+        {{element.mainDx}}
       </mat-cell>
     </ng-container>
 
     <!-- Options -->
-    <ng-container matColumnDef="actions" style="width: 5%;">
+    <ng-container matColumnDef="actions">
       <mat-header-cell *matHeaderCellDef></mat-header-cell>
       <div *matCellDef="let element">
         <button mat-icon-button [matMenuTriggerFor]="menu">
           <mat-icon>more_vert</mat-icon>
         </button>
         <mat-menu #menu="matMenu" yPosition="below">
-          <button mat-menu-item (click)="openPoc()">Start POC</button>
+          <button mat-menu-item (click)="openPoc(element.id)">Start POC</button>
+          <button mat-menu-item>Assign to</button>
+          <button mat-menu-item>Add Note</button>
+          <button mat-menu-item>Add to Transportation</button>
+          <button mat-menu-item>Send Notification</button>
+          <button mat-menu-item>Add Task</button>
+          <button mat-menu-item>Change Status</button>
+          <button mat-menu-item>Upload Documents</button>
         </mat-menu>
       </div>
     </ng-container>
