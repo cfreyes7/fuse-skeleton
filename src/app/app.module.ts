@@ -1,38 +1,42 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-import {RouterModule} from '@angular/router';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {RouterModule} from '@angular/router';
+import {TranslateModule} from '@ngx-translate/core';
 import 'hammerjs';
+import {routes} from './app.routes';
 import {AppComponent} from './app.component';
-import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
-import {routes} from './app.router';
-import {CoreModule} from './core/core.module';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-
-export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, '/lang/', '.json');
-}
+import {SharedModule} from './core/modules/shared.module';
+import {FuseMainModule} from './main/main.module';
+import {FuseSplashScreenService} from './core/services/splash-screen.service';
+import {FuseConfigService} from './core/services/config.service';
+import {FuseNavigationService} from './core/components/navigation/navigation.service';
+import {FormContentService} from './core/services/form-content.service';
+import {FormValidatorService} from './core/services/form-validator.service';
+import {SvgRegisterService} from './core/services/svg-register.service';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
-    }),
-    CoreModule
+    SharedModule,
+    TranslateModule.forRoot(),
+    FuseMainModule
   ],
-  providers: [],
+  providers: [
+    FuseSplashScreenService,
+    FuseConfigService,
+    FuseNavigationService,
+    FormContentService,
+    FormValidatorService,
+    SvgRegisterService
+  ],
   bootstrap: [
     AppComponent
   ]

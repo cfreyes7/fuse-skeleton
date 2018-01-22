@@ -1,10 +1,15 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {RouterModule} from '@angular/router';
+
+import { PatientFormComponent } from './components/patient-form/patient-form.component';
+import {SharedModule} from '../core/modules/shared.module';
+import {routes} from './patient.routes';
 
 @NgModule({
   imports: [
-    CommonModule
+    SharedModule,
+    RouterModule.forChild(routes)
   ],
-  declarations: []
+  declarations: [PatientFormComponent]
 })
 export class PatientModule { }

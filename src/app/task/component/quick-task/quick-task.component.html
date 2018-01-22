@@ -1,0 +1,92 @@
+<div fxLayout="column" fxFlex="100">
+  <div fxFlex="100" class="pl-12 pr-12" style="overflow-y: auto" floxFusePerfectScrollbar>
+    <mat-toolbar>
+      New Task
+    </mat-toolbar>
+    <hr>
+    <form [formGroup]="taskForm" novalidate id="quickTaskForm" (ngSubmit)="onSubmit(taskForm)">
+      <div fxLayout="row">
+        <mat-form-field ngxErrors="task" fxFlex="50">
+          <input matInput placeholder="Subject" formControlName="task">
+          <mat-error ngxError="task" when="touched">
+            Subject is required
+          </mat-error>
+        </mat-form-field>
+
+      </div>
+      <mat-form-field ngxErrors="description">
+        <textarea matInput formControlName="description" placeholder="Description" matTextareaAutosize
+                  matAutosizeMinRows="5" matAutosizeMaxRows="5"></textarea>
+        <mat-error ngxError="required" when="touched">
+          Description is required
+        </mat-error>
+      </mat-form-field>
+      <div fxLayout="row">
+        <mat-form-field fxFlex="40">
+          <mat-select placeholder="Type Task">
+            <mat-option *ngFor="let task of tasks" [value]="task.value">
+              {{ task.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <div fxFlex="10"></div>
+        <mat-form-field fxFlex="50">
+          <input matInput [matDatepicker]="due_date" placeholder="Due Date">
+          <mat-datepicker-toggle matSuffix [for]="due_date"></mat-datepicker-toggle>
+          <mat-datepicker #due_date></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div fxLayout="row">
+        <mat-form-field fxFlex="30">
+          <mat-select placeholder="Priority">
+            <mat-option *ngFor="let priority of prioritys" [value]="priority.value" class="mat-accent">
+              {{ priority.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div fxFlex="10"></div>
+        <div fxFlex="70">
+          Assigned to:
+          <mat-form-field>
+            <mat-chip-list #chipList>
+              <mat-chip [selectable]="true" [removable]="true">
+                <mat-icon>account_circle</mat-icon>
+                Dr. Abbey
+                <mat-icon matChipRemove>cancel</mat-icon>
+              </mat-chip>
+              <input [matChipInputFor]="chipList">
+            </mat-chip-list>
+          </mat-form-field>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center center">
+        <div class="text-right pr-8" fxFlex="150px">
+          <mat-checkbox formControlName="linkPatient">Link a Patient</mat-checkbox>
+        </div>
+        <div fxFlex="100">
+          <mat-form-field>
+            <mat-chip-list #chipList>
+              <mat-chip [selectable]="true" [removable]="true">
+                <mat-icon>account_circle</mat-icon>
+                James Travis
+                <mat-icon matChipRemove>cancel</mat-icon>
+              </mat-chip>
+              <input [matChipInputFor]="chipList">
+            </mat-chip-list>
+          </mat-form-field>
+        </div>
+      </div>
+      <hr>
+      <h3 class="subheading-1 text-bold">Attachments</h3>
+      <flox-file-list #fileList></flox-file-list>
+      <div fxLayout="row" fxLayoutAlign="end end" class="pb-8">
+        <flox-upload multiple [fileList]="fileList" formControlName="files"></flox-upload>
+      </div>
+    </form>
+  </div>
+  <mat-toolbar fxLayout="row" fxLayoutAlign="center center" class="bottom-bar">
+    <button mat-button (click)="close()" type="button">{{'Cancel' | uppercase }}</button>
+    <button mat-button color="primary" form="quickTaskForm" type="submit">{{'Save' | uppercase }}</button>
+  </mat-toolbar>
+</div>

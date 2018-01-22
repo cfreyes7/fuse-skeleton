@@ -1,0 +1,209 @@
+<div class="px-20 page-layout blank" fusePerfectScrollbar>
+    <div fxLayout="row" fxLayoutGap="20px" class="pb-12 secondary-text">
+        <div fxFlex="100" fxLayout="row" fxLayoutAlign="start center" id="header">
+          <span class="h1">My Cases</span>
+          <mat-icon>keyboard_arrow_right</mat-icon>
+          <span class="h1">Case Summary</span>
+        </div>
+      </div>
+
+  <mat-card fxLayout="row" fxLayoutGap="20px" class="pl-20 py-12 br-yellow mat-elevation-z">
+    <div fxFlex="20">
+      <div fxLayout="row">
+        <img class="avatar" src="assets/images/avatars/{{patients[id-1].avatar}}.jpg" alt="">
+        <div>
+          <div class="font-weight-500">{{patients[id-1].name}}</div>
+          <span class="mat-caption">{{patients[id-1].gender}},  61y / {{patients[id-1].dob}}</span>
+        </div>
+      </div>
+      <div class="mt-4">
+        <button mat-button [matMenuTriggerFor]="caseMenu" disableRipple>
+          <span class="text-uppercase">{{priority.name}}</span>
+          <mat-icon>arrow_drop_down</mat-icon>
+        </button>
+      </div>
+    </div>
+    <div fxFlex="20">
+      <div fxLayout="row">
+        <div>
+          <span class="h6" style="color: #9EA1A9">Center</span>
+          <div class="mat-caption">MBMN</div>
+        </div>
+      </div>
+      <div class="mt-12">
+        <div>
+          <span class="h6" style="color: #9EA1A9">PCP</span>
+          <div class="mat-caption">Alvarez Juan ARNP</div>
+        </div>
+      </div>
+    </div>
+    <div fxFlex="20">
+      <div fxLayout="row">
+        <div>
+          <span class="h6" style="color: #9EA1A9">Case manager</span>
+          <div class="mat-caption">Liuyansi Cabreja</div>
+        </div>
+      </div>
+      <div class="mt-12">
+        <div>
+          <span class="h6" style="color: #9EA1A9">Type</span>
+          <div class="mat-caption">{{patients[id-1].type}}</div>
+        </div>
+      </div>
+    </div>
+    <div fxFlex="20">
+      <div fxLayout="row">
+        <div>
+          <span class="h6" style="color: #9EA1A9">Expected D/C Date</span>
+          <div class="mat-caption">1/25/2018</div>
+        </div>
+      </div>
+      <div class="mt-12">
+        <div>
+          <span class="h6" style="color: #9EA1A9">SOC date</span>
+          <div class="mat-caption">10/25/2017</div>
+        </div>
+      </div>
+    </div>
+    <div fxFlex="20">
+      <div fxLayout="row">
+        <div>
+          <span class="h6" style="color: #9EA1A9">Referral Source</span>
+          <div class="mat-caption">1</div>
+        </div>
+      </div>
+      <div class="mt-12">
+        <div>
+          <span class="h6" style="color: #9EA1A9">Referral Pupose</span>
+          <div class="mat-caption">1</div>
+        </div>
+      </div>
+    </div>
+  </mat-card>
+  
+  <mat-card fxLayout="row" fxLayoutGap="20px" class="pl-20 py-12 mat-elevation-z" *ngIf="patients[id-1].type === 'Hospitalization'">
+    <div fxFlex="30">
+      <div class="font-weight-500">
+        System
+        <hr>
+      </div>
+      <mat-table #table [dataSource]="dataSourceSystems" class="table-no-border">
+
+        <ng-container matColumnDef="check">
+          <mat-cell *matCellDef="let element" fxFlex="15">
+            <mat-icon fxFlex="8" style="color:#3BDDA3;" *ngIf="element.check">done</mat-icon>
+            <!--  <mat-icon *ngIf="element.check">check</mat-icon>
+            <mat-checkbox [checked]="element.check"></mat-checkbox>-->
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+          <mat-cell *matCellDef="let element" fxFlex="70"> {{element.name}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="edit">
+          <mat-cell *matCellDef="let element" fxFlex="15">
+            <mat-icon fxLayoutAlign="center center">create</mat-icon>
+          </mat-cell>
+        </ng-container>
+
+        <mat-row *matRowDef="let row; columns: displayedColumnsSystems;"></mat-row>
+      </mat-table>
+    </div>
+    <div fxFlex="50">
+      <span class="h6">Last Update: 17/01/2018</span>
+      <mat-accordion>
+        <mat-expansion-panel *ngFor="let detail of details">
+          <mat-expansion-panel-header>
+            <span class="sub-title">{{detail.title}}</span>
+          </mat-expansion-panel-header>
+          <div *ngIf="detail.subdetail">
+            <div *ngFor="let subdetail of detail.subdetail">
+              <div *ngIf="subdetail.title">{{subdetail.title}}</div>
+              <div *ngFor="let item of subdetail.items">
+                <div fxFlex="100" fxLayout="row" class="py-4">
+                  <mat-checkbox [checked]="item.active" class="pr-4"></mat-checkbox>
+                  <span> {{item.text}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="detail.form">
+            <div *ngFor="let field of detail.form">
+              <div [ngSwitch]="field.type">
+                <mat-form-field *ngSwitchCase="'text'">
+                  <input matInput [placeholder]="field.label" [value]="field.value" />
+                </mat-form-field>
+                <mat-form-field *ngSwitchCase="'select'">
+                  <mat-select [placeholder]="field.label" [(value)]="field.value">
+                    <mat-option *ngFor="let option of field.options" [value]="option">
+                      {{ option }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-slide-toggle *ngSwitchCase="'switch'">{{field.label}}</mat-slide-toggle>
+              </div>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+    <div fxFlex="20">
+      <div class="font-weight-500">
+        Periodic:
+      </div>
+      <mat-form-field>
+        <input matInput [matDatepicker]="from" placeholder="From">
+        <mat-datepicker-toggle matSuffix [for]="from"></mat-datepicker-toggle>
+        <mat-datepicker #from></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [matDatepicker]="to" placeholder="To">
+        <mat-datepicker-toggle matSuffix [for]="to"></mat-datepicker-toggle>
+        <mat-datepicker #to></mat-datepicker>
+      </mat-form-field>
+    </div>
+  </mat-card>
+
+  <br/>
+
+      <div class="todo-content">
+
+        <form>
+
+            <mat-form-field class="" fxFill>
+                <textarea matInput #notes
+                          name="notes"
+                          formControlName="notes"
+                          placeholder="New note"
+                          maxlength="500">
+                </textarea>
+                <mat-hint align="end">{{notes.value.length}} / 500</mat-hint>
+            </mat-form-field>
+
+            <button mat-raised-button class="mat-accent">
+              Add
+            </button>
+        </form>
+
+    </div>
+    <hr>
+    <h3>Notes</h3>
+    <div>
+       <span>Entered Liuyansi Cabreja on Dec 14, 2017 5:00 PM EST </span>
+       <p>Officia amet eiusmod eu sunt tempor voluptate laboris velit nisi amet enim proident et. Consequat laborum non eiusmod cillum eu exercitation. Qui adipisicing est fugiat eiusmod esse. Sint aliqua cupidatat pariatur mollit ad est proident reprehenderit. Eiusmod adipisicing laborum incididunt sit aliqua ullamco.</p>
+    </div>    
+    <hr>
+    <div>
+      <span>Entered Liuyansi Cabreja on Dec 14, 2017 5:00 PM EST </span>
+      <p>Officia amet eiusmod eu sunt tempor voluptate laboris velit nisi amet enim proident et. Consequat laborum non eiusmod cillum eu exercitation. Qui adipisicing est fugiat eiusmod esse. Sint aliqua cupidatat pariatur mollit ad est proident reprehenderit. Eiusmod adipisicing laborum incididunt sit aliqua ullamco.</p>
+   </div>    
+   
+    
+</div>
+
+<mat-menu #caseMenu="matMenu">
+  <button mat-menu-item *ngFor="let p of priorities" (click)="setPriority(p)">
+    <span class="pointer" [ngClass]="p.color"></span>{{p.name}}
+  </button>
+</mat-menu>

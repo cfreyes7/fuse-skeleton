@@ -1,0 +1,203 @@
+<div fxLayout="column" fxFill>
+  <div fxFlex="100" class="pl-12 pr-12" style="overflow-y: auto;" floxFusePerfectScrollbar>
+    <mat-toolbar>
+      New Patient
+    </mat-toolbar>
+    <form [formGroup]="patientForm">
+      <mat-tab-group>
+        <mat-tab label="General">
+          <h3>Personal Information</h3>
+          <div fxLayout="row" fxLayoutGap="20px">
+            <mat-form-field fxFlex>
+              <input matInput formControlName="firstName" placeholder="First Name" />
+              <mat-error ngxErrors="firstName">
+                <div ngxError="required">
+                  First name is required
+                </div>
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field fxFlex>
+              <input matInput formControlName="lastName" placeholder="Last Name" />
+              <mat-error ngxErrors="lastName">
+                <div ngxError="required">
+                  Last name is required
+                </div>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div fxLayout="row" fxLayoutGap="20px">
+            <mat-form-field fxFlex>
+              <input matInput formControlName="socialSecurity" placeholder="Social Security" />
+              <mat-error ngxErrors="socialSecurity">
+                <div ngxError="required">
+                  Social security is required
+                </div>
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field fxFlex>
+              <input matInput formControlName="maritalStatus" placeholder="Marital Status" />
+              <mat-error ngxErrors="maritalStatus">
+                <div ngxError="required">
+                  Marital status is required
+                </div>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div fxLayout="row" fxLayoutGap="20px">
+            <mat-form-field fxFlex>
+              <input matInput [matDatepicker]="picker" placeholder="Date Birthday" />
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker formControlName="dob"></mat-datepicker>
+              <mat-error ngxErrors="dob">
+                <div ngxError="required">
+                  Date birthday is required
+                </div>
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field fxFlex>
+              <mat-chip-list #chipLanguages formControlName="language">
+                <mat-chip [selectable]="true" [removable]="true" *ngFor="let lang of languages" (remove)="removeLanguage(lang)">
+                  {{lang}}
+                  <mat-icon matChipRemove>cancel</mat-icon>
+                </mat-chip>
+                <input placeholder="Add new language"
+                       [matChipInputFor]="chipLanguages"
+                       [matChipInputAddOnBlur]="true"
+                       (matChipInputTokenEnd)="addLanguage($event)" />
+              </mat-chip-list>
+              <mat-error ngxErrors="language">
+                <div ngxError="required">
+                  Language is required
+                </div>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div fxLayout="row" fxLayoutGap="20px">
+            <div fxLayout="column" fxFlex>
+              <div fxLayout="row" fxLayoutAlign="start center">
+                Gender
+              </div>
+              <div fxLayout="row" fxLayoutAlign="start center">
+                <button mat-button fxFlex (click)="changeGender(true)">
+                  <mat-icon svgIcon="male" [ngClass]="{'active': activeGender}"></mat-icon>
+                  Male
+                </button>
+                <span>|</span>
+                <button mat-button fxFlex (click)="changeGender(false)">
+                  <mat-icon svgIcon="female" [ngClass]="{'active': !activeGender}"></mat-icon>
+                  Female
+                </button>
+                <span fxFill></span>
+              </div>
+            </div>
+            <div fxLayout="column" fxFlex>
+              <div fxLayout="row" fxLayoutAlign="start center" class="border-bottom">Ethnicity</div>
+              <div fxLayout="row" fxLayoutAlign="center center">
+                <mat-select placeholder="Race" formControlName="ethnicity" fxFlex>
+                  <mat-option *ngFor="let eth of ethnicities" [value]="eth">
+                    {{ eth }}
+                  </mat-option>
+                </mat-select>
+              </div>
+            </div>
+          </div>
+          <h4>Insurance</h4>
+          <mat-checkbox formControlName="insPrimary">Primary</mat-checkbox>
+          <div fxLayout="row" fxLayoutGap="20px">
+            <mat-form-field fxFlex>
+              <input matInput formControlName="insGroupName" placeholder="Group name" />
+              <mat-error ngxErrors="insGroupName">
+                <div ngxError="required">
+                  Group name is required
+                </div>
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field fxFlex>
+              <input matInput formControlName="insGroupId" placeholder="Group Id" />
+              <mat-error ngxErrors="insGroupId">
+                <div ngxError="required">
+                  Group Id is required
+                </div>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div fxLayout="row" fxLayoutGap="20px">
+            <mat-form-field fxFlex>
+              <input matInput formControlName="insPlanCode" placeholder="Plan Code" />
+              <mat-error ngxErrors="insPlanCode">
+                <div ngxError="required">
+                  Plan code is required
+                </div>
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field fxFlex>
+              <input matInput formControlName="insClaimMember" placeholder="Claim Member" />
+              <mat-error ngxErrors="insClaimMember">
+                <div ngxError="required">
+                  Claim member is required
+                </div>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </mat-tab>
+        <mat-tab label="Employment">
+          <h3>Work Information</h3>
+          <mat-select placeholder="Employee status" formControlName="workStatus" fxFlex>
+            <mat-option *ngFor="let status of employeeStatuses" [value]="status">
+              {{ status }}
+            </mat-option>
+          </mat-select>
+          <div fxLayout="row" fxLayoutGap="20px">
+            <mat-form-field fxFlex>
+              <input matInput formControlName="workEmployeeName" placeholder="Employee name" />
+              <mat-error ngxErrors="workEmployeeName">
+                <div ngxError="required">
+                  Employee name is required
+                </div>
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field fxFlex>
+              <input matInput formControlName="workEmployeeNumber" placeholder="Work phone" />
+              <mat-error ngxErrors="workEmployeeNumber">
+                <div ngxError="required">
+                  Work phone is required
+                </div>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </mat-tab>
+        <mat-tab label="Registration">
+          <div fxLayout="row" fxLayoutGap="20px">
+            <mat-form-field fxFlex="50">
+              <input matInput [matDatepicker]="startDate" placeholder="Start Date" />
+              <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+              <mat-datepicker #startDate formControlName="dob"></mat-datepicker>
+              <mat-error ngxErrors="dob">
+                <div ngxError="required">
+                  Date birthday is required
+                </div>
+              </mat-error>
+            </mat-form-field>
+            <span></span>
+          </div>
+          <div fxLayout="row" fxLayoutGap="20px">
+            <mat-select placeholder="Assigned Provider" formControlName="provider" fxFlex>
+              <mat-option *ngFor="let provider of providers" [value]="provider">
+                {{ provider }}
+              </mat-option>
+            </mat-select>
+            <mat-select placeholder="Primary Care Physician" formControlName="physician" fxFlex>
+              <mat-option *ngFor="let physician of physicians" [value]="physician">
+                {{ physician }}
+              </mat-option>
+            </mat-select>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </form>
+  </div>
+  <mat-toolbar fxLayout="row" fxLayoutAlign="center center" class="bottom-bar">
+    <button mat-button (click)="close()" type="button">{{'Cancel' | uppercase}}</button>
+    <button mat-button color="primary" type="submit">{{'Save' | uppercase}}</button>
+  </mat-toolbar>
+</div>

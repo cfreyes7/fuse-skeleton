@@ -1,0 +1,6 @@
+@import '../../../core/scss/variables/theme';
+@import '~@angular/material/theming';
+
+.active {
+  color: mat-color($accent);
+}

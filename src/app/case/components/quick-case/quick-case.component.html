@@ -3,76 +3,205 @@
     <mat-toolbar>
       New Case
     </mat-toolbar>
-    <hr>
-    <form [formGroup]="caseForm" novalidate id="quickCaseForm" (ngSubmit)="onSubmit(caseForm)">
+    <div class="divider"></div>
+    <form [formGroup]="caseForm" class="ml-12 mt-12" novalidate id="quickCaseForm" (ngSubmit)="onSubmit(caseForm)">
       <div fxLayout="row">
-        <mat-form-field ngxErrors="case" fxFlex="50%">
-          <input matInput placeholder="Subkect Case" formControlName="case">
-          <mat-error ngxError="case" when="touched">
-            Subkect Case is required
-          </mat-error>
+        <mat-form-field fxFlex="55">
+          <mat-select placeholder="Type" [(value)]="selected">
+            <mat-option value="option1">DM</mat-option>
+            <mat-option value="option2">Hospitalization</mat-option>
+            <mat-option value="option3">Referral Pts</mat-option>
+            <mat-option value="option4">11 or more Rxs</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div fxFlex="3"></div>
+        <mat-form-field fxFlex="55">
+          <mat-select placeholder="Status">
+            <mat-option *ngFor="let stat of status" [value]="stat.value">
+              {{ stat.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div fxFlex="3"></div>
+        <mat-form-field *ngIf="selected=='option2'" fxFlex="20">
+          <mat-select placeholder="Center">
+            <mat-option *ngFor="let center of centers" [value]="center.value">
+              {{ center.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div fxFlex="4"></div>
+        <mat-form-field *ngIf="selected=='option2'" fxFlex="25">
+          <input matInput placeholder="Case Manager">
         </mat-form-field>
       </div>
-      <mat-form-field ngxErrors="description">
-        <textarea matInput formControlName="description" placeholder="Description" matTextareaAutosize
-                  matAutosizeMinRows="2" matAutosizeMaxRows="5"></textarea>
-        <mat-error ngxError="required" when="touched">
-          Description is required
-        </mat-error>
-      </mat-form-field>
-      <div>Status</div>
-      <mat-button-toggle-group formControlName="status">
-        <mat-button-toggle value="OPEN">
-          Open
-        </mat-button-toggle>
-        <mat-button-toggle value="IN_PROGRESS">
-          In Progress
-        </mat-button-toggle>
-        <mat-button-toggle value="FINISH">
-          Finished
-        </mat-button-toggle>
-      </mat-button-toggle-group>
-      <hr>
+      <div class="divider"></div>
       <div fxLayout="row" fxLayoutAlign="center center">
-        <div class="text-right pr-8" fxFlex="150px">
-          Assigned to:
+        <div class="pr-8">
+          <mat-checkbox formControlName="linkPatient"></mat-checkbox>
         </div>
         <div fxFlex="100">
           <mat-form-field>
             <mat-chip-list #chipList>
-              <mat-chip [selectable]="true" [removable]="true">
-                <mat-icon>account_circle</mat-icon>
-                Dr. Abbey
-                <mat-icon matChipRemove>cancel</mat-icon>
+              <mat-chip *ngFor="let patient of patients" [selectable]="selectable" [removable]="removable">
+                <img class="avatar small" src="assets/images/avatars/andrew.jpg">
+                {{patient.name}}
+                <mat-icon fxLayoutAlign="center center" matChipRemove>cancel</mat-icon>
               </mat-chip>
-              <input [matChipInputFor]="chipList">
             </mat-chip-list>
           </mat-form-field>
         </div>
+        <div fxFlex="10"></div>
+        <div fxFlex="15" fxLayout="column" fxLayoutAlign="center"><span>Main DX:</span></div>
+        <mat-form-field fxFlex="30">
+          <input matInput placeholder="Enter a Tag">
+        </mat-form-field>
       </div>
       <div fxLayout="row" fxLayoutAlign="center center">
-        <div class="text-right pr-8" fxFlex="150px">
-          <mat-checkbox>Link a Patient</mat-checkbox>
-        </div>
-        <div fxFlex="100">
-          <mat-form-field>
-            <mat-chip-list #chipList>
-              <mat-chip [selectable]="true" [removable]="true">
-                <mat-icon>account_circle</mat-icon>
-                John Doe
-                <mat-icon matChipRemove>cancel</mat-icon>
-              </mat-chip>
-              <input [matChipInputFor]="chipList">
-            </mat-chip-list>
-          </mat-form-field>
+        <div fxLayout="column" fxFlex="100">
+          <div fxFlex="100">
+            <mat-form-field class="chip-list">
+              <mat-chip-list #chipList>
+                <mat-chip *ngFor="let chip of chips"  (remove)="removeChip(chip)" [selectable]="selectable" [removable]="removable">
+                  {{chip.name}}
+                  <mat-icon fxLayoutAlign="center center" matChipRemove *ngIf="removable">cancel</mat-icon>
+                </mat-chip>
+                <input [matChipInputFor]="chipList"
+                       [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                       [matChipInputAddOnBlur]="addOnBlur"
+                       (matChipInputTokenEnd)="addChip($event)">
+              </mat-chip-list>
+            </mat-form-field>
+          </div>
         </div>
       </div>
-      <hr>
-      <h3 class="subheading-1 text-bold">Transportation</h3>
+      <div *ngIf="selected=='option2'" fxLayout="row" fxLayoutAlign="space-between">
+        <div fxFlex="10" fxLayout="column" fxLayoutAlign="center"><span>PCP:</span></div>
+        <mat-form-field fxFlex="30">
+          <input matInput placeholder="Enter Name">
+        </mat-form-field>
+        <div fxFlex="10"></div>
+        <div fxFlex="20" fxLayout="column" fxLayoutAlign="center"><span>Notified PCP:</span></div>
+        <mat-form-field fxFlex="30">
+          <input matInput placeholder="Enter Name">
+        </mat-form-field>
+      </div>
+      <div *ngIf="selected!='option2'" fxLayout="row">
+        <div fxFlex="10"></div>
+        <mat-form-field fxFlex="30">
+          <mat-select placeholder="Center">
+            <mat-option *ngFor="let center of centers" [value]="center.value">
+              {{ center.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div fxFlex="5"></div>
+        <mat-form-field fxFlex="55">
+          <mat-select placeholder="PCP">
+            <mat-option *ngFor="let pcp of pcps" [value]="pcp.value">
+              {{ pcp.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div *ngIf="selected!='option2'" fxLayout="row" fxLayoutAlign="end center">
+        <div fxFlex="20">
+          <mat-checkbox formControlName="linkPatient">Notify PCP</mat-checkbox>
+        </div>
+        <div fxFlex="35"></div>
+      </div>
+      <div *ngIf="selected=='option2'" fxLayout="row">
+        <mat-form-field fxFlex="32">
+          <input matInput [matDatepicker]="start" placeholder="Admission Notification">
+          <mat-datepicker-toggle matSuffix [for]="start"></mat-datepicker-toggle>
+          <mat-datepicker #start></mat-datepicker>
+        </mat-form-field>
+        <div fxFlex="6"></div>
+        <mat-form-field fxFlex="32">
+          <input matInput [matDatepicker]="end" placeholder="Admission Notification">
+          <mat-datepicker-toggle matSuffix [for]="end"></mat-datepicker-toggle>
+          <mat-datepicker #end></mat-datepicker>
+        </mat-form-field>
+        <div fxFlex="10"></div>
+        <div fxFlex="20">
+          <div fxLayout="row" class="font-size-12"><span>Readmission</span></div>
+          <div fxLayout="row">
+            <span class="mr-4">Yes</span>
+            <mat-slide-toggle color="accent"></mat-slide-toggle>
+            <span class="ml-4">No</span>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="selected=='option2'"class="divider mb-8"></div>
+      <div *ngIf="selected=='option2'"fxLayout="row" fxLayoutAlign="end center">
+        <mat-form-field fxFlex="30">
+          <mat-select placeholder="Planned">
+            <mat-option *ngFor="let planned of planneds" [value]="planned.value">
+              {{ planned.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div fxFlex="5"></div>
+        <mat-form-field fxFlex="30">
+          <input matInput [matDatepicker]="date" placeholder="Dicharged Date">
+          <mat-datepicker-toggle matSuffix [for]="date"></mat-datepicker-toggle>
+          <mat-datepicker #date></mat-datepicker>
+        </mat-form-field>
+        <div fxFlex="5"></div>
+        <mat-form-field fxFlex="30">
+          <mat-select placeholder="DX / QA">
+            <mat-option *ngFor="let dx of dxs" [value]="dx.value">
+              {{ dx.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div *ngIf="selected=='option2'"fxLayout="row" fxLayoutAlign="end center">
+        <mat-form-field fxFlex="70">
+          <mat-select placeholder="Facility">
+            <mat-option *ngFor="let fac of facility" [value]="fac.value">
+              {{ fac.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div fxFlex="10"></div>
+        <div fxFlex="20">
+          <div fxLayout="row" class="font-size-12"><span>On File</span></div>
+          <div fxLayout="row">
+            <span class="mr-4">Yes</span>
+            <mat-slide-toggle color="accent"></mat-slide-toggle>
+            <span class="ml-4">No</span>
+          </div>
+        </div>
+      </div>
+      <div class="divider mb-8 mt-4"></div>
+      <div fxLayout="row" fxLayoutAlign="start center">
+        <mat-form-field fxFlex="40">
+          <mat-select placeholder="Assigned to(CM)">
+            <mat-option *ngFor="let cm of cms" [value]="cm.value">
+             <img class="avatar" src="{{cm.img}}">{{ cm.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div fxLayout="row">
+        <div fxFlex="20">
+          <span class="mat-subheading-1 text-bold">Documents</span>
+        </div>
+        <div fxFlex="60"></div>
+        <div fxFlex="20">
+          <div>
+            <flox-upload multiple [fileList]="fileList" formControlName="files"></flox-upload>
+          </div>
+        </div>
+      </div>
+      <div class="mb-8" fxLayout="row" fxLayoutAlign="start end">
+        <flox-file-list #fileList></flox-file-list>
+      </div>
     </form>
   </div>
   <mat-toolbar fxLayout="row" fxLayoutAlign="center center" class="bottom-bar">
-    <button mat-button (click)="close()" type="button">Cancel</button>
-    <button mat-button color="primary" form="quickCaseForm" type="submit">Create Case</button>
+    <button mat-button (click)="close()" type="button">{{'Cancel' | uppercase }}</button>
+    <button mat-button color="accent" form="quickCaseForm" type="submit">{{'Save' | uppercase }}</button>
   </mat-toolbar>
 </div>

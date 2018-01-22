@@ -1,5 +1,4 @@
 import { TestBed, inject } from '@angular/core/testing';
-
 import { FormValidatorService } from './form-validator.service';
 
 describe('FormValidatorService', () => {

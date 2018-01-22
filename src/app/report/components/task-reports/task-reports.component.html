@@ -1,0 +1,93 @@
+<div class="px-20 page-layout blank" fusePerfectScrollbar>
+  <div fxLayout="row" fxLayoutGap="20px" class="pb-12 secondary-text">
+    <div fxFlex="100" fxLayout="row" fxLayoutAlign="start center" id="header">
+      <span class="h1">Dashboard - Reports</span>
+      <mat-icon>keyboard_arrow_right</mat-icon>
+      <span class="h1">Tasks Report</span>
+    </div>
+  </div>
+
+  <div fxLayout="row" fxLayoutGap="20px" class="pb-20">
+    <div fxFlex="100" fxLayoutAlign="start center">
+      <button mat-raised-button [matMenuTriggerFor]="menu">
+        <span class="text-uppercase">
+          {{month === 'All' ? 'Month': month}}
+        </span>
+        <mat-icon>arrow_drop_down</mat-icon>
+      </button>
+    </div>
+    <div fxLayout="row" fxFlex="100" fxLayoutAlign="end center" fxLayoutGap="20px">
+      <button mat-raised-button>
+        <mat-icon>file_download</mat-icon>
+        EXPORT
+      </button>
+      <button mat-raised-button>
+        <mat-icon>print</mat-icon>
+        PRINT
+      </button>
+    </div>
+  </div>
+
+  <mat-table [dataSource]="dataSource" class="table mt-12">
+
+    <!-- Center Column -->
+    <ng-container matColumnDef="center">
+      <mat-header-cell *matHeaderCellDef> Center</mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        {{element.center}}
+      </mat-cell>
+    </ng-container>
+
+    <!-- Case Manager Column -->
+    <ng-container matColumnDef="caseManager">
+      <mat-header-cell *matHeaderCellDef> Case Manager</mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <div fxLayout="row" fxLayoutAlign="start center">
+          <img class="avatar" src="assets/images/avatars/{{element.avatar}}.jpg" alt="">
+          <div class="font-weight-500">
+            {{element.caseManager}}
+          </div>
+        </div>
+      </mat-cell>
+    </ng-container>
+
+    <!-- Week1 Column -->
+    <ng-container matColumnDef="week1">
+      <mat-header-cell *matHeaderCellDef> Week 1 <br/><span>Dec 7, 2017</span></mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        {{element.week1}}
+      </mat-cell>
+    </ng-container>
+
+    <!-- Week2 Column -->
+    <ng-container matColumnDef="week2">
+      <mat-header-cell *matHeaderCellDef> Week 2 <br/><span>Dec 14, 2017</span></mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        {{element.week2}}
+      </mat-cell>
+    </ng-container>
+
+    <!-- Week3 Column -->
+    <ng-container matColumnDef="week3">
+      <mat-header-cell *matHeaderCellDef> Week 3 <br/><span>Dec 21, 2017</span></mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        {{element.week3}}
+      </mat-cell>
+    </ng-container>
+
+    <!-- Week4 Column -->
+    <ng-container matColumnDef="week4">
+      <mat-header-cell *matHeaderCellDef> Week 4 <br/><span>Dec 28, 2017</span></mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        {{element.week4}}
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>
+
+<mat-menu #menu="matMenu" class="month-selector">
+  <button mat-menu-item *ngFor="let m of listMonth" (click)="month = m">{{m}}</button>
+</mat-menu>

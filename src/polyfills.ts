@@ -74,7 +74,6 @@ import 'intl/locale-data/jsonp/en';
 /**
  * Fix for ngx-chart to work on ie11
  */
-if ( typeof SVGElement.prototype.contains === 'undefined' )
-{
-    SVGElement.prototype.contains = HTMLDivElement.prototype.contains;
+if (typeof SVGElement.prototype.contains === 'undefined') {
+  SVGElement.prototype.contains = HTMLDivElement.prototype.contains;
 }

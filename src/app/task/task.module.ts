@@ -1,10 +1,27 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {RouterModule} from '@angular/router';
+
+import {routes} from './task.router';
+import {TaskDashboardComponent} from './component/task-dashboard/task-dashboard.component';
+import {CalendarModule} from 'angular-calendar';
+import {CalendarComponent} from './component/calendar/calendar.component';
+import {EventFormComponent} from './component/calendar/event-form/event-form.component';
+import {CalendarService} from './component/calendar/calendar.service';
+import {QuickTaskComponent} from './component/quick-task/quick-task.component';
+import {SharedModule} from '../core/modules/shared.module';
 
 @NgModule({
   imports: [
-    CommonModule
+    SharedModule,
+    RouterModule.forChild(routes),
+    CalendarModule.forRoot()
   ],
-  declarations: []
+  providers: [
+    CalendarService
+  ],
+  declarations: [TaskDashboardComponent, CalendarComponent, EventFormComponent, QuickTaskComponent],
+  entryComponents: [EventFormComponent]
 })
-export class TaskModule { }
+
+export class TaskModule {
+}
