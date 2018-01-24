@@ -1,7 +1,7 @@
 import {Component, HostBinding, Input, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'fuse-nav-vertical-group',
+  selector: 'flox-nav-vertical-group',
   templateUrl: './nav-vertical-group.component.html',
   styleUrls: ['./nav-vertical-group.component.scss']
 })

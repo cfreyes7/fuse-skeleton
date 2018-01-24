@@ -6,14 +6,14 @@ import {FuseMatchMedia} from '../../services/match-media.service';
 import {FuseMatSidenavHelperService} from './fuse-mat-sidenav-helper.service';
 
 @Directive({
-  selector: '[fuseMatSidenavHelper]'
+  selector: '[floxMatSidenavHelper]'
 })
 export class FuseMatSidenavHelperDirective implements OnInit, OnDestroy {
   matchMediaSubscription: Subscription;
 
   @HostBinding('class.mat-is-locked-open') isLockedOpen = true;
 
-  @Input('fuseMatSidenavHelper') id: string;
+  @Input('floxMatSidenavHelper') id: string;
   @Input('mat-is-locked-open') matIsLockedOpenBreakpoint: string;
 
   constructor(private fuseMatSidenavService: FuseMatSidenavHelperService,
@@ -56,10 +56,10 @@ export class FuseMatSidenavHelperDirective implements OnInit, OnDestroy {
 }
 
 @Directive({
-  selector: '[fuseMatSidenavToggler]'
+  selector: '[floxMatSidenavToggler]'
 })
 export class FuseMatSidenavTogglerDirective {
-  @Input('fuseMatSidenavToggler') id;
+  @Input('floxMatSidenavToggler') id;
 
   constructor(private fuseMatSidenavService: FuseMatSidenavHelperService) {
   }

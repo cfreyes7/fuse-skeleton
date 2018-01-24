@@ -4,7 +4,7 @@
 
 <div class="group-items">
   <ng-container *ngFor="let item of item.children">
-    <fuse-nav-vertical-collapse *ngIf="item.type=='collapse'" [item]="item"></fuse-nav-vertical-collapse>
-    <fuse-nav-vertical-item *ngIf="item.type=='item'" [item]="item"></fuse-nav-vertical-item>
+    <flox-nav-vertical-collapse *ngIf="item.type=='collapse'" [item]="item"></flox-nav-vertical-collapse>
+    <flox-nav-vertical-item *ngIf="item.type=='item'" [item]="item"></flox-nav-vertical-item>
   </ng-container>
 </div>

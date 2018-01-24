@@ -2,7 +2,7 @@ import {Component, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
 import {FuseMainComponent} from '../../../main.component';
 
 @Component({
-  selector: 'fuse-navbar-horizontal',
+  selector: 'flox-navbar-horizontal',
   templateUrl: './navbar-horizontal.component.html',
   styleUrls: ['./navbar-horizontal.component.scss'],
   encapsulation: ViewEncapsulation.None

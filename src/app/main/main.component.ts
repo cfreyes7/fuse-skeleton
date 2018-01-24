@@ -8,7 +8,7 @@ import {FormContentService} from '../core/services/form-content.service';
 import {Router} from '@angular/router';
 
 @Component({
-  selector: 'fuse-main',
+  selector: 'flox-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss'],
   encapsulation: ViewEncapsulation.None

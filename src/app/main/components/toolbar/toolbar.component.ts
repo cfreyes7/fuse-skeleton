@@ -4,7 +4,7 @@ import {TranslateService} from '@ngx-translate/core';
 import {FuseConfigService} from '../../../core/services/config.service';
 
 @Component({
-  selector: 'fuse-toolbar',
+  selector: 'flox-toolbar',
   templateUrl: './toolbar.component.html',
   styleUrls: ['./toolbar.component.scss']
 })
@@ -84,7 +84,6 @@ export class FuseToolbarComponent {
   }
 
   showNotifications() {
-    console.log('as')
     this.router.navigate(['/app', {outlets: {form: 'form/notifications/list'}}]);
   }
 }

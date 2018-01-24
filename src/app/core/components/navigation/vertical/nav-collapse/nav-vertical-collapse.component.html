@@ -10,6 +10,6 @@
 
 <div class="children" [@slideInOut]="isOpen">
   <ng-container *ngFor="let item of item.children">
-    <fuse-nav-vertical-item *ngIf="item.type=='item'" [item]="item"></fuse-nav-vertical-item>
+    <flox-nav-vertical-item *ngIf="item.type=='item'" [item]="item"></flox-nav-vertical-item>
   </ng-container>
 </div>

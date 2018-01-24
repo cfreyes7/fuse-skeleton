@@ -7,7 +7,7 @@ import {fuseAnimations} from '../../../core/animations';
 import {FuseConfigService} from '../../../core/services/config.service';
 
 @Component({
-  selector: 'fuse-content',
+  selector: 'flox-content',
   templateUrl: './content.component.html',
   styleUrls: ['./content.component.scss'],
   animations: fuseAnimations

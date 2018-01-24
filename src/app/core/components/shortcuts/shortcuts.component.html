@@ -1,4 +1,4 @@
-<div id="fuse-shortcuts" #shortcuts>
+<div id="flox-shortcuts" #shortcuts>
 
   <div class="shortcuts-mobile-toggle" *ngIf="!mobileShortcutsPanelActive" fxLayout="row" fxLayoutAlign="start center"
        fxHide fxShow.lt-md>
@@ -47,7 +47,7 @@
       </mat-form-field>
 
       <mat-divider></mat-divider>
-      <mat-nav-list *ngIf="!searching" style="max-height: 312px; overflow: auto" fusePerfectScrollbar>
+      <mat-nav-list *ngIf="!searching" style="max-height: 312px; overflow: auto" floxPerfectScrollbar>
 
         <mat-list-item *ngFor="let shortcutItem of shortcutItems"
                        (click)="toggleShortcut($event, shortcutItem)">
@@ -68,7 +68,7 @@
         </mat-list-item>
       </mat-nav-list>
 
-      <mat-nav-list *ngIf="searching" style="max-height: 312px; overflow: auto" fusePerfectScrollbar>
+      <mat-nav-list *ngIf="searching" style="max-height: 312px; overflow: auto" floxPerfectScrollbar>
         <mat-list-item *ngFor="let navigationItem of filteredNavigationItems"
                        (click)="toggleShortcut($event, navigationItem)">
           <div class="w-100-p" fxLayout="row" fxLayoutAlign="start center">

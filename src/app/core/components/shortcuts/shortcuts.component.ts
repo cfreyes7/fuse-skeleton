@@ -7,7 +7,7 @@ import {FuseConfigService} from '../../services/config.service';
 import {CookieService} from 'ngx-cookie-service';
 
 @Component({
-  selector: 'fuse-shortcuts',
+  selector: 'flox-shortcuts',
   templateUrl: './shortcuts.component.html',
   styleUrls: ['./shortcuts.component.scss']
 })

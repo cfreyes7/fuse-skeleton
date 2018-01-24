@@ -11,7 +11,7 @@ import {locale as navigationTurkish} from './navigation/i18n/tr';
 import {SvgRegisterService} from './core/services/svg-register.service';
 
 @Component({
-  selector: 'fuse-root',
+  selector: 'flox-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })

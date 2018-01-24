@@ -3,7 +3,7 @@ import {FuseNavigationService} from './navigation.service';
 import {Subscription} from 'rxjs/Subscription';
 
 @Component({
-  selector: 'fuse-navigation',
+  selector: 'flox-navigation',
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.scss'],
   encapsulation: ViewEncapsulation.None

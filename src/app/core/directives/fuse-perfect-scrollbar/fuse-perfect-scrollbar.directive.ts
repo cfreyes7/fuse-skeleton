@@ -5,7 +5,7 @@ import {Platform} from '@angular/cdk/platform';
 import PerfectScrollbar from 'perfect-scrollbar';
 
 @Directive({
-  selector: '[fusePerfectScrollbar]'
+  selector: '[floxPerfectScrollbar]'
 })
 export class FusePerfectScrollbarDirective implements AfterViewInit, OnDestroy {
   onSettingsChanged: Subscription;

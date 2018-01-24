@@ -3,10 +3,10 @@ import {FuseNavbarVerticalService} from './navbar-vertical.service';
 import {FuseNavbarVerticalComponent} from './navbar-vertical.component';
 
 @Directive({
-  selector: '[fuseNavbarVertical]'
+  selector: '[floxNavbarVertical]'
 })
 export class FuseNavbarVerticalToggleDirective {
-  @Input() fuseNavbarVertical: string;
+  @Input() floxNavbarVertical: string;
   navbar: FuseNavbarVerticalComponent;
 
   constructor(private navbarService: FuseNavbarVerticalService) {
@@ -16,10 +16,10 @@ export class FuseNavbarVerticalToggleDirective {
   onClick() {
     this.navbar = this.navbarService.getNavBar();
 
-    if (!this.navbar[this.fuseNavbarVertical]) {
+    if (!this.navbar[this.floxNavbarVertical]) {
       return;
     }
 
-    this.navbar[this.fuseNavbarVertical]();
+    this.navbar[this.floxNavbarVertical]();
   }
 }

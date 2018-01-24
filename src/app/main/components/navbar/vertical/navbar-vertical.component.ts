@@ -12,7 +12,7 @@ import {FuseMatchMedia} from '../../../../core/services/match-media.service';
 import {FuseNavigationService} from '../../../../core/components/navigation/navigation.service';
 
 @Component({
-  selector: 'fuse-navbar-vertical',
+  selector: 'flox-navbar-vertical',
   templateUrl: './navbar-vertical.component.html',
   styleUrls: ['./navbar-vertical.component.scss'],
   encapsulation: ViewEncapsulation.None

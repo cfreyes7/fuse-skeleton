@@ -7,53 +7,8 @@ export const routes: Routes = [
   {
     path: 'app',
     component: FuseMainComponent,
-    children: [
-      {
-        path: 'form',
-        component: FormLayoutComponent,
-        outlet: 'form',
-        children: [
-          {
-            path: 'cases',
-            loadChildren: './case/case.module#CaseModule'
-          },
-          {
-            path: 'task',
-            loadChildren: './task/task.module#TaskModule'
-          },
-          {
-            path: 'patients',
-            loadChildren: './patient/patient.module#PatientModule'
-          },
-          {
-            path: 'notifications',
-            loadChildren: './notification/notification.module#NotificationModule'
-          },
-          {
-            path: 'poc',
-            loadChildren: './poc/poc.module#PocModule'
-          }
-        ]
-      }, {
-        path: 'report',
-        loadChildren: './report/report.module#ReportModule'
-      },
-      {
-        path: 'task',
-        loadChildren: './task/task.module#TaskModule'
-      },
-      {
-        path: 'cases',
-        loadChildren: './case/case.module#CaseModule'
-      },
-      {
-        path: '',
-        redirectTo: 'cases',
-        pathMatch: 'full'
-      },
-    ]
+    children: []
   },
   {path: '', redirectTo: 'app', pathMatch: 'full'},
-
   {path: '**', redirectTo: 'app'}
 ];

@@ -4,7 +4,7 @@ import {FuseConfigService} from '../../../../services/config.service';
 import {Subscription} from 'rxjs/Subscription';
 
 @Component({
-  selector: 'fuse-nav-horizontal-collapse',
+  selector: 'flox-nav-horizontal-collapse',
   templateUrl: './nav-horizontal-collapse.component.html',
   styleUrls: ['./nav-horizontal-collapse.component.scss'],
   animations: fuseAnimations

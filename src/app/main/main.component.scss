@@ -1,6 +1,6 @@
 @import "../core/scss/fuse";
 
-fuse-main {
+flox-main {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -21,7 +21,7 @@ fuse-main {
         height: auto !important;
       }
 
-      #fuse-main-content {
+      #flox-main-content {
         display: flex;
         flex: 1;
         flex-direction: column;
@@ -38,7 +38,7 @@ fuse-main {
             flex: 1;
             overflow: hidden;
 
-            fuse-content {
+            flox-content {
               position: relative;
               display: flex;
               flex: 1;

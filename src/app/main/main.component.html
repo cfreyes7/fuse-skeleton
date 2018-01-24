@@ -1,49 +1,49 @@
 <mat-sidenav-container>
 
-  <div id="fuse-main-content">
+  <div id="flox-main-content">
 
     <!-- TOOLBAR: Above -->
     <ng-container *ngIf="fuseSettings.layout.toolbar === 'above'">
-      <fuse-toolbar class="above"></fuse-toolbar>
+      <flox-toolbar class="above"></flox-toolbar>
     </ng-container>
     <!-- / TOOLBAR: Above -->
 
     <!-- NAVBAR: Top -->
-    <fuse-navbar-horizontal class="top-navbar" fxHide fxShow.gt-md
+    <flox-navbar-horizontal class="top-navbar" fxHide fxShow.gt-md
                             [ngClass]="fuseSettings.colorClasses.navbar"
                             *ngIf="fuseSettings.layout.navigation === 'top'">
-    </fuse-navbar-horizontal>
+    </flox-navbar-horizontal>
     <!-- / NAVBAR: Top -->
 
     <div id="wrapper">
 
       <!-- NAVBAR: Left -->
-      <fuse-navbar-vertical [folded]="fuseSettings.layout.navigationFolded"
+      <flox-navbar-vertical [folded]="fuseSettings.layout.navigationFolded"
                             class="left-navbar"
                             [ngClass]="fuseSettings.colorClasses.navbar"
                             *ngIf="fuseSettings.layout.navigation === 'left' || fuseSettings.layout.navigation === 'top'">
-      </fuse-navbar-vertical>
+      </flox-navbar-vertical>
       <!-- / NAVBAR: Left -->
 
       <div class="content-wrapper">
 
         <!-- TOOLBAR: Below -->
         <ng-container *ngIf="fuseSettings.layout.toolbar === 'below'">
-          <fuse-toolbar class="below"></fuse-toolbar>
+          <flox-toolbar class="below"></flox-toolbar>
         </ng-container>
         <!-- / TOOLBAR: Below -->
 
-        <fuse-content></fuse-content>
+        <flox-content></flox-content>
 
 
       </div>
 
       <!-- NAVBAR: Right -->
-      <fuse-navbar-vertical [folded]="fuseSettings.layout.navigationFolded"
+      <flox-navbar-vertical [folded]="fuseSettings.layout.navigationFolded"
                             class="right-navbar"
                             [ngClass]="fuseSettings.colorClasses.navbar"
                             *ngIf="fuseSettings.layout.navigation === 'right'">
-      </fuse-navbar-vertical>
+      </flox-navbar-vertical>
       <!-- / NAVBAR: Right -->
 
     </div>

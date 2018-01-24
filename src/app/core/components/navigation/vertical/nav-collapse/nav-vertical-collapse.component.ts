@@ -4,7 +4,7 @@ import {NavigationEnd, Router} from '@angular/router';
 import {fuseAnimations} from '../../../../animations';
 
 @Component({
-  selector: 'fuse-nav-vertical-collapse',
+  selector: 'flox-nav-vertical-collapse',
   templateUrl: './nav-vertical-collapse.component.html',
   styleUrls: ['./nav-vertical-collapse.component.scss'],
   animations: fuseAnimations

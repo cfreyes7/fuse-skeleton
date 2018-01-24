@@ -3,7 +3,7 @@ import {FuseConfigService} from '../../services/config.service';
 import {Subscription} from 'rxjs/Subscription';
 
 @Component({
-  selector: 'fuse-search-bar',
+  selector: 'flox-search-bar',
   templateUrl: './search-bar.component.html',
   styleUrls: ['./search-bar.component.scss']
 })

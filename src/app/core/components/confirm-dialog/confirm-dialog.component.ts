@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {MatDialogRef} from '@angular/material';
 
 @Component({
-  selector: 'fuse-confirm-dialog',
+  selector: 'flox-confirm-dialog',
   templateUrl: './confirm-dialog.component.html',
   styleUrls: ['./confirm-dialog.component.scss']
 })

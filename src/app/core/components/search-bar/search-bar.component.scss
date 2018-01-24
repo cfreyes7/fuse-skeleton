@@ -2,7 +2,7 @@
 
 :host {
 
-  .fuse-search-bar {
+  .flox-search-bar {
     min-width: 64px;
     height: 64px;
     font-size: 13px;
@@ -11,8 +11,8 @@
       height: 56px;
     }
 
-    .fuse-search-bar-expander,
-    .fuse-search-bar-collapser {
+    .flox-search-bar-expander,
+    .flox-search-bar-collapser {
       cursor: pointer;
       padding: 0 20px;
       margin: 0;
@@ -26,7 +26,7 @@
       }
     }
 
-    .fuse-search-bar-loader {
+    .flox-search-bar-loader {
       width: 64px !important;
       height: 64px !important;
       line-height: 64px !important;
@@ -36,11 +36,11 @@
       }
     }
 
-    .fuse-search-bar-collapser {
+    .flox-search-bar-collapser {
       display: none;
     }
 
-    #fuse-search-bar-input {
+    #flox-search-bar-input {
       display: none;
       min-height: 64px;
       background-color: transparent;
@@ -55,11 +55,11 @@
       left: 0;
       z-index: 10;
 
-      #fuse-search-bar-input {
+      #flox-search-bar-input {
         display: block;
       }
 
-      .fuse-search-bar-collapser {
+      .flox-search-bar-collapser {
         display: block;
       }
     }
@@ -67,7 +67,7 @@
 
   body {
 
-    &.fuse-search-bar-expanded {
+    &.flox-search-bar-expanded {
 
       #toolbar {
         z-index: 999 !important;

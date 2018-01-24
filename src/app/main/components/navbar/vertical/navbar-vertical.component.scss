@@ -1,6 +1,6 @@
 @import "../../../../core/scss/fuse";
 
-fuse-main {
+flox-main {
 
   &.fuse-nav-bar-folded:not(.fuse-nav-bar-horizontal) {
 
@@ -23,7 +23,7 @@ fuse-main {
   }
 }
 
-fuse-navbar-vertical {
+flox-navbar-vertical {
   display: flex;
   flex-direction: column;
   width: 256px;
@@ -140,7 +140,7 @@ fuse-navbar-vertical {
   }
 }
 
-fuse-navbar-horizontal + #wrapper > fuse-navbar-vertical {
+flox-navbar-horizontal + #wrapper > flox-navbar-vertical {
   display: none;
   @include media-breakpoint-down(md) {
     display: flex;

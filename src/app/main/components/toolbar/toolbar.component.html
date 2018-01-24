@@ -7,7 +7,7 @@
     <div fxFlex="1 0 auto" fxLayout="row" fxLayoutAlign="start center">
 
       <button mat-button class="toggle-button-navbar mat-icon-button"
-              fuseNavbarVertical="toggleBar" fxHide.gt-md>
+              floxNavbarVertical="toggleBar" fxHide.gt-md>
         <mat-icon>menu</mat-icon>
       </button>
 
@@ -20,18 +20,20 @@
       </div>
 
       <div class="px-8 px-mat-16">
-        <fuse-shortcuts></fuse-shortcuts>
+        <flox-shortcuts></flox-shortcuts>
       </div>
 
     </div>
 
     <div class="" fxFlex="0 1 auto" fxLayout="row" fxLayoutAlign="start center">
-
-      <fuse-search-bar (onInput)="search($event)"></fuse-search-bar>
-
+      <flox-search-bar (onInput)="search($event)"></flox-search-bar>
     </div>
     <button mat-icon-button (click)="showNotifications()">
-      <mat-icon>notifications</mat-icon>
+      <i class="material-icons">notifications</i>
+    </button>
+
+    <button mat-icon-button>
+      <i class="material-icons">apps</i>
     </button>
   </div>
 </mat-toolbar>
